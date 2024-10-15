@@ -18,5 +18,15 @@
         "name": "Python",
         "img_link": "./img/software/python.png",
         "link":"https://docs.python.org/3/"
+    },
+    {
+        "name": "DEAP",
+        "img_link": "",
+        "link":"https://economics.uq.edu.au/cepa/software"
+    },
+    {
+        "name": "NVIVO",
+        "img_link": "",
+        "link":"https://icts.uct.ac.za/services-hardware-and-software-software/nvivo"
     }
 ]
