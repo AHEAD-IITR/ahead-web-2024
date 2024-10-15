@@ -1,9 +1,33 @@
 [
     {
         "type": "Article",
+        "journal": "Journal: Informatics for Health and Social Care | Taylor & Francis",
+        "title": "Health seeking behaviour during high health-risk period: A Bibliometric Analysis",
+        "author": "A. Pal, P. Taneja, MK. Yadav and P. C. Mohanty",
+        "year": "2024",
+        "doi": ""
+    }, 
+    {
+        "type": "Article",
+        "journal": "Journal: Journal of Population and Social Studies  | JPSS",
+        "title": "Polymorbidity and Health Outcomes Among Middle-Aged and Older Adults: Evidence from the Longitudinal Ageing Study in India",
+        "author": "P. Taneja and P. C. Mohanty",
+        "year": "2024",
+        "doi": ""
+    },  
+    {
+        "type": "Article",
+        "journal": "Journal: Scientific Reports | The Nature",
+        "title": "Incidence and intensity of catastrophic health expenditure and impoverishment among the elderly: an empirical evidence from India",
+        "author": "F. Ahmad and P. C. Mohanty",
+        "year": "2024",
+        "doi": ""
+    },   
+    {
+        "type": "Article",
         "journal": "Journal: Global Business Review | Sage",
         "title": "Necessity or Opportunity Driven: Gender Differentials and Structural Changes of Proprietorship in the Indian Unorganized Enterprises",
-        "author": "S. Shruvam and P. C. Mohanty",
+        "author": "S. Shuvam and P. C. Mohanty",
         "year": "2023",
         "doi": ""
     },
