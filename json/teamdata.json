@@ -105,7 +105,25 @@
         "ta": "NA",
         "la": "NA",
         "link":"./team/jatinderSingh.html"
-    },{
+    },
+    {
+        "Name": "Kripa Nandan",
+        "pp": "./img/team/kripa_nandan.jpg",
+        "cv": "https://drive.google.com/open?id=1OGDOh4m9n0V1kNjsbPwDk5LG6jfGHFjy",
+        "resi": "NA",
+        "eb": "NA",
+        "sb": "NA",
+        "pj": "NA",
+        "pn": "NA",
+        "con": "NA",
+        "email": "kripa_n@hs.iitr.ac.in",
+        "oid": "NA",
+        "rg": "NA",
+        "ta": "NA",
+        "la": "NA",
+        "link":"./team/kripaNandan.html"
+      },
+    {
         "Name": "Akash Pal",
         "pp": "./img/team/akash_pal.jpg",
         "cv": "https://drive.google.com/open?id=1lRb0zFpImCxZNae3vEONCHJMAsKOfJO5",
@@ -174,23 +192,6 @@
         "ta": "https://x.com/bajpayeepriyam",
         "la": "https://www.linkedin.com/in/priyandu-m-bajpayee-2ab038165/",
         "link":"./team/priyanduMBajpayee.html"
-      },
-      {
-        "Name": "Kripa Nandan",
-        "pp": "./img/team/kripa_nandan.jpg",
-        "cv": "https://drive.google.com/open?id=1OGDOh4m9n0V1kNjsbPwDk5LG6jfGHFjy",
-        "resi": "NA",
-        "eb": "NA",
-        "sb": "NA",
-        "pj": "NA",
-        "pn": "NA",
-        "con": "NA",
-        "email": "kripa_n@hs.iitr.ac.in",
-        "oid": "NA",
-        "rg": "NA",
-        "ta": "NA",
-        "la": "NA",
-        "link":"./team/kripaNandan.html"
       },
       {
         "Name": "Kamal Sharma",
