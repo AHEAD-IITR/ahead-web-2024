@@ -29,6 +29,6 @@ function loadInfo(jsonFile, divId) {
 }
 
 // Load data for MSC, Intern, and Research Assistant
-loadInfo('../json/msc.json', 'msc'); // Fetch and load MSC data
+loadInfo('./json/msc.json', 'msc'); // Fetch and load MSC data
 loadInfo('../json/intern.json', 'intern'); // Fetch and load Intern data
 loadInfo('../json/research_asst.json', 'research-assistant'); // Fetch and load Research Assistant data
