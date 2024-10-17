@@ -23,5 +23,25 @@
         "topic": "Large-scale NSS data extraction & merging using R (III)",
         "presenter": "Akash Pal",
         "date": "May 22, 2024"
+      },
+      {
+        "topic": "Git and GitHub: Introduction",
+        "presenter": "Hardik",
+        "date": "June 22, 2024"
+      }, 
+      {
+        "topic": "Oaxaca-Blinder Decomposition Analysis: Theory and Hands-on Session",
+        "presenter": "Rishika Tomar",
+        "date": "August 13, 2024"
+      },
+      {
+        "topic": "Multilevel Modeling: Theory and Hands-on Session",
+        "presenter": "Fahimuddin Ahmad",
+        "date": "September 09, 2024"
+      },
+      {
+        "topic": "Data Envelopment Analysis (I)",
+        "presenter": "Rashi Jain and Kamal Sharma",
+        "date": "October 15, 2024"
       }
     ]
