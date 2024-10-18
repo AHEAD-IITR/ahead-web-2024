@@ -103,7 +103,7 @@
         "oid": "NA",
         "rg": "NA",
         "ta": "NA",
-        "la": "NA",
+        "la": "https://www.linkedin.com/in/jatinder-singh-1762ba235/",
         "link":"./team/jatinderSingh.html"
     },
     {
@@ -124,22 +124,6 @@
         "link":"./team/kripaNandan.html"
       },
     {
-        "Name": "Akash Pal",
-        "pp": "./img/team/akash_pal.jpg",
-        "cv": "https://drive.google.com/open?id=1lRb0zFpImCxZNae3vEONCHJMAsKOfJO5",
-        "resi": "Health Economics; Microeconometrics",
-        "eb": "MSc Economics: IIT Roorkee",
-        "sb": "Akash is a Ph.D. Scholar in Economics from the Indian Institute of Technology Roorkee, India. His research interests include development economics, focusing on health, labor, and industrial development issues. He holds a master's degree in Economics from IIT Roorkee. His Ph.D. thesis focuses on understanding consumer behavior in the presence of health risks.",
-        "pj": "NA",
-        "pn": "NA",
-        "con": "NA",
-        "email": "akash_p@hs.iitr.ac.in",
-        "oid": "0000-0002-4539-7238",
-        "rg": "https://www.researchgate.net/profile/Akash-Pal-2",
-        "ta": "https://twitter.com/akashpal_xyz",
-        "la": "https://www.linkedin.com/in/akashpalindia/",
-        "link":"./team/akashPal.html"
-    },{
         "Name": "Sandeep Kumar",
         "pp": "./img/team/sandeep_kumar.JPG",
         "cv": "NA",
@@ -175,7 +159,8 @@
         "ta": "NA",
         "la": "http://linkedin.com/in/rashi-jain-7a198818b/",
         "link":"./team/rashiJain.html"
-    },{
+    },
+    {
         "Name": "Priyandu M Bajpayee",
         "pp": "./img/team/priyandu_m_bajpayee.jpg",
         "cv": "https://drive.google.com/open?id=1VjkbQpAXecZdl_f_Sz-5j55Z3Xt14_bE",
@@ -193,6 +178,23 @@
         "la": "https://www.linkedin.com/in/priyandu-m-bajpayee-2ab038165/",
         "link":"./team/priyanduMBajpayee.html"
       },
+    {
+        "Name": "Akash Pal",
+        "pp": "./img/team/akash_pal.jpg",
+        "cv": "https://drive.google.com/open?id=1lRb0zFpImCxZNae3vEONCHJMAsKOfJO5",
+        "resi": "Health Economics; Microeconometrics",
+        "eb": "MSc Economics: IIT Roorkee",
+        "sb": "Akash is a Ph.D. Scholar in Economics from the Indian Institute of Technology Roorkee, India. His research interests include development economics, focusing on health, labor, and industrial development issues. He holds a master's degree in Economics from IIT Roorkee. His Ph.D. thesis focuses on understanding consumer behavior in the presence of health risks.",
+        "pj": "NA",
+        "pn": "NA",
+        "con": "NA",
+        "email": "akash_p@hs.iitr.ac.in",
+        "oid": "0000-0002-4539-7238",
+        "rg": "https://www.researchgate.net/profile/Akash-Pal-2",
+        "ta": "https://twitter.com/akashpal_xyz",
+        "la": "https://www.linkedin.com/in/akashpalindia/",
+        "link":"./team/akashPal.html"
+    },
       {
         "Name": "Kamal Sharma",
         "pp": "./img/team/kamal_sharma.jpeg",
