@@ -1,4 +1,20 @@
 [
+     {
+        "image": "./img/homeCaraousal/all_team.JPG",
+        "link": "https://www.example.com/img1"
+    },
+    {
+        "image": "./img/homeCaraousal/sir_hod_dm.jpg",
+        "link": "https://www.example.com/img2"
+    },
+    {
+        "image": "./img/homeCaraousal/team_with_beer.jpg",
+        "link": "https://www.example.com/img3"
+    },
+    {
+        "image": "./img/homeCaraousal/sir_survey_odisha.jpg",
+        "link": "https://www.example.com/img3"
+    },
     {
         "image": "./img/teamCaraousal/kripa_iimb.jpg",
         "link": "https://www.example.com/img1"
