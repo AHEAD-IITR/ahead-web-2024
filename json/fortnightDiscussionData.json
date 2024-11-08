@@ -40,8 +40,13 @@
         "date": "September 09, 2024"
       },
       {
-        "topic": "Data Envelopment Analysis (I)",
+        "topic": "Data Envelopment Analysis (I): CCR and BCC Models using DEAP Software",
         "presenter": "Rashi Jain and Kamal Sharma",
         "date": "October 15, 2024"
+      },
+       {
+        "topic": "Data Envelopment Analysis (II): Super-Efficiency Model using EMS Software",
+        "presenter": "Kamal Sharma",
+        "date": "November 07, 2024"
       }
     ]
