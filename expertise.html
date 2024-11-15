@@ -43,7 +43,7 @@
                 <div class="resume" id="btn2" onclick="openMethods()">Methods</div>
                 <div class="resume" id="btn3" onclick="openDataset()">Dataset</div>
                 <div class="resume" id="btn4" onclick="openSoftware()">Software</div>
-		<div class="resume" id="btn5" onclick="opentalks()">Invited Talks</div>
+		<div class="resume" id="btn5" onclick="opentalks()">invitedtalks</div>
             </div>
             <div class="member">
                 <div class="teamContent" id="courses">  
@@ -54,7 +54,7 @@
                 </div>
                 <div class="teamContent" id="software">
                 </div>
-	   	<div class="teamContent" id="Invited Talks">
+	   	<div class="teamContent" id="invitedtalks">
 		</div>
             </div>
         </div>
@@ -86,13 +86,13 @@
         var methods=document.getElementById("methods")
         var dataset=document.getElementById("dataset")
         var software=document.getElementById("software")
-	    var software=document.getElementById("Invited Talks")
+	var invitedtalks=document.getElementById("invitedtalks")
 
         var btn1=document.getElementById("btn1")
         var btn2=document.getElementById("btn2")
         var btn3=document.getElementById("btn3")
         var btn4=document.getElementById("btn4")
-	    var btn5=document.getElementById("btn5")
+	var btn5=document.getElementById("btn5")
         // const mediaQuery = window.matchMedia('(max-width: 900px)');
         
         function openCourses(){
@@ -100,7 +100,7 @@
             methods.style.transform="translateX(100vw)";
             dataset.style.transform="translateX(100vw)";
             software.style.transform="translateX(100vw)";
-		Invited Talks.style.transform="translateX(100vw)";
+		invitedtalks.style.transform="translateX(100vw)";
             btn1.style.backgroundColor="#3c4ec2d8";
             btn2.style.backgroundColor="#3D4785";
             btn3.style.backgroundColor="#3D4785";
@@ -113,7 +113,7 @@
             methods.style.transform="translateX(0)";
             dataset.style.transform="translateX(100vw)";
             software.style.transform="translateX(100vw)";
-		Invited Talks.style.transform="translateX(100vw)";
+		invitedtalks.style.transform="translateX(100vw)";
             btn1.style.backgroundColor="#3D4785";
             btn2.style.backgroundColor="#3c4ec2d8";
             btn3.style.backgroundColor="#3D4785";
@@ -125,7 +125,7 @@
             methods.style.transform="translateX(100vw)";
             dataset.style.transform="translateX(0)";
             software.style.transform="translateX(100vw)";
-		Invited Talks.style.transform="translateX(100vw)";
+		invitedtalks.style.transform="translateX(100vw)";
             btn1.style.backgroundColor="#3D4785";
             btn2.style.backgroundColor="#3D4785";
             btn3.style.backgroundColor="#3c4ec2d8";
@@ -137,7 +137,7 @@
             methods.style.transform="translateX(100vw)";
             dataset.style.transform="translateX(100vw)";
             software.style.transform="translateX(0)";
-		Invited Talks.style.transform="translateX(100vw)";
+		invitedtalks.style.transform="translateX(100vw)";
             btn1.style.backgroundColor="#3D4785";
             btn2.style.backgroundColor="#3D4785";
             btn3.style.backgroundColor="#3D4785";
@@ -149,7 +149,7 @@
             methods.style.transform="translateX(100vw)";
             dataset.style.transform="translateX(100vw)";
             software.style.transform="translateX(100vw)";
-		Invited Talks.style.transform="translateX(0)";
+		invitedtalks.style.transform="translateX(0)";
             btn1.style.backgroundColor="#3D4785";
             btn2.style.backgroundColor="#3D4785";
             btn3.style.backgroundColor="#3D4785";
@@ -299,14 +299,14 @@
         });
 	    
 	var i=1;
-        fetch("./json/InvitedTalks.json")
+        fetch("./json/invitedtalks.json")
         .then(function(response){
         return response.json();
         })
-        .then(function(InvitedTalks){
+        .then(function(invitedtalks){
         let placeholder = document.querySelector("#InvitedTalk");
         let out = `
-        <h1>InvitedTalks</h1>
+        <h1>invitedtalks</h1>
         <section class="table__body">
             <table>
                 <thead>
@@ -318,11 +318,11 @@
                 </thead>
                 <tbody>
                                     `;
-        for(let InvitedTalk of InvitedTalks){
+        for(let invitedtalk of invitedtalks){
             out += `
             <tr>
-                <td> ${InvitedTalk.name} </td>
-                <td><a href="${InvitedTalk.link}" target="_blank">🔗</a></td>
+                <td> ${invitedtalks.name} </td>
+                <td><a href="${invitedtalks.link}" target="_blank">🔗</a></td>
             </tr>
             `;
             i++;
