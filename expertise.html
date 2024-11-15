@@ -86,11 +86,13 @@
         var methods=document.getElementById("methods")
         var dataset=document.getElementById("dataset")
         var software=document.getElementById("software")
+	    var software=document.getElementById("Invited Talks")
 
         var btn1=document.getElementById("btn1")
         var btn2=document.getElementById("btn2")
         var btn3=document.getElementById("btn3")
         var btn4=document.getElementById("btn4")
+	    var btn5=document.getElementById("btn5")
         // const mediaQuery = window.matchMedia('(max-width: 900px)');
         
         function openCourses(){
@@ -98,10 +100,12 @@
             methods.style.transform="translateX(100vw)";
             dataset.style.transform="translateX(100vw)";
             software.style.transform="translateX(100vw)";
+		Invited Talks.style.transform="translateX(100vw)";
             btn1.style.backgroundColor="#3c4ec2d8";
             btn2.style.backgroundColor="#3D4785";
             btn3.style.backgroundColor="#3D4785";
             btn4.style.backgroundColor="#3D4785";
+		btn5.style.backgroundColor="#3D4785";
             // mainMember.style.height="100vh"
         }
         function openMethods(){
@@ -109,30 +113,48 @@
             methods.style.transform="translateX(0)";
             dataset.style.transform="translateX(100vw)";
             software.style.transform="translateX(100vw)";
+		Invited Talks.style.transform="translateX(100vw)";
             btn1.style.backgroundColor="#3D4785";
             btn2.style.backgroundColor="#3c4ec2d8";
             btn3.style.backgroundColor="#3D4785";
             btn4.style.backgroundColor="#3D4785";
+		btn5.style.backgroundColor="#3D4785";
         }
         function openDataset(){
             courses.style.transform="translateX(100vw)";
             methods.style.transform="translateX(100vw)";
             dataset.style.transform="translateX(0)";
             software.style.transform="translateX(100vw)";
+		Invited Talks.style.transform="translateX(100vw)";
             btn1.style.backgroundColor="#3D4785";
             btn2.style.backgroundColor="#3D4785";
             btn3.style.backgroundColor="#3c4ec2d8";
             btn4.style.backgroundColor="#3D4785";
+		btn5.style.backgroundColor="#3D4785";
         }
         function openSoftware(){
             courses.style.transform="translateX(100vw)";
             methods.style.transform="translateX(100vw)";
             dataset.style.transform="translateX(100vw)";
             software.style.transform="translateX(0)";
+		Invited Talks.style.transform="translateX(100vw)";
             btn1.style.backgroundColor="#3D4785";
             btn2.style.backgroundColor="#3D4785";
             btn3.style.backgroundColor="#3D4785";
             btn4.style.backgroundColor="#3c4ec2d8";
+		btn5.style.backgroundColor="#3D4785";
+        }
+	      function openSoftware(){
+            courses.style.transform="translateX(100vw)";
+            methods.style.transform="translateX(100vw)";
+            dataset.style.transform="translateX(100vw)";
+            software.style.transform="translateX(100vw)";
+		Invited Talks.style.transform="translateX(0)";
+            btn1.style.backgroundColor="#3D4785";
+            btn2.style.backgroundColor="#3D4785";
+            btn3.style.backgroundColor="#3D4785";
+            btn4.style.backgroundColor="#3D4785";
+		btn5.style.backgroundColor="#3c4ec2d8";
         }
     </script>
     <script src="./js/projectScript.js"></script>
