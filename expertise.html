@@ -144,7 +144,7 @@
             btn4.style.backgroundColor="#3c4ec2d8";
 		btn5.style.backgroundColor="#3D4785";
         }
-	      function opentalks(){
+	function opentalks(){
             courses.style.transform="translateX(100vw)";
             methods.style.transform="translateX(100vw)";
             dataset.style.transform="translateX(100vw)";
@@ -304,7 +304,7 @@
         return response.json();
         })
         .then(function(invitedtalks){
-        let placeholder = document.querySelector("#invitedtalks");
+        let placeholder = document.querySelector("#invitedtalk");
         let out = `
         <h1>invitedtalks</h1>
         <section class="table__body">
@@ -312,7 +312,7 @@
                 <thead>
                     <tr>
                         <th> SESSION </th>
-			<th> Date </th>
+			<th> DATE </th>
                         <th> ORGANIZER </th>
                     </tr>
                 </thead>
