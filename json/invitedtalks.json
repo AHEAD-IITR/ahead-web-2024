@@ -1,32 +1,33 @@
 [
   {
-    "session":"Propensity Score Matching",
-    "date":45441,
-    "organiser":"NEHU, Shillong"
+    "session":"Big Survey Data Analysis using STATA",
+    "date":"November 06, 2024",
+    "organiser":"IMPRI, New Delhi"
   },
   {
     "session":"Large Survey data handling in Social Science Research",
-    "date":45574,
+    "date":"October 09, 2024",
     "organiser":"HRDC, JNU"
   },
   {
     "session":"Scientific Production of Literature – PRISMA and Bibliometric Analysis",
-    "date":45574,
+    "date":"October 09, 2024",
     "organiser":"HRDC, JNU"
   },
   {
-    "session":"Big Survey Data Analysis using STATA",
-    "date":45602,
-    "organiser":"IMPRI, New Delhi"
-  },
-  {
-    "session":"Development Discourse and Inclusive Rural Society: Post-Covid Implications",
-    "date":45302,
-    "organiser":"F M University"
+    "session":"Propensity Score Matching",
+    "date": "May 29, 2024",
+    "organiser":"NEHU, Shillong"
   },
   {
     "session":"NSSO Cross-Sectional Unit-Level Survey  Data Analysis for Empirical Research using STATA & R Studio",
-    "date":45343,
+    "date":"February 21, 2024",
     "organiser":"BITS Pilani"
+  },
+  
+  {
+    "session":"Development Discourse and Inclusive Rural Society: Post-Covid Implications",
+    "date":"January 11, 2024",
+    "organiser":"F M University"
   }
 ]
