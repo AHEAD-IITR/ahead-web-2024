@@ -43,6 +43,7 @@
                 <div class="resume" id="btn2" onclick="openMethods()">Methods</div>
                 <div class="resume" id="btn3" onclick="openDataset()">Dataset</div>
                 <div class="resume" id="btn4" onclick="openSoftware()">Software</div>
+		<div class="resume" id="btn5" onclick="opentalks()">Invited Talks</div>
             </div>
             <div class="member">
                 <div class="teamContent" id="courses">  
@@ -53,6 +54,8 @@
                 </div>
                 <div class="teamContent" id="software">
                 </div>
+	   	</div> class="teamContent" id="Invited Talks">
+		</div>
             </div>
         </div>
         <div class="footer">
@@ -267,6 +270,40 @@
                 <td><a href="${software.link}" target="_blank">🔗</a></td>
             </tr>`;
             j++;
+        }
+        out+=`</tbody>
+            </table>`
+        placeholder.innerHTML = out;
+        });
+	    
+	var i=1;
+        fetch("./json/InvitedTalks.json")
+        .then(function(response){
+        return response.json();
+        })
+        .then(function(InvitedTalks){
+        let placeholder = document.querySelector("#InvitedTalk");
+        let out = `
+        <h1>InvitedTalks</h1>
+        <section class="table__body">
+            <table>
+                <thead>
+                    <tr>
+                        <th> SESSION </th>
+			<th> Date </th>
+                        <th> ORGANIZER </th>
+                    </tr>
+                </thead>
+                <tbody>
+                                    `;
+        for(let InvitedTalk of InvitedTalks){
+            out += `
+            <tr>
+                <td> ${InvitedTalk.name} </td>
+                <td><a href="${InvitedTalk.link}" target="_blank">🔗</a></td>
+            </tr>
+            `;
+            i++;
         }
         out+=`</tbody>
             </table>`
