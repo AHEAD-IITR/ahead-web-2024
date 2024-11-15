@@ -318,11 +318,13 @@
                 </thead>
                 <tbody>
                                     `;
-        for(let invitedtalk of invitedtalks){
+      for(let invitedtalk of invitedtalks){
             out += `
             <tr>
-                <td> ${invitedtalk.name} </td>
-                <td><a href="${invitedtalk.link}" target="_blank">🔗</a></td>
+		<td> ${k} </td>
+		<td> ${invitedtalk.SESSION} </td>
+		<td> ${invitedtalk.DATE} </td>
+                <td> ${invitedtalk.ORGANIZER} </td>
             </tr>
             `;
             i++;
