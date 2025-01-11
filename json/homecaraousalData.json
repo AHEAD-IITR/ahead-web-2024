@@ -16,55 +16,11 @@
         "link": "https://www.example.com/img3"
     },
     {
-        "image": "./img/teamCaraousal/kripa_iimb.jpg",
-        "link": "https://www.example.com/img1"
-    },
-    {
-        "image": "./img/teamCaraousal/pragya_taneja_bilbao.jpg",
-        "link": "https://www.example.com/img2"
-    },
-    {
-        "image": "./img/teamCaraousal/rishika_tomar_philadelphia.jpeg",
-        "link": "https://www.example.com/img3"
-    },
-    {
         "image": "./img/teamCaraousal/shruti_shuvam_viva.jpeg",
         "link": "https://www.example.com/img4"
     },
-    {
-        "image": "./img/teamCaraousal/priyandu_team.jpg",
-        "link": "https://www.example.com/img5"
-    },
-    {
-        "image": "./img/teamCaraousal/fahimuddinAhmad2_team.jpg",
-        "link": "https://www.example.com/img1"
-    },
-    {
-        "image": "./img/teamCaraousal/fahimuddinAhmad_team.jpg",
-        "link": "https://www.example.com/img2"
-    },
-    {
-        "image": "./img/teamCaraousal/milindKumarYadav2_team.jpg",
-        "link": "https://www.example.com/img3"
-    },
-    {
-        "image": "./img/teamCaraousal/milindKumarYadav3_team.jpg",
+      {
+        "image": "./img/teamCaraousal/shruti_shuvam_viva.jpeg",
         "link": "https://www.example.com/img4"
     },
-    {
-        "image": "./img/teamCaraousal/milindKumarYadav_team.jpeg",
-        "link": "https://www.example.com/img5"
-    },
-    {
-        "image": "./img/teamCaraousal/fahimuddinAhmad2_team.jpg",
-        "link": "https://www.example.com/img1"
-    },
-    {
-        "image": "./img/teamCaraousal/fahimuddinAhmad_team.jpg",
-        "link": "https://www.example.com/img2"
-    },
-    {
-        "image": "./img/teamCaraousal/priyandu_team.jpg",
-        "link": "https://www.example.com/img5"
-    }
 ]
