@@ -20,7 +20,27 @@
         "link": "https://www.example.com/img4"
     },
       {
-        "image": "./img/teamCaraousal/shruti_shuvam_viva.jpeg",
+        "image": "./img/homeCaraousal/work_fahim2.png",
         "link": "https://www.example.com/img4"
     },
+     {
+        "image": "./img/homeCaraousal/work_jatinder.png",
+        "link": "https://www.example.com/img4"
+    },
+      {
+        "image": "./img/homeCaraousal/work_kamal.png",
+        "link": "https://www.example.com/img4"
+    },
+     {
+        "image": "./img/homeCaraousal/work_soma.png",
+        "link": "https://www.example.com/img4"
+    },
+     {
+        "image": "./img/homeCaraousal/work_soma_2.png",
+        "link": "https://www.example.com/img4"
+    },
+     {
+        "image": "./img/homeCaraousal/work_priyam2.mp4",
+        "link": "https://www.example.com/img4"
+    }
 ]
