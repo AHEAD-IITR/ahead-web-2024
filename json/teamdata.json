@@ -230,5 +230,22 @@
         "ta": "NA",
         "la": "https://www.linkedin.com/in/soma-bharti/",
         "link":"./team/somaBharti.html"
+      },
+     {
+        "Name": "Urmi Paul",
+        "pp": "./img/team/urmi.jpegg",
+        "cv": "",
+        "resi": "",
+        "eb": "Pursuing PhD (IIT Roorkee)",
+        "sb": "Urmi is a PhD Scholar in Economics from the Indian Institute of Technology Roorkee. She pursued her Master's degree from University of Hyderabad. Prior to joining PhD, she has qualified UGC-NET and worked as Research Assistant for an ICSSR major research project. During her masters, she had interned at Ministry of Statistics & Programme Implementation. Currently, she is in her first year of Ph.D",
+        "pj": "",
+        "pn": "",
+        "con": "NA",
+        "email": "urmi_p@hs.iit.ac.in",
+        "oid": "NA",
+        "rg": "NA",
+        "ta": "NA",
+        "la": "https://www.linkedin.com/in/urmi-paul-826079232/",
+        "link":"./team/urmi.html"
       }
 ]
