@@ -1,5 +1,9 @@
 [
      {
+        "image": "./img/homeCaraousal/DSC_8816.JPG",
+        "link": "https://www.example.com/img1"
+    },
+     {
         "image": "./img/homeCaraousal/all_team.JPG",
         "link": "https://www.example.com/img1"
     },
