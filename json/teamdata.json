@@ -248,4 +248,21 @@
         "la": "https://www.linkedin.com/in/urmi-paul-826079232/",
         "link":"./team/urmi.html"
       }
+    {
+        "Name": "Nikita Sharma",
+        "pp": "./img/team/nikita.jpeg",
+        "cv": "",
+        "resi": "",
+        "eb": "Pursuing PhD (IIT Roorkee)",
+        "sb": "Nikita Sharma is a PhD scholar at Indian Institute of Technology, Roorkee. She holds a major in Economics. She pursued her graduation and post graduation from Delhi University and Gurugram University respectively. She has successfully qualified UGC NET JRF and GATE (AIR171) exams. Her research interest lies in development economics.",
+        "pj": "",
+        "pn": "",
+        "con": "NA",
+        "email": "nikita_s@hs.iit.ac.in",
+        "oid": "NA",
+        "rg": "NA",
+        "ta": "NA",
+        "la": "",
+        "link":"./team/nikita.html"
+      }
 ]
