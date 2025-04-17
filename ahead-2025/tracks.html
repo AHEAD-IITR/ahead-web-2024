@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="./css/conference.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="./img/favicon.png" type="image/png" />
+    <title>Tracks | AHEAD International Conference</title>
+</head>
+
+<body onload="myFunction()">
+    <div id="preLoader"></div>
+    <div class="main">
+        <header>
+            <nav>
+                <ul class='nav-bar'>
+                    <div class="logo-main">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="./img/iit.png" alt="IIT Roorkee Logo" />
+                            </a>
+                        </div>
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="./img/newuplogo.png" alt="AHEAD Logo" />
+                            </a>
+                        </div>
+                    </div>
+                    <input type='checkbox' id='check' />
+                    <span class="menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tracks.html">Tracks</a></li>
+                        <li><a href="important_dates.html">Important Dates</a></li>
+                        <li><a href="submission.html">Submission</a></li>
+                        <li><a href="registration.html">Registration</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="programme.html">Programme</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+                    </span>
+                    <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Tracks Section -->
+        <main class="conference-main">
+            <div class="container">
+                <section class="tracks">
+                    <div class="section-header">
+                        <h2>Conference Tracks</h2>
+                        <p>Click on a track to view its description and sub-themes. These tracks are indicative only and
+                            not strictly limited.</p>
+                    </div>
+                    <div class="section-content">
+                        <div class="tracks-list">
+                            <div class="track">
+                                <h3 class="track-toggle">Track 1: Health Risk and Financing</h3>
+                                <div class="track-content">
+                                    <p>Health risk refers to the potential for adverse health outcomes and financial
+                                        burdens due to illness or injury. Health financing is essential for achieving
+                                        universal health coverage, involving revenue raising, pooling funds, and
+                                        purchasing services. Risk financing focuses on how health entities manage and
+                                        pay for these risks effectively, utilizing methods like insurance and
+                                        risk-sharing. Ultimately, financial risk protection ensures individuals can
+                                        access necessary health services without facing catastrophic costs.</p>
+                                    <h4>Sub-themes:</h4>
+                                    <ul>
+                                        <li>Equity in health financing and risk protection</li>
+                                        <li>Health Insurance and risk protection</li>
+                                        <li>Technology and health financing</li>
+                                        <li>Monitoring and Evaluation of Health Financing Policies</li>
+                                        <li>Gender and Health Financing</li>
+                                        <li>Health Financing Reforms</li>
+                                        <li>Universal Health Coverage and Insurance Accessibility</li>
+                                        <li>Behavioural Economics in Health Insurance Choice</li>
+                                        <li>Global Perspective on Health Insurance Financing</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="track">
+                                <h3 class="track-toggle">Track 2: Occupational Health</h3>
+                                <div class="track-content">
+                                    <p>Occupational health is crucial for ensuring worker well-being, productivity, and
+                                        economic sustainability. The economic burden of occupational diseases and
+                                        injuries poses significant challenges, affecting both workers and industries.
+                                        Effective policy analysis can drive interventions that enhance workplace safety,
+                                        especially in the informal sector and among vulnerable groups. Strengthening
+                                        occupational health frameworks contributes to sustainable development, mental
+                                        well-being, and resilience in times of crisis.</p>
+                                    <h4>Sub-themes:</h4>
+                                    <ul>
+                                        <li>Economic Burden of Occupational Diseases and Injuries</li>
+                                        <li>Policy Analysis in Occupational Health</li>
+                                        <li>Occupational Health and Sustainable Development</li>
+                                        <li>Mental Health in the Workplace</li>
+                                        <li>Informal Sector and Occupational Health Financing</li>
+                                        <li>Aging Workforce, Gender and Occupational Health</li>
+                                        <li>Economic Resilience in Workplace Health during Pandemics</li>
+                                        <li>Health State Dependence</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="track">
+                                <h3 class="track-toggle">Track 3: Climate Change, Environmental Governance, and Health
+                                </h3>
+                                <div class="track-content">
+                                    <p>Climate change and environmental degradation pose significant health risks,
+                                        affecting vulnerable populations disproportionately. Rising temperatures,
+                                        extreme weather events, and pollution contribute to the spread of infectious
+                                        diseases, respiratory issues, and mental health concerns. Environmental
+                                        governance frameworks, such as DeGrowth, LiFE (Lifestyle for Environment), Green
+                                        Transition, and Green Recovery, aim to mitigate these impacts by promoting
+                                        sustainable policies and responsible resource use. Addressing these challenges
+                                        requires a multidimensional approach that integrates climate resilience,
+                                        gender-sensitive health policies, and international collaboration to ensure
+                                        equitable health outcomes.</p>
+                                    <h4>Sub-themes:</h4>
+                                    <ul>
+                                        <li>Climate Change, Energy Poverty, and Health Inequalities</li>
+                                        <li>Gender, Environment, and Health: Intersectional Perspectives</li>
+                                        <li>Environmental Governance and Public Health: Policy and Practice</li>
+                                        <li>Green Transitions and Their Impact on Health Systems</li>
+                                        <li>Health Risks of Air Pollution and Industrialization</li>
+                                        <li>Climate Resilience and Community Health Adaptation</li>
+                                        <li>The Role of Global Institutions in Health and Environmental Governance</li>
+                                        <li>Behavioral Responses to Climate-Induced Health Risks</li>
+                                        <li>Equity and Justice in Climate Change and Health Policies</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="track">
+                                <h3 class="track-toggle">Track 4: Health System, Institutions and Governance</h3>
+                                <div class="track-content">
+                                    <p>This call for papers seeks contributions examining the critical dimensions of
+                                        health system governance, policy, and institutional frameworks, emphasizing
+                                        their role in shaping health policy and service delivery. We invite analyses of
+                                        national and sub-national governance models, policy implementation challenges,
+                                        and innovative strategies for strengthening health systems. A key focus is
+                                        health system responsiveness, which ensures that healthcare services meet
+                                        individuals' needs efficiently and equitably. Papers exploring patient-centered
+                                        care, community engagement, and accountability mechanisms, along with studies on
+                                        disparities in responsiveness and policy interventions for improvement, are
+                                        particularly welcome. Another essential aspect is health literacy at both
+                                        individual and organizational levels, which significantly influences health
+                                        outcomes. Contributions may examine how individuals access health information,
+                                        navigate healthcare systems, and make informed health decisions, as well as how
+                                        organizations can promote health literacy through digital health tools,
+                                        communication strategies, and policy interventions.</p>
+                                    <h4>Sub-themes:</h4>
+                                    <ul>
+                                        <li>Health governance, policy and institutional frameworks for health system
+                                        </li>
+                                        <li>Health system responsiveness</li>
+                                        <li>Health literacy: Individual and organizational</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="track">
+                                <h3 class="track-toggle">Track 5: Institutions and Injustice: Reimagining Systems of
+                                    Care and Healing</h3>
+                                <div class="track-content">
+                                    <p>This track explores the critical issues surrounding women’s reproductive health
+                                        and child well-being, focusing on the socio-economic, cultural, and systemic
+                                        factors that influence health outcomes. It invites discussions on topics such as
+                                        maternal and child nutrition, reproductive rights, justice, and autonomy, as
+                                        well as innovations and policy reforms aimed at reducing inequalities and
+                                        improving access to quality healthcare for women and children.</p>
+                                    <h4>Sub-themes:</h4>
+                                    <ul>
+                                        <li>Maternal Health and Safe Motherhood</li>
+                                        <li>Child Health and Nutrition</li>
+                                        <li>Quality of care for Maternal and Child Health</li>
+                                        <li>Impact of Climate Change on Women and Child Health</li>
+                                        <li>Technology and Innovation in Maternal and Child Health</li>
+                                        <li>Family Planning and Contraceptive Access</li>
+                                        <li>Reproductive Justice and Autonomy</li>
+                                        <li>Inequities in Fertility and Reproductive Health</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="track">
+                                <h3 class="track-toggle">Track 6: Health Behaviour and Cognition</h3>
+                                <div class="track-content">
+                                    <p>Addressing the economic dimensions of health behaviors among the vulnerable
+                                        population is imperative for creating resilient health systems and societies.
+                                        This conference will serve as a platform for interdisciplinary dialogue and
+                                        collaboration, driving forward evidence-based solutions to reduce the burden of
+                                        health through economically sound strategies.</p>
+                                    <h4>Sub-themes:</h4>
+                                    <ul>
+                                        <li>Exploring Health Behaviours among the Ageing Population</li>
+                                        <li>Health Behaviours and Women</li>
+                                        <li>Health Behaviours and Non-communicable Diseases</li>
+                                        <li>Cognitive Health</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="track">
+                                <h3 class="track-toggle">Track 7: Gender Inequality in Health and Development</h3>
+                                <div class="track-content">
+                                    <p>Gender inequality in health and development remains a significant barrier to
+                                        achieving equitable well-being worldwide. Women often face disparities in access
+                                        to healthcare, nutrition, and economic opportunities, leading to poorer health
+                                        outcomes. Structural factors such as discriminatory social norms, unequal
+                                        resource distribution, and limited decision-making power exacerbate these
+                                        challenges. Addressing gender-based inequities requires targeted policies,
+                                        inclusive healthcare systems, and empowerment initiatives that ensure equal
+                                        opportunities for all, ultimately fostering sustainable development and improved
+                                        public health.</p>
+                                    <h4>Sub-themes:</h4>
+                                    <ul>
+                                        <li>Disparities in Healthcare Access and Utilization</li>
+                                        <li>Economic and Social Determinants of Health Inequities</li>
+                                        <li>Gendered Burden of Non-Communicable and Communicable Diseases</li>
+                                        <li>Violence, Mental Health, and Well-being</li>
+                                        <li>Health Insurance and Financial Protection Gaps</li>
+                                        <li>Policy, Governance, and Gender-Sensitive Health Systems</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="track">
+                                <h3 class="track-toggle">Track 8: Economic, Demographic, Social, Medical and Public
+                                    Policy Perspectives on Aging, Health, and Wellness</h3>
+                                <div class="track-content">
+                                    <p>Aging is a global challenge with significant economic, social, and policy
+                                        implications, requiring societies to reassess healthcare, legal rights, housing,
+                                        and social services while promoting society’s engagement and inclusivity.
+                                        Medical advancements continue to redefine aging management, while social and
+                                        cultural perspectives shape family roles, community support, and end-of-life
+                                        care. On a personal level, aging brings shifts in relationships, independence,
+                                        and living arrangements, necessitating adaptation and comprehensive support
+                                        systems.</p>
+                                    <h4>Sub-themes:</h4>
+                                    <ul>
+                                        <li>Economic status and the wellbeing of older adults</li>
+                                        <li>Increase in the demand and cost of healthcare for older adults</li>
+                                        <li>Public health and healthcare policies related to aging</li>
+                                        <li>Aging-friendly access to public healthcare facilities and other public goods
+                                        </li>
+                                        <li>Food and nutrition needs for the aging population</li>
+                                        <li>Management of aging-related communicable and non-communicable diseases</li>
+                                        <li>Social support and networks</li>
+                                        <li>ICT impact on aging</li>
+                                        <li>Physical and mental wellbeing of aging population</li>
+                                        <li>Lifestyles and qualities of life for older adults</li>
+                                        <li>Time activities utilization of aging population</li>
+                                        <li>The economic and societal impacts of aged population</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="track">
+                                <h3 class="track-toggle">Track 9: Enhancing Healthcare Efficiency and Productivity</h3>
+                                <div class="track-content">
+                                    <p>Healthcare efficiency is crucial in optimizing resource use while ensuring
+                                        quality care delivery. Data Envelopment Analysis (DEA) provides a powerful tool
+                                        for evaluating efficiency in healthcare systems, financing mechanisms, and risk
+                                        management. By assessing productivity, benchmarking performance, and guiding
+                                        policy improvements, DEA helps stakeholders make data-driven decisions.
+                                        Integrating DEA in health financing ensures cost-effective healthcare delivery,
+                                        equitable resource distribution, and financial risk protection, promoting
+                                        universal health coverage.</p>
+                                    <h4>Sub-themes:</h4>
+                                    <ul>
+                                        <li>Efficiency and Performance Measurement in Healthcare</li>
+                                        <li>Efficiency and Productivity in Health Financing</li>
+                                        <li>Healthcare Resource Allocation and Input-Output Optimization</li>
+                                        <li>Productivity Change over Time: Malmquist and TFP Indices in Health</li>
+                                        <li>Equity-Adjusted Efficiency Analysis in Healthcare Delivery</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="track">
+                                <h3 class="track-toggle">Track 10: Technological Disruptions and Healthcare</h3>
+                                <div class="track-content">
+                                    <p>Global healthcare is undergoing a revolution due to the intervention of
+                                        information and communication technology (ICT). This track focuses on improving
+                                        patient-centred digital health, closing the digital divide in healthcare, and
+                                        using digital tools to deliver services more effectively. Additionally, how
+                                        digitization improves distant care, increases patient autonomy, and changes
+                                        public health outcomes will be discussed. The regulatory environment and
+                                        compliance issues in digital healthcare will also be explored.</p>
+                                    <h4>Sub-themes:</h4>
+                                    <ul>
+                                        <li>Digital divide in healthcare</li>
+                                        <li>Patient-centred digital health</li>
+                                        <li>Public health transformation through digital health</li>
+                                        <li>Digitization to enhance patient autonomy and improve remote care</li>
+                                        <li>Utilizing digital tools for efficient healthcare delivery and better
+                                            outcomes</li>
+                                        <li>Regulations and compliance requirements for digital healthcare</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="track">
+                                <h3 class="track-toggle">Track 11: Economics, Nutrition, and Human Capital</h3>
+                                <div class="track-content">
+                                    <p>Early age nutrition is an important marker of lifelong health, education, labour
+                                        market, and other socioeconomic outcomes. As we approach the final year of the
+                                        UN Decade of Action on Nutrition 2016–2025, it is crucial to assess progress
+                                        made and explore emerging nutritional challenges for policymakers in both
+                                        developing and developed countries.</p>
+                                    <h4>Sub-themes:</h4>
+                                    <ul>
+                                        <li>Child (mal)nutrition in LMICs</li>
+                                        <li>Nutrition transition</li>
+                                        <li>Double burden of malnutrition</li>
+                                        <li>Nutritional outcomes and human capital</li>
+                                        <li>Political economy of health and nutrition</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="track">
+                                <h3 class="track-toggle">Track 12: Development Disruptions: Education, Employment,
+                                    Labour & Migration, and Inequality</h3>
+                                <div class="track-content">
+                                    <p>Development processes around the world are being reshaped by rapid and
+                                        overlapping disruptions in education systems, labour markets, migration flows,
+                                        and social structures. Economic uncertainty, climate change, technological
+                                        transformation, and the long-term effects of the COVID-19 pandemic have
+                                        intensified vulnerabilities, especially among youth, informal workers, migrants,
+                                        and marginalized communities. This track focuses on the structural challenges
+                                        and inequalities emerging from these disruptions and their implications for
+                                        inclusive development. </p>
+                                    <h4>Sub-themes:</h4>
+                                    <ul>
+                                        <li>Disruptions in Education and Human Capital Development</li>
+                                        <li>Labour Market Transformations and Informality</li>
+                                        <li>Migration, Displacement, and Development Gaps</li>
+                                        <li>Technology, Employment, and the Future of Work</li>
+                                        <li>Youth, Skills, and Employment Transitions</li>
+                                        <li>Social Protection and Labour Rights in Precarious Economies</li>
+                                        <li>Structural Inequality: Caste, Gender, Region, and Class in Development
+                                            Outcomes</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="track">
+                                <h3 class="track-toggle">Track 13: Digital Humanities</h3>
+                                <div class="track-content">
+                                    <p>This track invites explorations into how digital methods transform traditional
+                                        humanities research, pedagogy, and public engagement. From digital archives and
+                                        data visualization to algorithmic critique and participatory platforms, the
+                                        track encourages contributions that interrogate the possibilities and challenges
+                                        of digitizing human experience, memory, and cultural heritage in the 21st
+                                        century.</p>
+                                    <h4>Sub-themes:</h4>
+                                    <ul>
+                                        <li>Digital Archiving, Preservation, and Cultural Memory</li>
+                                        <li>Text Mining, Corpus Analysis, and Computational Linguistics</li>
+                                        <li>Digital Pedagogy and Humanities Education</li>
+                                        <li>Visualization and Mapping in Humanities Research</li>
+                                        <li>Algorithmic Bias, Ethics, and Critical Digital Studies</li>
+                                        <li>Public Humanities and Digital Storytelling</li>
+                                        <li>Interdisciplinary Innovations: Art, AI, and Emerging Technologies</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <div class="footer">
+            <a href="https://ahead.iitr.ac.in/team.html">
+                <li>Designed & Developed by Team Ahead</li>
+            </a>
+        </div>
+        <a href="#" class="to-top">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <script src="./js/toTop.js"></script>
+    <script src="./js/tracks.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        var loader = document.getElementById("preLoader");
+        function myFunction() {
+            loader.style.display = "none";
+        }
+        AOS.init();
+    </script>
+    <script src="./js/conference.js"></script>
+</body>
+
+</html>

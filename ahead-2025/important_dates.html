@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="./css/conference.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="./img/favicon.png" type="image/png" />
+    <title>Important Dates | AHEAD International Conference</title>
+</head>
+
+<body onload="myFunction()">
+    <div id="preLoader"></div>
+    <div class="main">
+        <header>
+            <nav>
+                <ul class='nav-bar'>
+                    <div class="logo-main">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="./img/iit.png" alt="IIT Roorkee Logo" />
+                            </a>
+                        </div>
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="./img/newuplogo.png" alt="AHEAD Logo" />
+                            </a>
+                        </div>
+                    </div>
+                    <input type='checkbox' id='check' />
+                    <span class="menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tracks.html">Tracks</a></li>
+                        <li><a href="important_dates.html">Important Dates</a></li>
+                        <li><a href="submission.html">Submission</a></li>
+                        <li><a href="registration.html">Registration</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="programme.html">Programme</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+                    </span>
+                    <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Important Dates Section -->
+        <main class="conference-main">
+            <div class="container">
+                <section class="important-dates">
+                    <div class="section-header">
+                        <h2>Important Dates (IST)</h2>
+                    </div>
+                    <div class="section-content">
+                        <table class="dates-table">
+                            <tr>
+                                <td>April 21, 2025</td>
+                                <td>Open for call for paper (using conference website of AHEAD Lab)</td>
+                            </tr>
+                            <tr>
+                                <td>May 31, 2025</td>
+                                <td>Deadline to submit abstract with extended abstract/abstract with full paper
+                                    (preference will be given to full papers)</td>
+                            </tr>
+                            <tr>
+                                <td>June 15, 2025</td>
+                                <td>Notification of Acceptance</td>
+                            </tr>
+                            <tr>
+                                <td>July 1, 2025</td>
+                                <td>Submission of registration fee waiver for Students from India and LMICs</td>
+                            </tr>
+                            <tr>
+                                <td>July 5, 2025</td>
+                                <td>Decision on fee waiver</td>
+                            </tr>
+                            <tr>
+                                <td>June 15 – July 30, 2025</td>
+                                <td>Early Bird Registration (Fees non-refundable)</td>
+                            </tr>
+                            <tr>
+                                <td>July 31 – November 15, 2025</td>
+                                <td>Late Registration (Fees non-refundable)</td>
+                            </tr>
+                            <tr>
+                                <td>December 10-12, 2025</td>
+                                <td>Conference Duration (Pre-conference workshop on 10th Dec, main conference on 11-12
+                                    Dec)</td>
+                            </tr>
+                        </table>
+                        <p class="dates-note">*Some limited number of scholarships for registration fee waiver to be
+                            provided to PhD students having no fellowships/scholarships (proof letter from
+                            HoD/Dean/Registrar/Director is required). Final duration may change if unavoidable.</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <div class="footer">
+            <a href="https://ahead.iitr.ac.in/team.html">
+                <li>Designed & Developed by Team Ahead</li>
+            </a>
+        </div>
+        <a href="#" class="to-top">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <script src="./js/toTop.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        var loader = document.getElementById("preLoader");
+        function myFunction() {
+            loader.style.display = "none";
+        }
+        AOS.init();
+    </script>
+    <script src="./js/conference.js"></script>
+</body>
+
+</html>

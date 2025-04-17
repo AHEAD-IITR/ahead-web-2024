@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="./css/conference.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="./img/favicon.png" type="image/png" />
+    <title>Registration | AHEAD International Conference</title>
+</head>
+
+<body onload="myFunction()">
+    <div id="preLoader"></div>
+    <div class="main">
+        <header>
+            <nav>
+                <ul class='nav-bar'>
+                    <div class="logo-main">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="./img/iit.png" alt="IIT Roorkee Logo" />
+                            </a>
+                        </div>
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="./img/newuplogo.png" alt="AHEAD Logo" />
+                            </a>
+                        </div>
+                    </div>
+                    <input type='checkbox' id='check' />
+                    <span class="menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tracks.html">Tracks</a></li>
+                        <li><a href="important_dates.html">Important Dates</a></li>
+                        <li><a href="submission.html">Submission</a></li>
+                        <li><a href="registration.html">Registration</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="programme.html">Programme</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+                    </span>
+                    <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Registration Fees Section -->
+        <main class="conference-main">
+            <div class="container">
+                <section class="registration-fees">
+                    <div class="section-header">
+                        <h2>Registration Details (Hybrid)</h2>
+                    </div>
+                    <div class="section-content">
+                        <table class="fees-table">
+                            <thead>
+                                <tr>
+                                    <th>Participation Category</th>
+                                    <th>Early Bird Charges*</th>
+                                    <th>With Accommodation** <br>(For Early Bird only)</th>
+                                    <th>Late Charges* <br>(without accommodation)</th>
+                                    <th>Online</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Foreign Nationals</td>
+                                    <td>$200</td>
+                                    <td>$300</td>
+                                    <td>$300</td>
+                                    <td>$150</td>
+                                </tr>
+                                <tr>
+                                    <td>LMIC Nationals</td>
+                                    <td>$100</td>
+                                    <td>$200</td>
+                                    <td>$150</td>
+                                    <td>$50</td>
+                                </tr>
+                                <tr>
+                                    <td>Foreign Students</td>
+                                    <td>$100</td>
+                                    <td>$200</td>
+                                    <td>$150</td>
+                                    <td>$50</td>
+                                </tr>
+                                <tr>
+                                    <td>LMIC Students</td>
+                                    <td>$50</td>
+                                    <td>$150</td>
+                                    <td>$100</td>
+                                    <td>$20</td>
+                                </tr>
+                                <tr>
+                                    <td>Indian Nationals</td>
+                                    <td>INR 3000</td>
+                                    <td>INR 6500</td>
+                                    <td>INR 4500</td>
+                                    <td>INR 1000</td>
+                                </tr>
+                                <tr>
+                                    <td>Indian Students</td>
+                                    <td>INR 2000</td>
+                                    <td>INR 4500</td>
+                                    <td>INR 2500</td>
+                                    <td>INR 500</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>* Includes conference kit and food during sessions.</p>
+                        <p>** Also includes food (breakfast, lunch, evening snacks/tea/coffee, and dinner).</p>
+                        <p><strong>Note:</strong> GST Extra. Fees are for a single presenter.</p>
+                        <div class="registration-buttons">
+                            <a href="#" class="btn primary-btn">Register Now</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <div class="footer">
+            <a href="https://ahead.iitr.ac.in/team.html">
+                <li>Designed & Developed by Team Ahead</li>
+            </a>
+        </div>
+        <a href="#" class="to-top">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <script src="./js/toTop.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        var loader = document.getElementById("preLoader");
+        function myFunction() {
+            loader.style.display = "none";
+        }
+        AOS.init();
+    </script>
+    <script src="./js/conference.js"></script>
+</body>
+
+</html>

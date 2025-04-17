@@ -1,0 +1,1027 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+/* Base Styles */
+:root {
+    --primary-color: #3D4785;
+    --secondary-color: #6ca6d6;
+    --light-bg: #fbfbfb;
+    --text-color: #333;
+    --heading-color: #3D4785;
+    --light-gray: #f5f5f5;
+    --border-color: #e0e0e0;
+    --link-color: #6ca6d6;
+    --link-hover-color: #3D4785;
+    --btn-primary-bg: #3D4785;
+    --btn-primary-text: white;
+    --btn-hover-bg: #2a2d47;
+    --btn-secondary-bg: #e0e0e0;
+    --btn-secondary-text: #3D4785;
+    --btn-secondary-hover: #d0d0d0;
+    --section-padding: 50px 0;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Poppins;
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 100%;
+}
+
+::-webkit-scrollbar-track {
+    background: #FFF;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3D4785;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#preLoader {
+    background: #fff url(img/Hourglass.gif) no-repeat center center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+.main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header and Navigation */
+.nav-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    position: relative;
+    background-color: #3D4785;
+    padding: 12px 36px;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu li {
+    padding-left: 30px;
+}
+
+.menu li a {
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    color: white;
+    transition: 0.15s ease-in-out;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.menu li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    transition: 0.15s ease-in-out;
+}
+
+.menu a:before {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    height: 3px;
+    width: 100%;
+    background: white;
+    border-radius: 50px;
+    transform: scaleX(0);
+    transition: transform 0.2s linear;
+}
+
+.menu a:hover:before {
+    transform: scaleX(1);
+}
+
+.close-menu i,
+.open-menu i {
+    color: white;
+}
+
+.menu li a:hover:after {
+    width: 100%;
+}
+
+.open-menu,
+.close-menu {
+    position: absolute;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: none;
+}
+
+.open-menu {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+.close-menu {
+    top: 20px;
+    right: 20px;
+}
+
+#check {
+    display: none;
+}
+
+.logo a {
+    display: flex;
+    gap: 12px;
+}
+
+.logo img {
+    font-size: 30px;
+    font-weight: 600;
+    display: flex;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -1px;
+    color: #FC3314;
+}
+
+.logo-main {
+    display: flex;
+    gap: 12px;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 600;
+    height: 56px;
+    display: flex;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -1px;
+    color: #FC3314;
+}
+
+/* Content Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex: 1;
+}
+
+main.conference-main {
+    flex: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--heading-color);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 4px;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.primary-btn {
+    background-color: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+}
+
+.primary-btn:hover {
+    background-color: var(--btn-hover-bg);
+    color: var(--btn-primary-text);
+}
+
+.secondary-btn {
+    background-color: var(--btn-secondary-bg);
+    color: var(--btn-secondary-text);
+}
+
+.secondary-btn:hover {
+    background-color: var(--btn-secondary-hover);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-content {
+    margin-bottom: 50px;
+}
+
+/* Conference Hero Section */
+.conference-hero {
+    position: relative;
+    background-image: url('../img/iitr.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.conference-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.conference-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.conference-hero h1 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.conference-hero p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 20px;
+}
+
+.conference-hero .conference-date {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 20px;
+    color: #f5f5f5;
+    background-color: rgba(108, 166, 214, 0.3);
+    display: inline-block;
+    padding: 8px 25px;
+    border-radius: 30px;
+    margin-bottom: 0;
+}
+
+.conference-hero .conference-mode {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #f5f5f5;
+    background-color: rgba(108, 166, 214, 0.3);
+    display: inline-block;
+    padding: 6px 20px;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+
+/* Swiper Slider Styles */
+.conference-slider {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.swiper-slide h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+}
+
+.swiper-slide p {
+    font-size: 1.1rem;
+    max-width: 700px;
+}
+
+.swiper-pagination-bullet {
+    background: #fff;
+    opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--secondary-color);
+    opacity: 1;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Countdown Timer Styles */
+#countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.countdown-item {
+    text-align: center;
+}
+
+.countdown-item span {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 8px;
+    min-width: 60px;
+}
+
+.countdown-item p {
+    font-size: 1rem;
+    margin-top: 5px;
+    color: #f5f5f5;
+}
+
+/* Current Conference Section */
+.current-conference {
+    background-color: white;
+    padding: 50px 0;
+    margin-bottom: 50px;
+}
+
+.current-conference h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.conference-details {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.conference-details h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.conference-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.conference-image {
+    text-align: center;
+}
+
+.conference-image img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    margin: 0 0 50px 0;
+    height: 600px;
+}
+
+.key-dates {
+    background-color: var(--light-gray);
+    padding: 30px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.key-dates h3 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dates-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dates-table tr {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dates-table tr:last-child {
+    border-bottom: none;
+}
+
+.dates-table td {
+    padding: 12px 8px;
+    vertical-align: top;
+}
+
+.dates-table td:first-child {
+    font-weight: 600;
+    color: var(--primary-color);
+    width: 35%;
+}
+
+.dates-note {
+    font-size: 0.9rem;
+    margin-top: 15px;
+    font-style: italic;
+    color: #666;
+}
+
+.key-dates .btn {
+    margin-top: 20px;
+    align-self: center;
+}
+
+/* Conference Overview Section */
+.conference-overview {
+    background-color: white;
+    padding: var(--section-padding);
+    margin-bottom: 50px;
+}
+
+.conference-overview .section-header {
+    text-align: center;
+}
+
+.conference-overview p {
+    text-align: justify;
+}
+
+/* Programme Section */
+.programme {
+    background-color: var(--light-gray);
+    padding: var(--section-padding);
+    margin-bottom: 50px;
+}
+
+.programme .section-content {
+    text-align: center;
+}
+
+.programme p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+/* Program Section */
+.program {
+    background-color: white;
+    padding: var(--section-padding);
+    margin-bottom: 50px;
+}
+
+.program-format {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.format-item {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: var(--light-gray);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.format-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.format-icon {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.format-item h4 {
+    margin-bottom: 10px;
+}
+
+/* Committees Section */
+.committees {
+    background-color: var(--light-gray);
+    padding: var(--section-padding);
+    margin-bottom: 50px;
+}
+
+.committee {
+    /* margin-bottom: 40px; */
+}
+
+.committee h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.committee ul {
+    list-style: none;
+    margin-left: 40px;
+}
+
+.committee li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.committee li:last-child {
+    border-bottom: none;
+}
+
+/* Venue Section */
+.venue {
+    background-color: white;
+    padding: var(--section-padding);
+    margin-bottom: 50px;
+}
+
+.venue-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.venue-text h3 {
+    color: var(--primary-color);
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.venue-map {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Weather and Tourism Section */
+.weather-tourism {
+    background-color: var(--light-gray);
+    padding: var(--section-padding);
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.weather-tourism p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.weather-tourism a {
+    font-weight: 500;
+    margin: 0 5px;
+}
+
+/* Contact Section */
+.contact {
+    background-color: white;
+}
+
+.contact-info {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.contact-item i {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Call to Action Section */
+.call-to-action {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-content h3 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.cta-content p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.cta-content .btn {
+    margin: 10px;
+}
+
+.cta-content .secondary-btn {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.cta-content .secondary-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Footer Styles */
+.footer {
+    width: 100%;
+    height: 120px;
+    background-color: #3D4785;
+    display: flex;
+    margin-top: 2px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.footer a li {
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-weight: 500;
+    list-style: none;
+}
+
+.footer a li:hover {
+    text-decoration: underline;
+}
+
+.to-top {
+    background: white;
+    position: fixed;
+    bottom: 16px;
+    right: 32px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: #1f1f1f;
+    text-decoration: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .4s;
+}
+
+.to-top.active {
+    bottom: 32px;
+    pointer-events: auto;
+    opacity: 1;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        width: 80vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 100;
+        backdrop-filter: blur(200px);
+        transition: all 0.2s ease-in-out;
+    }
+
+    .menu li {
+        margin-top: 40px;
+    }
+
+    .menu li a {
+        padding: 10px;
+    }
+
+    .open-menu,
+    .close-menu {
+        display: block;
+    }
+
+    #check:checked~.menu {
+        right: 0;
+    }
+}
+
+@media (max-width: 992px) {
+
+    .conference-info-grid,
+    .venue-info {
+        grid-template-columns: 1fr;
+    }
+
+    .conference-image {
+        padding: 50px;
+    }
+
+    .key-dates .btn {
+        align-self: stretch;
+        text-align: center;
+    }
+
+    .program-format {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .swiper-slide h1 {
+        font-size: 2.2rem;
+    }
+
+    .swiper-slide p {
+        font-size: 1rem;
+    }
+
+    #countdown {
+        gap: 10px;
+    }
+
+    .countdown-item span {
+        font-size: 2rem;
+        padding: 8px 15px;
+    }
+}
+
+@media only screen and (min-width:0) and (max-width:900px) {
+    .logo {
+        font-size: 24px;
+        font-weight: 600;
+        font-family: 'Inter', sans-serif;
+        letter-spacing: -1px;
+        color: #3D4785;
+    }
+
+    .logo-main {
+        display: flex;
+        gap: 24px;
+    }
+
+    .logo {
+        height: 40px;
+        margin-left: -15px;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .footer {
+        width: 100vw;
+        height: 180px;
+        background-color: #3D4785;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer img {
+        width: 150px;
+    }
+
+    .footer {
+        font-size: 14px;
+        font-family: 'Montserrat', sans-serif;
+        color: white;
+        list-style: none;
+    }
+
+    .logo a {
+        display: flex;
+        gap: 24px;
+    }
+
+    .logo img {
+        font-size: 24px;
+        font-weight: 600;
+        font-family: 'Inter', sans-serif;
+        letter-spacing: -1px;
+        color: #3D4785;
+    }
+}
+
+@media (max-width: 768px) {
+    .conference-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .conference-hero p {
+        font-size: 1.1rem;
+    }
+
+    .conference-hero .conference-date {
+        font-size: 1.2rem;
+    }
+
+    .program-format {
+        grid-template-columns: 1fr;
+    }
+
+    .swiper-slide h1 {
+        font-size: 1.8rem;
+    }
+
+    .swiper-slide p {
+        font-size: 0.9rem;
+    }
+
+    #countdown {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .countdown-item span {
+        font-size: 1.8rem;
+        padding: 6px 12px;
+    }
+
+    .countdown-item p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .conference-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .conference-hero p {
+        font-size: 1rem;
+    }
+
+    .conference-hero .conference-date {
+        font-size: 1.1rem;
+        padding: 6px 15px;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    .dates-table td:first-child {
+        width: 45%;
+    }
+
+    .swiper-slide h1 {
+        font-size: 1.5rem;
+    }
+
+    .swiper-slide p {
+        font-size: 0.85rem;
+    }
+
+    #countdown {
+        gap: 10px;
+    }
+
+    .countdown-item span {
+        font-size: 1.5rem;
+        padding: 5px 10px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .conference-hero {
+        background-image: none;
+        color: black;
+        padding: 20px 0;
+    }
+
+    .conference-hero h1,
+    .conference-hero p,
+    .conference-hero .conference-date {
+        color: black;
+    }
+
+    .conference-overlay {
+        display: none;
+    }
+
+    .conference-date {
+        background-color: #f5f5f5;
+    }
+
+    .section-header,
+    .section-content {
+        page-break-inside: avoid;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev,
+    .swiper-pagination {
+        display: none;
+    }
+}
