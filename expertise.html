@@ -8,10 +8,14 @@
     <link rel="stylesheet" href="./css/project.css">
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <title>Ahead | IITR</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<title>Ahead | IITR</title>
+</head>
+
 <body onload="myFunction()">
     <div id="preLoader"></div>
     <div class="main">
@@ -19,8 +23,16 @@
             <nav>
                 <ul class='nav-bar'>
                     <div class="logo-main">
-                        <div class="logo"><img src="./img/iit.png" alt=""></div>
-                        <div class="logo"><img src="./img/newuplogo.png" alt=""></div>
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="./img/iit.png" alt="" />
+                            </a>
+                        </div>
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="./img/newuplogo.png" alt="" />
+                            </a>
+                        </div>
                     </div>
                     <input type='checkbox' id='check' />
                     <span class="menu">
@@ -34,7 +46,7 @@
                     <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
                 </ul>
             </nav>
-        </header> 
+        </header>
         <div class="article">
             <h1>Expertise</h1>
             <p class="underline"></p>
@@ -43,10 +55,10 @@
                 <div class="resume" id="btn2" onclick="openMethods()">Methods</div>
                 <div class="resume" id="btn3" onclick="openDataset()">Dataset</div>
                 <div class="resume" id="btn4" onclick="openSoftware()">Software</div>
-		<div class="resume" id="btn5" onclick="opentalks()">Invited Talks</div>
+                <div class="resume" id="btn5" onclick="opentalks()">Invited Talks</div>
             </div>
             <div class="member">
-                <div class="teamContent" id="courses">  
+                <div class="teamContent" id="courses">
                 </div>
                 <div class="teamContent" id="methods">
                 </div>
@@ -54,8 +66,8 @@
                 </div>
                 <div class="teamContent" id="software">
                 </div>
-	   	<div class="teamContent" id="invitedtalks">
-		</div>
+                <div class="teamContent" id="invitedtalks">
+                </div>
             </div>
         </div>
         <div class="footer">
@@ -66,7 +78,7 @@
         <a href="#" class="to-top">
             <i class="fas fa-chevron-up"></i>
         </a>
-        
+
     </div>
     <script src="./js/toTop.js"></script>
     <!-- <script src="/app.js"></script> -->
@@ -76,9 +88,9 @@
 
     <!-- Initialize Swiper -->
     <script>
-        var loader=document.getElementById("preLoader");
-        function myFunction(){
-            loader.style.display="none";
+        var loader = document.getElementById("preLoader");
+        function myFunction() {
+            loader.style.display = "none";
         }
     </script>
     <script type="text/JavaScript">
@@ -160,12 +172,12 @@
     <script src="./js/projectScript.js"></script>
     <script>
         fetch("./json/courses.json")
-        .then(function(response){
-        return response.json();
-        })
-        .then(function(courses){
-        let placeholder = document.querySelector("#courses");
-        let out = `
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (courses) {
+                let placeholder = document.querySelector("#courses");
+                let out = `
         <h1>Courses</h1>
         <section class="table__body">
             <table>
@@ -181,8 +193,8 @@
                 </thead>
                 <tbody>
                                     `;
-        for(let course of courses){
-            out += `
+                for (let course of courses) {
+                    out += `
             <tr>
                 <td> <iframe width="300px" height="200px" src="${course.course}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td> 
                 <td> <a href="${course.link}">${course.topic}</a> </td>
@@ -191,20 +203,20 @@
                 <td>${course.ta}</p></td>
                 <td> ${course.date}</td>
             </tr>`;
-        }
-        out+=`</tbody>
+                }
+                out += `</tbody>
             </table>`
-        placeholder.innerHTML = out;
-        });
+                placeholder.innerHTML = out;
+            });
 
-        var i=1;
+        var i = 1;
         fetch("./json/dataset.json")
-        .then(function(response){
-        return response.json();
-        })
-        .then(function(datasets){
-        let placeholder = document.querySelector("#dataset");
-        let out = `
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (datasets) {
+                let placeholder = document.querySelector("#dataset");
+                let out = `
         <h1>Dataset</h1>
         <section class="table__body">
             <table>
@@ -216,28 +228,28 @@
                 </thead>
                 <tbody>
                                     `;
-        for(let dataset of datasets){
-            out += `
+                for (let dataset of datasets) {
+                    out += `
             <tr>
                 <td> ${dataset.name} </td>
                 <td><a href="${dataset.link}" target="_blank">🔗</a></td>
             </tr>
             `;
-            i++;
-        }
-        out+=`</tbody>
+                    i++;
+                }
+                out += `</tbody>
             </table>`
-        placeholder.innerHTML = out;
-        });
+                placeholder.innerHTML = out;
+            });
 
-        var l=1;
+        var l = 1;
         fetch("./json/methods.json")
-        .then(function(response){
-        return response.json();
-        })
-        .then(function(methods){
-        let placeholder = document.querySelector("#methods");
-        let out = `
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (methods) {
+                let placeholder = document.querySelector("#methods");
+                let out = `
         <h1>Methods</h1>
         <section class="table__body">
             <table>
@@ -249,28 +261,28 @@
                 </thead>
                 <tbody>
                                     `;
-        for(let method of methods){
-            out += `
+                for (let method of methods) {
+                    out += `
             <tr>
                 <td> ${method.name} </td>
                 <td><a href="${method.link}" target="_blank">🔗</a></td>
             </tr>
             `;
-            l++;
-        }
-        out+=`</tbody>
+                    l++;
+                }
+                out += `</tbody>
             </table>`
-        placeholder.innerHTML = out;
-        });
+                placeholder.innerHTML = out;
+            });
 
-        var j=1;
+        var j = 1;
         fetch("./json/software.json")
-        .then(function(response){
-        return response.json();
-        })
-        .then(function(softwares){
-        let placeholder = document.querySelector("#software");
-        let out = `
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (softwares) {
+                let placeholder = document.querySelector("#software");
+                let out = `
         <h1>Softwares</h1>
         <section class="table__body">
             <table>
@@ -283,29 +295,29 @@
                 </thead>
                 <tbody>
                                     `;
-        for(let software of softwares){
-            out += `
+                for (let software of softwares) {
+                    out += `
             <tr>
                 
                 <td><img src="${software.img_link}"></img></td> 
                 <td> ${software.name}</td>
                 <td><a href="${software.link}" target="_blank">🔗</a></td>
             </tr>`;
-            j++;
-        }
-        out+=`</tbody>
+                    j++;
+                }
+                out += `</tbody>
             </table>`
-        placeholder.innerHTML = out;
-        });
-	    
-	var i=1;
+                placeholder.innerHTML = out;
+            });
+
+        var i = 1;
         fetch("./json/invitedtalks.json")
-        .then(function(response){
-        return response.json();
-        })
-        .then(function(invitedtalks){
-        let placeholder = document.querySelector("#invitedtalks");
-        let out = `
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (invitedtalks) {
+                let placeholder = document.querySelector("#invitedtalks");
+                let out = `
         <h1>Invited Talks</h1>
         <section class="table__body">
             <table>
@@ -318,39 +330,39 @@
                 </thead>
                 <tbody>
                                     `;
-      for(let invitedtalk of invitedtalks){
-            out += `
+                for (let invitedtalk of invitedtalks) {
+                    out += `
             <tr>
 		<td> ${invitedtalk.session} </td>
 		<td> ${invitedtalk.date} </td>
                 <td> ${invitedtalk.organiser} </td>
             </tr>
             `;
-            i++;
-        }
-        out+=`</tbody>
+                    i++;
+                }
+                out += `</tbody>
             </table>`
-        placeholder.innerHTML = out;
-        });
+                placeholder.innerHTML = out;
+            });
 
     </script>
     <script>
         var swiper = new Swiper(".mySwiper", {
-          cssMode: true,
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
-          pagination: {
-            el: ".swiper-pagination",
-          },
-          mousewheel: true,
-          keyboard: true,
+            cssMode: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+            },
+            mousewheel: true,
+            keyboard: true,
         });
-      </script>
-      <script>
+    </script>
+    <script>
         AOS.init();
-      </script>
+    </script>
 </body>
 
 </html>

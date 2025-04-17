@@ -23,8 +23,16 @@
             <nav>
                 <ul class='nav-bar'>
                     <div class="logo-main">
-                        <div class="logo"><img src="./img/iit.png" alt=""></div>
-                        <div class="logo"><img src="./img/newuplogo.png" alt=""></div>
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="./img/iit.png" alt="" />
+                            </a>
+                        </div>
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="./img/newuplogo.png" alt="" />
+                            </a>
+                        </div>
                     </div>
                     <input type='checkbox' id='check' />
                     <span class="menu">
@@ -202,7 +210,7 @@
                 placeholder.innerHTML = out;
             });
 
-            
+
         fetch("./json/alumnidata.json")
             .then(function (response) {
                 return response.json();

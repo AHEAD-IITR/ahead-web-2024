@@ -8,10 +8,14 @@
     <link rel="stylesheet" href="./css/project.css">
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <title>Ahead | IITR</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<title>Ahead | IITR</title>
+</head>
+
 <body onload="myFunction()">
     <div id="preLoader"></div>
     <div class="main">
@@ -19,8 +23,16 @@
             <nav>
                 <ul class='nav-bar'>
                     <div class="logo-main">
-                        <div class="logo"><img src="./img/iit.png" alt=""></div>
-                        <div class="logo"><img src="./img/newuplogo.png" alt=""></div>
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="./img/iit.png" alt="" />
+                            </a>
+                        </div>
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="./img/newuplogo.png" alt="" />
+                            </a>
+                        </div>
                     </div>
                     <input type='checkbox' id='check' />
                     <span class="menu">
@@ -34,7 +46,7 @@
                     <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
                 </ul>
             </nav>
-        </header> 
+        </header>
         <div class="article">
             <h1>Research</h1>
             <p class="underline"></p>
@@ -46,7 +58,7 @@
                 <div class="resume" id="btn5" onclick="openBlogs()">Blogs</div>
             </div>
             <div class="member" id="mainMember">
-                <div class="teamContent" id="projects">  
+                <div class="teamContent" id="projects">
                 </div>
                 <div class="teamContent" id="publications">
                 </div>
@@ -66,7 +78,7 @@
         <a href="#" class="to-top">
             <i class="fas fa-chevron-up"></i>
         </a>
-        
+
     </div>
     <script src="./js/toTop.js"></script>
     <!-- <script src="/app.js"></script> -->
@@ -76,9 +88,9 @@
 
     <!-- Initialize Swiper -->
     <script>
-        var loader=document.getElementById("preLoader");
-        function myFunction(){
-            loader.style.display="none";
+        var loader = document.getElementById("preLoader");
+        function myFunction() {
+            loader.style.display = "none";
         }
     </script>
     <script type="text/JavaScript">
@@ -163,14 +175,14 @@
     </script>
     <script src="./js/projectScript.js"></script>
     <script>
-        var i=1;
+        var i = 1;
         fetch("./json/publication.json")
-        .then(function(response){
-        return response.json();
-        })
-        .then(function(projects){
-        let placeholder = document.querySelector("#publications");
-        let out = `
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (projects) {
+                let placeholder = document.querySelector("#publications");
+                let out = `
         <h1>Journal Articles</h1>
         <section class="table__body">
             <table>
@@ -187,8 +199,8 @@
                 </thead>
                 <tbody>
                                     `;
-        for(let project of projects){
-            out += `
+                for (let project of projects) {
+                    out += `
             <tr>
                 <td>  ${i} </td>
                 <td> ${project.type} </td>
@@ -199,21 +211,21 @@
                 <td> <a href="${project.doi}">🔗</a> </td>
             </tr>
             `;
-            i++;
-        }
-        out+=`</tbody>
+                    i++;
+                }
+                out += `</tbody>
             </table>`
-        placeholder.innerHTML = out;
-        });
+                placeholder.innerHTML = out;
+            });
 
-        var l=1;
+        var l = 1;
         fetch("./json/project.json")
-        .then(function(response){
-        return response.json();
-        })
-        .then(function(projects){
-        let placeholder = document.querySelector("#projects");
-        let out = `
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (projects) {
+                let placeholder = document.querySelector("#projects");
+                let out = `
         <h1>Projects</h1>
         <section class="table__body">
             <table>
@@ -230,8 +242,8 @@
                 </thead>
                 <tbody>
                                     `;
-        for(let project of projects){
-            out += `
+                for (let project of projects) {
+                    out += `
             <tr>
                 <td>  ${l} </td>
                 <td> ${project.topic} </td>
@@ -242,22 +254,22 @@
                 <td> ${project.date}</td>
             </tr>
             `;
-            l++;
-        }
-        out+=`</tbody>
+                    l++;
+                }
+                out += `</tbody>
             </table>`
-        placeholder.innerHTML = out;
-        });
+                placeholder.innerHTML = out;
+            });
 
 
-        var m=1;
+        var m = 1;
         fetch("./json/conference.json")
-        .then(function(response){
-        return response.json();
-        })
-        .then(function(projects){
-        let placeholder = document.querySelector("#conference");
-        let out = `
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (projects) {
+                let placeholder = document.querySelector("#conference");
+                let out = `
         <h1>Conference Articles</h1>
         <section class="table__body">
             <table>
@@ -273,8 +285,8 @@
                 </thead>
                 <tbody>
                                     `;
-        for(let project of projects){
-            out += `
+                for (let project of projects) {
+                    out += `
             <tr>
                 <td>  ${m} </td>
                 <td> ${project.paper_type} </td>
@@ -284,21 +296,21 @@
                 <td> ${project.presenter} </td>
             </tr>
             `;
-            m++;
-        }
-        out+=`</tbody>
+                    m++;
+                }
+                out += `</tbody>
             </table>`
-        placeholder.innerHTML = out;
-        });
+                placeholder.innerHTML = out;
+            });
 
-        var j=1;
+        var j = 1;
         fetch("./json/newspaper.json")
-        .then(function(response){
-        return response.json();
-        })
-        .then(function(projects){
-        let placeholder = document.querySelector("#newspaper");
-        let out = `
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (projects) {
+                let placeholder = document.querySelector("#newspaper");
+                let out = `
         <h1>Newspaper Articles</h1>
         <section class="table__body">
             <table>
@@ -314,8 +326,8 @@
                 </thead>
                 <tbody>
                                     `;
-        for(let project of projects){
-            out += `
+                for (let project of projects) {
+                    out += `
             <tr>
                 <td>  ${j} </td>
                 <td> ${project.type} </td>
@@ -325,21 +337,21 @@
                 <td> <a href="${project.link}">🔗</a></td>
             </tr>
             `;
-            j++;
-        }
-        out+=`</tbody>
+                    j++;
+                }
+                out += `</tbody>
             </table>`
-        placeholder.innerHTML = out;
-        });
+                placeholder.innerHTML = out;
+            });
 
-        var k=1;
+        var k = 1;
         fetch("./json/project.json")
-        .then(function(response){
-        return response.json();
-        })
-        .then(function(projects){
-        let placeholder = document.querySelector("#blogs");
-        let out = `
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (projects) {
+                let placeholder = document.querySelector("#blogs");
+                let out = `
         <h1>Blogs</h1>
         <section class="table__body">
             <table>
@@ -357,8 +369,8 @@
                 </thead>
                 <tbody>
                                     `;
-        for(let project of projects){
-            out += `
+                for (let project of projects) {
+                    out += `
             <tr>
                 <td>  ${k} </td>
                 <td> ${project.TOPIC} </td>
@@ -370,31 +382,31 @@
                 <td> ${project.OTHER_OFFICERS}</td>
             </tr>
             `;
-            k++;
-        }
-        out+=`</tbody>
+                    k++;
+                }
+                out += `</tbody>
             </table>`
-        placeholder.innerHTML = out;
-        });
+                placeholder.innerHTML = out;
+            });
 
     </script>
     <script>
         var swiper = new Swiper(".mySwiper", {
-          cssMode: true,
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
-          pagination: {
-            el: ".swiper-pagination",
-          },
-          mousewheel: true,
-          keyboard: true,
+            cssMode: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+            },
+            mousewheel: true,
+            keyboard: true,
         });
-      </script>
-      <script>
+    </script>
+    <script>
         AOS.init();
-      </script>
+    </script>
 </body>
 
 </html>

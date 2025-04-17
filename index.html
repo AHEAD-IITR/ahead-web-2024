@@ -33,8 +33,16 @@
             <nav>
                 <ul class='nav-bar'>
                     <div class="logo-main">
-                        <div class="logo"><img src="./img/iit.png" alt /></div>
-                        <div class="logo"><img src="./img/newuplogo.png" alt=""></div>
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="./img/iit.png" alt="" />
+                            </a>
+                        </div>
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="./img/newuplogo.png" alt="" />
+                            </a>
+                        </div>
                     </div>
                     <input type='checkbox' id='check' />
                     <span class="menu">
@@ -50,34 +58,83 @@
             </nav>
         </header>
         <div class="front-logo">
-            <video autoplay loop muted>
-                <source src="./img/back.mp4" type="video/mp4">
-            </video>
-            <img src="./img/newlogo.png" data-speed="7" class="layer" alt="">
+            <!-- Swiper -->
+            <div class="swiper frontSlider">
+                <div class="swiper-wrapper">
+                    <!-- Slider images -->
+                    <div class="swiper-slide">
+                        <img src="./img/homeCaraousal/all_team.JPG" alt="Slide 1">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/homeCaraousal/DSC_8816.JPG" alt="Slide 2">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/homeCaraousal/sir_hod_dm.jpg" alt="Slide 3">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/homeCaraousal/team_with_beer.jpg" alt="Slide 4">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/homeCaraousal/sir_survey_odisha.jpg" alt="Slide 5">
+                    </div>
+                </div>
+                <!-- Navigation arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <!-- Overlay logo if needed -->
+            <!-- <div class="overlay-logo">
+                <img src="./img/newlogo.png" data-speed="7" class="layer" alt="Logo">
+            </div> -->
         </div>
         <div class="onoffswitch3">
-            <input type="checkbox" name="onoffswitch3" class="onoffswitch3-checkbox" id="myonoffswitch3" checked>
-            <label class="onoffswitch3-label" for="myonoffswitch3">
-                <span class="onoffswitch3-inner">
-                    <span class="onoffswitch3-active">
-                        <marquee class="scroll-text">
-                             <span class="glyphicon glyphicon-forward"></span>
-                             <span class="glyphicon glyphicon-forward"></span>
-                            <span class="glyphicon glyphicon-forward"></span> <a href="https://ahead.iitr.ac.in/event/workshops/gian_trade.html"_blank"> 5-Day GIAN Module on New Trade Models and Methods: With Special Reference to Indian Firms and Role of Gender in Firm Performance - June 30-July 04, 2025: 
-                                Deadline extended to 15th April  </a>
-                            <span class="glyphicon glyphicon-forward"></span>
-                            <span class="glyphicon glyphicon-forward"></span> <a href="https://drive.google.com/file/d/1YPkHoZ6cu4q4Zbk24gzTIsDwVMVeOH4j/view?usp=drive_link"_blank"> 5-Day GIAN Module on Multidimensional Energy Poverty, its Measurement and Economic Development: List of Participants Selected  </a>
-                            <span class="glyphicon glyphicon-forward"></span>
-
-                            <span class="glyphicon glyphicon-forward"></span>
-                            <span class="glyphicon glyphicon-forward"></span> <a href="https://drive.google.com/file/d/1vAjLdPRncxrJJ-YkEALfqi0F6p_mbsFQ/view?usp=sharing"_blank"> ICSSR sponsored Research Methodology Course: List of Participants Recommended  </a>
-                             <span class="glyphicon glyphicon-forward"></span>
-                        </marquee>
-                        <span class="onoffswitch3-switch">LATEST <span class="glyphicon glyphicon-remove"></span></span>
-                    </span>
-                    <span class="onoffswitch3-inactive"><span class="onoffswitch3-switch">LATEST</span></span>
-                </span>
-            </label>
+            <div class="ticker-container">
+                <div class="ticker-label">
+                    <span class="latest-text">Latest</span>
+                </div>
+                <div class="ticker-content">
+                    <div class="ticker-text">
+                        <span class="ticker-item">
+                            <i class="fas fa-angle-double-right"></i>
+                            <a href="https://ahead.iitr.ac.in/event/workshops/gian_trade.html" target="_blank">
+                                5-Day GIAN Module on New Trade Models and Methods: With Special Reference to Indian
+                                Firms and Role of Gender in Firm Performance - June 30-July 04, 2025: Deadline extended
+                                to 15th April
+                            </a>
+                        </span>
+                        <span class="ticker-item">
+                            <i class="fas fa-angle-double-right"></i>
+                            <a href="https://drive.google.com/file/d/1YPkHoZ6cu4q4Zbk24gzTIsDwVMVeOH4j/view?usp=drive_link"
+                                target="_blank">
+                                5-Day GIAN Module on Multidimensional Energy Poverty, its Measurement and Economic
+                                Development: List of Participants Selected
+                            </a>
+                        </span>
+                        <span class="ticker-item">
+                            <i class="fas fa-angle-double-right"></i>
+                            <a href="https://drive.google.com/file/d/1vAjLdPRncxrJJ-YkEALfqi0F6p_mbsFQ/view?usp=sharing"
+                                target="_blank">
+                                ICSSR sponsored Research Methodology Course: List of Participants Recommended
+                            </a>
+                        </span>
+                    </div>
+                </div>
+                <div class="ticker-controls">
+                    <input type="checkbox" name="onoffswitch3" class="onoffswitch3-checkbox" id="myonoffswitch3"
+                        checked>
+                    <label class="toggle-label" for="myonoffswitch3">
+                        <span class="toggle-icon"></span>
+                    </label>
+                    <div class="speed-controls">
+                        <button class="speed-btn active" data-speed="1x">1X</button>
+                        <button class="speed-btn" data-speed="3x">3X</button>
+                        <button class="speed-btn" data-speed="5x">5X</button>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="mentor">
             <div class="mentor-left">
@@ -102,7 +159,10 @@
         </div>
         <div class="about-main">
             <div class="about-main-left">
-                <h1>Latest News</h1>
+                <div class="section-header">
+                    <h1>Latest News</h1>
+                    <span class="see-all" id="see-all-news">See all</span>
+                </div>
                 <div class="scrolling-info">
                     <div id="notice-container">
                         <!-- information will be displayed here -->
@@ -110,11 +170,40 @@
                 </div>
             </div>
             <div class="about-main-right">
-                <h1>Achievements</h1>
+                <div class="section-header">
+                    <h1>Achievements</h1>
+                    <span class="see-all" id="see-all-achievements">See all</span>
+                </div>
                 <div class="scrolling-info">
                     <div id="achieve-container">
                         <!-- information will be displayed here -->
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- News Modal -->
+        <div id="news-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>All Latest News</h2>
+                    <span class="close-modal" id="close-news-modal">&times;</span>
+                </div>
+                <div id="all-news-container">
+                    <!-- All news will be displayed here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Achievements Modal -->
+        <div id="achievements-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>All Achievements</h2>
+                    <span class="close-modal" id="close-achievements-modal">&times;</span>
+                </div>
+                <div id="all-achievements-container">
+                    <!-- All achievements will be displayed here -->
                 </div>
             </div>
         </div>
@@ -200,7 +289,8 @@
         <p>Whether you are a researcher, policymaker, healthcare professional, or student, we invite you to join our
             network. Together, we can advance the field of health economics and contribute to a healthier, more
             equitable world.
-            Stay connected with us through <b>www.iitr.ac.in/ahead</b>, follow us on Twitter and LinkedIn, and explore our
+            Stay connected with us through <b>www.iitr.ac.in/ahead</b>, follow us on Twitter and LinkedIn, and explore
+            our
             blog for the latest insights and updates in health economics research.
         </p>
     </div>
@@ -220,6 +310,7 @@
     <script src="./js/toTop.js"></script>
     <script src="./js/homeNotice.js"></script>
     <script src="./js/homeCaraousal.js"></script>
+    <script src="./js/ticker.js"></script>
     <!-- <script src="/app.js"></script> -->
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -313,6 +404,61 @@
                     progressCircle.style.setProperty("--progress", 1 - progress);
                     progressContent.textContent = `${Math.ceil(time / 1000)}s`;
                 }
+            }
+        });
+        var frontSlider = new Swiper(".frontSlider", {
+            // Basic parameters
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+
+            // Auto-play settings
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+
+            // Fade effect for smooth transitions
+            effect: "fade",
+            fadeEffect: {
+                crossFade: true
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+
+            // Pagination
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+
+            // Responsive breakpoints
+            breakpoints: {
+                // When window width is >= 320px
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 0
+                },
+                // When window width is >= 480px
+                480: {
+                    slidesPerView: 1,
+                    spaceBetween: 0
+                },
+                // When window width is >= 640px
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 0
+                }
+            },
+
+            // Accessibility
+            a11y: {
+                prevSlideMessage: 'Previous slide',
+                nextSlideMessage: 'Next slide',
             }
         });
     </script>

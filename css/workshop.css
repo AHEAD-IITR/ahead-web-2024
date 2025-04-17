@@ -626,7 +626,8 @@ html {
 
 .pdf-top-bar {
     width: 100%;
-    background-color: #4CAF50; /* Change this color for your top bar */
+    background-color: #4CAF50;
+    /* Change this color for your top bar */
     color: white;
     padding: 10px;
     text-align: center;
@@ -635,7 +636,8 @@ html {
 
 .pdf-container {
     width: 100%;
-    height: 100vh;  /* Full height of the viewport */
+    height: 100vh;
+    /* Full height of the viewport */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -643,8 +645,10 @@ html {
 
 /* PDF Viewer (iframe) styles */
 .pdf-viewer {
-    width: 210mm; /* A4 width */
-    height: 297mm; /* A4 height */
+    width: 210mm;
+    /* A4 width */
+    height: 297mm;
+    /* A4 height */
     max-width: 100%;
     max-height: 100%;
     border: 1px solid #ddd;
@@ -665,10 +669,13 @@ html {
         height: 70vh;
     }
 }
+
 .button-container {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center;     /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
     height: 100px;
     /* height: 100px;    Full viewport height */
     margin-top: 50px;
@@ -677,8 +684,10 @@ html {
 /* Styles for the apply button */
 .apply-button {
     display: inline-block;
-    background-color: #3d4785; /* Button background color */
-    color: white; /* Button text color */
+    background-color: #3d4785;
+    /* Button background color */
+    color: white;
+    /* Button text color */
     padding: 12px 20px;
     font-size: 16px;
     text-align: center;
@@ -690,9 +699,11 @@ html {
 
 /* Hover effect for the button */
 .apply-button:hover {
-    background-color: #2a3461; /* Darker shade on hover */
+    background-color: #2a3461;
+    /* Darker shade on hover */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
+
 /* Media Queries for Mobile View */
 /* @media only screen and (max-width:540px){
 
