@@ -291,6 +291,11 @@ img {
     margin-bottom: 50px;
 }
 
+.highlight-content {
+    margin-bottom: 50px;
+    padding: 0 20px;
+}
+
 /* Conference Hero Section */
 .conference-hero {
     position: relative;
@@ -592,7 +597,7 @@ img {
 /* Committees Section */
 .committees {
     background-color: var(--light-gray);
-    padding: var(--section-padding);
+    padding: 20px;
     margin-bottom: 50px;
 }
 
@@ -641,6 +646,7 @@ img {
 }
 
 .venue-map {
+    margin: auto 0 auto 0;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -1023,5 +1029,89 @@ img {
     .swiper-button-prev,
     .swiper-pagination {
         display: none;
+    }
+}
+
+
+.registration-timer {
+    margin: 20px 0 20px 0;
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    animation: pulse 2s infinite;
+}
+
+.registration-timer h4 {
+    margin-bottom: 12px;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.timer-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.timer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timer-item span {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #d14836;
+    margin-bottom: 5px;
+}
+
+.timer-item p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #666;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(209, 72, 54, 0.2);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(209, 72, 54, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(209, 72, 54, 0);
+    }
+}
+
+@media (max-width: 768px) {
+    .timer-container {
+        gap: 10px;
+    }
+
+    .timer-item span {
+        font-size: 1.5rem;
+    }
+}
+
+.two-column-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 30px;
+    list-style-position: inside;
+}
+
+.two-column-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .two-column-list {
+        grid-template-columns: 1fr;
     }
 }

@@ -58,37 +58,43 @@
             </nav>
         </header>
         <div class="front-logo">
-            <!-- Swiper -->
-            <div class="swiper frontSlider">
-                <div class="swiper-wrapper">
-                    <!-- Slider images -->
-                    <div class="swiper-slide">
-                        <img src="./img/homeCaraousal/all_team.JPG" alt="Slide 1">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="./img/homeCaraousal/DSC_8816.JPG" alt="Slide 2">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="./img/homeCaraousal/sir_hod_dm.jpg" alt="Slide 3">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="./img/homeCaraousal/team_with_beer.jpg" alt="Slide 4">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="./img/homeCaraousal/sir_survey_odisha.jpg" alt="Slide 5">
+            <video autoplay loop muted>
+                <source src="./img/back.mp4" type="video/mp4">
+            </video>
+            <div class="front-content">
+                <!-- Left side with logo -->
+                <!-- <div class="logo-side">
+                    <img src="./img/newlogo.png" data-speed="7" class="layer" alt="">
+                </div> -->
+                <!-- Right side with carousel -->
+                <div class="carousel-side">
+                    <div class="swiper frontSwiper">
+                        <div class="swiper-wrapper">
+                            <!-- Add your carousel slides here -->
+                            <div class="swiper-slide">
+                                <img src="./img/caraousal/1.JPG" alt="Slide 1">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/caraousal/2.JPG" alt="Slide 2">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/caraousal/3.JPG" alt="Slide 3">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./img/caraousal/4.JPG" alt="Slide 4">
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <!-- Add navigation buttons -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                        <!-- Optional: Play/Pause button -->
+                        <div class="swiper-autoplay-control">
+                            <i class="fas fa-pause" id="autoplayToggle"></i>
+                        </div>
                     </div>
                 </div>
-                <!-- Navigation arrows -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <!-- Pagination -->
-                <div class="swiper-pagination"></div>
             </div>
-
-            <!-- Overlay logo if needed -->
-            <!-- <div class="overlay-logo">
-                <img src="./img/newlogo.png" data-speed="7" class="layer" alt="Logo">
-            </div> -->
         </div>
         <div class="onoffswitch3">
             <div class="ticker-container">
@@ -307,6 +313,65 @@
     </a>
 
     </div>
+    <script>
+        // Add this to your existing JavaScript file or in a script tag before the closing body tag
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize the front page carousel
+            var frontSwiper = new Swiper(".frontSwiper", {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                effect: "fade",
+                fadeEffect: {
+                    crossFade: true
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                }
+            });
+
+            // Play/Pause functionality
+            const autoplayToggle = document.getElementById('autoplayToggle');
+            let isPlaying = true;
+
+            if (autoplayToggle) {
+                autoplayToggle.addEventListener('click', function () {
+                    if (isPlaying) {
+                        // Pause the autoplay
+                        frontSwiper.autoplay.stop();
+                        autoplayToggle.classList.remove('fa-pause');
+                        autoplayToggle.classList.add('fa-play');
+                    } else {
+                        // Resume the autoplay
+                        frontSwiper.autoplay.start();
+                        autoplayToggle.classList.remove('fa-play');
+                        autoplayToggle.classList.add('fa-pause');
+                    }
+                    isPlaying = !isPlaying;
+                });
+            }
+
+            // Keep the parallax effect for the logo
+            document.addEventListener("mousemove", parallax);
+            function parallax(e) {
+                document.querySelectorAll('.layer').forEach(layer => {
+                    const speed = layer.getAttribute('data-speed');
+                    const x = (window.innerWidth - e.pageX * speed) / 90;
+                    const y = (window.innerHeight - e.pageY * speed) / 90;
+                    layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
+                });
+            }
+        });
+    </script>
     <script src="./js/toTop.js"></script>
     <script src="./js/homeNotice.js"></script>
     <script src="./js/homeCaraousal.js"></script>
