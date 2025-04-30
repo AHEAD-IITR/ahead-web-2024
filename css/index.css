@@ -260,7 +260,7 @@ body {
 .swiper-button-prev,
 .swiper-button-next {
     color: #3D4785;
-    background-color: rgba(255, 255, 255, 0.7);
+    /* background-color: rgba(255, 255, 255, 0.7); */
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -272,7 +272,7 @@ body {
 
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
-    background-color: rgba(255, 255, 255, 0.9);
+    /* background-color: rgba(255, 255, 255, 0.9); */
     transform: scale(1.1);
 }
 
