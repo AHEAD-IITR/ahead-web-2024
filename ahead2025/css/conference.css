@@ -494,6 +494,12 @@ img {
     color: #666;
 }
 
+.strikethrough {
+    text-decoration: line-through !important;
+    text-decoration-color: red !important;
+    color: var(--primary-color);
+}
+
 /* Submission Section */
 .submission {
     background-color: white;
