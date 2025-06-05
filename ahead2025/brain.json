@@ -1,0 +1,284 @@
+{
+  "conference": {
+    "title": "AHEAD 2025 International Conference",
+    "tagline": "Global Disruptions in Healthcare and Development: Challenges, Innovations, and Pathways for the 21st Century",
+    "description": "Annual international hybrid conference hosted at IIT Roorkee, focusing on global challenges and innovations in healthcare and development. Addresses health system inefficiencies, mental health, malnutrition, climate crises, and more. In India, health expenditure is 3.8% of GDP, with 39.4% out-of-pocket and 60% uninsured. Globally, 50% lack essential health services.",
+    "dates": {
+      "workshop": "2025-12-15",
+      "conference": "2025-12-15 to 2025-12-17"
+    },
+    "location": {
+      "name": "IIT Roorkee",
+      "city": "Roorkee",
+      "state": "Uttarakhand",
+      "country": "India",
+      "postal_code": "247667",
+      "address": "H403, IIT Roorkee, Uttarakhand, India - 247667"
+    },
+    "format": "Hybrid",
+    "contact": {
+      "email": "ahead@iitr.ac.in",
+      "phone": "+91-0133228-4884",
+      "hours": "11AM–6PM IST"
+    },
+    "website": "https://ahead.iitr.ac.in/ahead2025",
+    "program_status": "To be confirmed",
+    "committees_info_link": "https://ahead.iitr.ac.in/ahead2025/"
+  },
+  "tracks": [
+    {
+      "name": "Health Risk and Financing",
+      "description": "Focuses on managing health and financial risks, emphasizing universal health coverage.",
+      "sub_themes": [
+        "Equity in Health Financing",
+        "Technology and Health Financing",
+        "Monitoring Health Financing Policies",
+        "Gender and Health Financing",
+        "Health Financing Reforms",
+        "Universal Health Coverage",
+        "Behavioral Economics in Health Insurance"
+      ]
+    },
+    {
+      "name": "Occupational Health",
+      "description": "Addresses worker well-being, productivity, and workplace safety policies.",
+      "sub_themes": [
+        "Economic Burden of Occupational Diseases",
+        "Policy Analysis in Occupational Health",
+        "Sustainable Development",
+        "Mental Health in Workplace",
+        "Informal Sector Health Financing",
+        "Aging Workforce and Gender",
+        "Economic Resilience during Pandemics"
+      ]
+    },
+    {
+      "name": "Climate Change and Environmental Governance",
+      "description": "Explores health risks from climate change and sustainable policies.",
+      "sub_themes": [
+        "Climate Change and Health Equity",
+        "Environmental Governance and Public Health",
+        "Green Transitions and Health Systems",
+        "Air Pollution Health Risks",
+        "Climate Resilience",
+        "Global Institutions in Health Governance",
+        "Behavioral Responses to Climate Risks"
+      ]
+    },
+    {
+      "name": "Health Behavior and Cognition",
+      "description": "Focuses on economic dimensions of health behavior for resilient systems.",
+      "sub_themes": [
+        "Health Behaviors in Aging",
+        "Women's Health Behaviors",
+        "Non-communicable Diseases",
+        "Cognitive Health",
+        "Medical Humanities"
+      ]
+    },
+    {
+      "name": "Gender, Health Inequities, and Care Injustice",
+      "description": "Examines gender inequalities in healthcare and policy reforms.",
+      "sub_themes": [
+        "Gendered Healthcare Disparities",
+        "Gendered Disease Burden",
+        "Gendered Violence and Well-being",
+        "Reproductive Justice",
+        "Climate Change and Gendered Health",
+        "Gender-Sensitive Health Systems"
+      ]
+    },
+    {
+      "name": "Aging, Health, and Wellness",
+      "description": "Addresses economic and social implications of aging.",
+      "sub_themes": [
+        "Healthcare Demands for Older Adults",
+        "Aging-Friendly Policies",
+        "Social Support and ICT in Aging",
+        "Nutrition and Disease Management",
+        "Quality of Life in Aging"
+      ]
+    },
+    {
+      "name": "Efficiency and Performance in Healthcare",
+      "description": "Optimizes healthcare resource use and service delivery.",
+      "sub_themes": [
+        "Performance Measurement",
+        "Health Financing Efficiency",
+        "Resource Allocation",
+        "Productivity Indices",
+        "Equity-Adjusted Efficiency"
+      ]
+    },
+    {
+      "name": "Economics, Nutrition, and Human Capital",
+      "description": "Explores nutrition's role in health and socioeconomic outcomes.",
+      "sub_themes": [
+        "Child Malnutrition in LMICs",
+        "Nutrition Transition",
+        "Double Burden of Malnutrition",
+        "Nutritional Outcomes and Human Capital",
+        "Political Economy of Nutrition"
+      ]
+    },
+    {
+      "name": "Health Systems and Technological Disruptions",
+      "description": "Explores governance and digital transformation in health systems.",
+      "sub_themes": [
+        "Health Governance and Policy",
+        "Health System Responsiveness",
+        "Health Literacy",
+        "Care Injustice",
+        "Technological Disruptions (ICT)",
+        "Health Technology Assessment",
+        "Indian Knowledge System",
+        "Innovation and Property Rights"
+      ]
+    },
+    {
+      "name": "Education, Labour, and Informal Enterprises",
+      "description": "Examines disruptions in education, labor, and informal enterprises.",
+      "sub_themes": [
+        "Labour Market Transformations",
+        "Education Disruptions",
+        "Migration and Development Gaps",
+        "Social Protection and Inequality",
+        "Structural Inequality",
+        "Digital Humanities",
+        "Regional Inequalities (Uttarakhand, North-East)"
+      ]
+    }
+  ],
+  "highlights": [
+    "Best Paper & Poster Awards",
+    "Publications in WOS/Scopus/ABDC Journals or Edited Volumes (TBC)",
+    "Registration Fee Waivers",
+    "Cultural Evening",
+    "Pre-conference Workshop",
+    "Networking Dinner and Social Excursion"
+  ],
+  "important_dates": {
+    "call_for_papers": "2025-04-23",
+    "submission_deadline": "2025-06-15",
+    "acceptance_notification": "2025-06-15",
+    "fee_waiver_submission": "2025-07-01",
+    "fee_waiver_decision": "2025-07-05",
+    "early_bird_registration": "2025-06-15 to 2025-07-30",
+    "late_registration": "2025-07-31 to 2025-11-15",
+    "note": "Final duration may change if unavoidable"
+  },
+  "submission": {
+    "rules": {
+      "max_submissions_per_presenter": 1,
+      "blind_review": true,
+      "format": "PDF",
+      "max_file_size_mb": 10,
+      "required": ["Short abstract (200 words)", "Extended abstract (1500 words) or Full paper (5000-8000 words)"],
+      "preferred": "Full paper (5000-8000 words)",
+      "structure": "Topic, theoretical focus, data, research methods, expected findings",
+      "track_submission": "Must align with a conference track",
+      "poster_sessions": "Papers not selected for oral may be considered for posters"
+    },
+    "types": ["Oral Presentation", "Poster Presentation"],
+    "submission_form": {
+      "personal_details": {
+        "required": [
+          "Name",
+          "Designation (Student/PhD Scholar, Faculty/PDF/Health Professionals, Industry, Independent Researcher/Others)",
+          "Institution",
+          "Nationality",
+          "Gender (Male, Female, Other, Do not want to disclose)"
+        ],
+        "optional": ["Prefix", "First Name", "Last Name"]
+      },
+      "submission_details": {
+        "required": [
+          "Abstract Submission File (PDF)",
+          "Extended Abstract/Full Paper (PDF)",
+          "Email",
+          "Password",
+          "Confirm Password"
+        ],
+        "optional": ["Tracks (Dropdown)", "Title of the Paper", "Presentation Type (Oral/Poster)"]
+      }
+    },
+    "submission_link": "https://ahead.iitr.ac.in/ahead2025/"
+  },
+  "registration": {
+    "portal": "IIT Roorkee Conference Management Portal",
+    "portal_steps": [
+      "Visit https://ahead.iitr.ac.in/ahead2025 and navigate to registration.",
+      "Create login ID on the portal.",
+      "Fill personal and institutional details.",
+      "Upload abstract and paper (PDF).",
+      "Choose presentation type and track.",
+      "Track submission, registration, and fee waiver status.",
+      "Download acceptance letters and communications."
+    ],
+    "portal_note": "Only registered users can submit papers, check status, and attend.",
+    "fees": {
+      "early_bird": {
+        "Indian": "INR 3000",
+        "Indian_Student": "INR 2000",
+        "LMIC": "$100",
+        "LMIC_Student": "$50",
+        "Foreign": "$100",
+        "Foreign_Student": "$50"
+      },
+      "early_bird_with_accommodation": {
+        "Indian": "INR 4500",
+        "Indian_Student": "INR 3500",
+        "LMIC": "$200",
+        "LMIC_Student": "$150",
+        "Foreign": "$200",
+        "Foreign_Student": "$150"
+      },
+      "late_fee": {
+        "Indian": "INR 4500",
+        "Indian_Student": "INR 2500",
+        "LMIC": "$150",
+        "LMIC_Student": "$100",
+        "Foreign": "$300",
+        "Foreign_Student": "$100"
+      },
+      "online_fee": {
+        "Indian": "INR 1000",
+        "Indian_Student": "INR 500",
+        "LMIC": "$50",
+        "LMIC_Student": "$20",
+        "Foreign": "$150",
+        "Foreign_Student": "$20"
+      },
+      "gala_dinner": "$10 (optional)",
+      "gst": "Extra as applicable"
+    },
+    "notes": [
+      "Early bird includes conference kit and food.",
+      "Accommodation includes breakfast, lunch, snacks, dinner.",
+      "Each presenter must register separately.",
+      "Online participants access all virtual sessions and materials."
+    ],
+    "scholarships": {
+      "eligibility": "PhD students from India/LMICs without fellowships/scholarships",
+      "requirements": "Proof letter from HoD/Dean/Registrar/Director",
+      "submission_deadline": "2025-07-01",
+      "decision_date": "2025-07-05"
+    }
+  },
+  "additional_info": {
+    "about_roorkee": "IIT Roorkee, formerly Roorkee Engineering College, is a premier institution for engineering and research.",
+    "health_statistics": {
+      "india": {
+        "health_expenditure_gdp": "3.8%",
+        "out_of_pocket_expenditure": "39.4%",
+        "uninsured_population": "60%"
+      },
+      "global": "50% lack access to essential health services"
+    },
+    "website_features": {
+      "front_page": "AHEAD Lab Logo, countdown timer to 2025-12-15",
+      "buildings": ["IIT Roorkee Main Building", "HSS Building"],
+      "registration_cta": "Prominent call-to-action for registration"
+    }
+  }
+} 
