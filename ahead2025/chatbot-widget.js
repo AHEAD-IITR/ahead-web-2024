@@ -8,9 +8,9 @@
     position: "bottom-left", // bottom-right, bottom-left, top-right, top-left
     primaryColor: "#3D4785", // Primary theme color
     buttonSize: "60px",
-    widgetTitle: "Ahead Saathi!",
+    widgetTitle: "AHEAD Saathi!",
     welcomeMessage:
-      "Hey there👋<br> I'm Ahead Saathi, your AI friend. How can I help you today?",
+      "Hey there👋<br> I'm AHEAD Saathi, your AI friend. How can I help you today?",
     placeholder: "Message...",
     zIndex: 9999,
   };
