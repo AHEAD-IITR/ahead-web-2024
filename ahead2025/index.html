@@ -126,7 +126,7 @@
                         <h3>IIT Roorkee, India | December 15-17, 2025</h3>
                     </div>
                     <div class="registration-timer">
-                        <h4>Time Remaining for Submission:</h4>
+                        <h4>Time Remaining for Early Bird Registration:</h4>
                         <div class="timer-container">
                             <div class="timer-item">
                                 <span id="reg-days">00</span>
@@ -536,25 +536,26 @@
     <script>
         // Early Bird Registration Countdown
         function registrationCountdown() {
-            const earlyBirdEndDate = new Date('June 20, 2025 23:59:59').getTime();
+            const earlyBirdEndDate = new Date('July 30, 2025 23:59:59').getTime();
             const now = new Date().getTime();
             const distance = earlyBirdEndDate - now;
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            const d = Math.max(0, distance);
+            const days = Math.floor(d / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((d % (1000 * 60)) / 1000);
 
             document.getElementById('reg-days').textContent = days.toString().padStart(2, '0');
             document.getElementById('reg-hours').textContent = hours.toString().padStart(2, '0');
             document.getElementById('reg-minutes').textContent = minutes.toString().padStart(2, '0');
             document.getElementById('reg-seconds').textContent = seconds.toString().padStart(2, '0');
 
-            if (distance < 0) {
-                clearInterval(regCountdownInterval);
-                document.querySelector('.registration-timer h4').textContent = 'Late Registration Period';
-                document.querySelector('.timer-container').innerHTML = '<p>Early bird registration has ended. Late registration is now available until November 15, 2025.</p>';
-            }
+            // if (distance < 0) {
+            //     clearInterval(regCountdownInterval);
+            //     document.querySelector('.registration-timer h4').textContent = 'Late Registration Period';
+            //     document.querySelector('.timer-container').innerHTML = '<p>Early bird registration has ended. Late registration is now available until November 15, 2025.</p>';
+            // }
         }
 
         const regCountdownInterval = setInterval(registrationCountdown, 1000);
