@@ -19,25 +19,6 @@
         "link":"./team/mukeshKumar.html"
     },
     {
-        "Name": "Milind Kumar Yadav",
-        "pp": "./img/team/milind_kumar_yadav.jpeg",
-        "cv": "https://drive.google.com/open?id=1SbVA2Ye--GN6YHsXGcy-R4E2i83kw0Ip",
-        "resi": "Health Economics and Health Policy",
-        "eb":"M.Phil. (Economics): Central University of Haryana \n M.A. (Economics): University of Allahabad",
-        "sb": "Milind is a Senior Research Fellow in the Department of Humanities and Social Sciences at IIT Roorkee. His research focus revolves around health insurance in India, as evidenced by his ongoing PhD thesis work. With a Master of Philosophy degree in Economics, Milind brings a strong academic background to his research endeavors. His experience as a field investigator on an ICSSR project and as a Teaching Assistant in the NPTEL project 'Exploring Survey Data on Health Care' showcases his practical involvement in research initiatives. Notably, Milind's academic achievements include qualifying the NET-JRF exam conducted by UGC. Milind has showcased his research acumen by presenting numerous papers in both national and international conferences. His contributions to the academic community extend to publications in esteemed international journals and newspapers.",
-        "pj": "Yadav MK, Mohanty PC. Determinants of choice of health insurance: empirical evidence from responses of Indian households. International Journal of Health Planning and Management. (2021) 36:1809–29. doi: 10.1002/hpm.3267",
-        "pn": "Universal health coverage: India needs big push published by 'The Pioneer'",
-        "con": 
-            "An Assessment of Pradhan Mantri Jan Arogya Yojana: Evidence from the Field presented at the Global Conclave on Sustainable Development Goals (SDGs): Progress, Challenges and Way Forward organised by the Department of Economics, Jamia Millia Islamia during 6-7, March, 2024. , \n Towards Distributive Equity of Health Insurance in India: Evidence from Nationally Representative Survey presented at the 6th SANEM Annual Economists’ Conference 2023, Dhaka, Bangladesh, \n XIV, International Conference on Economics (EconWorld 2023@Athens) held in Athens, Greece on 17-19 November 2022"
-        ,
-        "email": "mkumaryadav@hs.iitr.ac.in",
-        "oid": "0000-0001-9250-3104",
-        "rg": "https://www.researchgate.net/profile/Milind-Yadav-2",
-        "ta": "https://twitter.com/milzmuzing",
-        "la": "https://www.linkedin.com/in/milind-k-yadav-205643159/",
-        "link":"./team/milindKumarYadav.html"
-    },
-    {
         "Name": "Fahimuddin Ahmad",
         "pp": "./img/team/fahimuddin_ahmad.jpg",
         "cv": "https://drive.google.com/open?id=1Lz4r-AvYezi3SHZUdRqIHHNcyEGVNyOM",
@@ -266,3 +247,4 @@
         "link":"./team/nikita.html"
       }
 ]
+
