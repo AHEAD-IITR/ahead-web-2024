@@ -1,5 +1,26 @@
 [
     {
+        "name": "5-day GIAN Course on New Trade Models and Methods: With Special Reference to Indian Firms and Role of Gender in Firm Performance",
+        "date": "30th June – 4th July, 2025",
+        "location": "Department of HSS, IIT Roorkee",
+        "instructor": "Prof. Pavel Chakraborty and Prof. Pratap C. Mohanty",
+        "link": "./workshops/gian_trade.html"
+    },
+    {
+        "name": "5-day GIAN Course on Multidimensional Energy Poverty, its Measurement and Economic Development",
+        "date": "26th – 30th May, 2025",
+        "location": "Department of HSS, IIT Roorkee",
+        "instructor": "Prof. Suman Seth and Prof. Pratap C. Mohanty",
+        "link": "./workshops/gian_2025.html"
+    },
+    {
+        "name": "10-day Research Methodology Course",
+        "date": "12th – 21st May, 2025",
+        "location": "Department of HSS, IIT Roorkee",
+        "instructor": "Pratap C. Mohanty, Manish K Asthana and other experts from IIM Calcutta, IIT Kanpur, JNU, Shiv Nadar University, IIT Roorkee, Jamia Millia Islamia, IIM Kashipur.",
+        "link": "./workshops/10dayRMWorkshop.html"
+    },
+    {
         "name": "5-day Winter School on Globalization, Development, and Gender – Female Leadership, Organisational Structure, and Performance",
         "date": "13th – 17th January, 2025",
         "location": "Department of HSS, IIT Roorkee",
@@ -14,3 +35,4 @@
         "link": "#"
     }
 ]
+
