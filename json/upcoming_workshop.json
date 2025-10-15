@@ -12,9 +12,10 @@
         "date": "15th – 19th January, 2026",
         "location": "Department of HSS, IIT Roorkee",
         "instructor": "Prof. Manish K Asthana and Prof. Pratap C Mohanty",
-        "link": "../workshops/healthworkshop.html"
+        "link": "./workshops/healthworkshop.html"
     }
 ]
+
 
 
 
