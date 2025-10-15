@@ -24,11 +24,12 @@
         "gslink": "https://scholar.google.com/citations?user=WlDIbxgAAAAJ&hl=en&oi=sra"
     },
     {
-        "Name": "Milind Kumar Yadav",
+        "name": "Dr. Milind Kumar Yadav",
         "pp": "./img/team/milind_kumar_yadav.jpeg",
-        "webp":"https://sites.google.com/view/mkumaryadav",
+        "webp": "https://sites.google.com/view/mkumaryadav",
         "gslink": "https://scholar.google.com/citations?user=dvJcLVQAAAAJ&hl=en"
-    },
+    }
 ]
+
 
 
