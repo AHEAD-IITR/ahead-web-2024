@@ -26,5 +26,13 @@
         "location": "Department of HSS, IIT Roorkee",
         "instructor": "Pratap C. Mohanty",
         "link": "https://ahead.iitr.ac.in/ahead2025/"
+    },
+    {
+        "name": "5-day Capacity Building Workshop on Large-scale Data Analytics in Health and Well-being ",
+        "date": "15th – 19th January, 2026",
+        "location": "Department of HSS, IIT Roorkee",
+        "instructor": "Prof. Manish K Ashthana and Prof. Pratap C Mohanty",
+        "link": "./event/workshops/healthworkshop.html"
     }
 ]
+
