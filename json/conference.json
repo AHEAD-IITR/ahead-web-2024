@@ -1,4 +1,60 @@
 [
+{
+  "paper_type" : "Assessing Green Productivity Dynamics in the Indian Pharmaceutical Industry Using GMLI",
+  "conference" : "2025 Annual Conference of the Scottish Economic Society",
+  "organizer" : "University of Glasgow",
+  "time" : 2025,
+  "presenter" : "Bharti, Soma; Kamal Sharma; PC Mohanty"
+},
+{
+  "paper_type" : "Silicosis Awareness and Policy in Indian Parliament: A Structural Topic Modeling Analysis",
+  "conference" : "3rd MIDS Doctoral Colloquium on Economics and Development Studies",
+  "organizer" : "MIDS, Chennai",
+  "time" : 2025,
+  "presenter" : "Pal, Akash; PC Mohanty"
+},
+{
+  "paper_type" : "Silicosis Awareness and Policy in Indian Parliament: A Text Data Analysis",
+  "conference" : "8th SANEM Annual Economists’ Conference (SAEC) 2025",
+  "organizer" : "SANEM, Bangladesh",
+  "time" : 2025,
+  "presenter" : "Pal, Akash; PC Mohanty"
+},
+{
+  "paper_type" : "Do Indian Parliamentary Debates Oversight Silicosis? Text Analysis using Structural Topic Model",
+  "conference" : "CoRe-2025",
+  "organizer" : "IGIDR, Mumbai",
+  "time" : 2025,
+  "presenter" : "Pal, Akash; PC Mohanty"
+},
+{
+  "paper_type" : "Multidimensional Energy Poverty, Vulnerable Population and the Polycrisis World: Insights from Households of India",
+  "conference" : "Development Studies Association (DSA2025) Conference",
+  "organizer" : "Development Studies Association",
+  "time" : 2025,
+  "presenter" : "P.M. Bajpayee; P.C. Mohanty"
+},
+{
+  "paper_type" : "Silicosis Awareness and Policy in Indian Parliament: A Text Data Analysis",
+  "conference" : "IMRC-2025",
+  "organizer" : "IIM Ahmedabad",
+  "time" : 2025,
+  "presenter" : "Pal, Akash; PC Mohanty"
+},
+{
+  "paper_type" : "Silicosis Awareness and Policy in Indian Parliament: A Text Data Analysis",
+  "conference" : "national conference on changing world of work",
+  "organizer" : "VVGNLI, Noida",
+  "time" : 2025,
+  "presenter" : "Pal, Akash; PC Mohanty"
+},
+{
+  "paper_type" : "Analysing the Incidence, Intensity and Determinants of Multidimensional Energy Poverty with a Digital Dimension",
+  "conference" : "OPHI Mini-Conference on Multidimensional Poverty Measurement and Analysis",
+  "organizer" : "Oxford Poverty & Human Development Initiative, University of Oxford",
+  "time" : 2025,
+  "presenter" : "P.M. Bajpayee; P.C. Mohanty"
+},
     {
         "paper_type": "Quantifying the Effect of Catastrophic Health Expenditure among Older Adults in India: A Multilevel Analysis",
         "conference": "7th Annual South Asia conference",
@@ -119,3 +175,4 @@
         "presenter": "R. Tomar; P.C. Mohanty"
     }
 ]
+
