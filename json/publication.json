@@ -1,5 +1,21 @@
 [
     {
+  "type" : "Article",
+  "journal" : "Energy Research Letters (Asia-Pacific Applied Economics Association)",
+  "title" : "Does Revisiting Multidimensional Energy Poverty Measurement Index Address Universal Energy Access",
+  "author" : "P. M. Bajpayee, P. C. Mohanty",
+  "year" : 2025,
+  "doi" : "10.46557/001c.127523"
+},
+{
+  "type" : "Article",
+  "journal" : "Discover Public Health (Springer Nature)",
+  "title" : "Exploring the Tangible and Intangible Cost Dimensions in Global Noncommunicable Disease Research Using Systematic Content Analysis",
+  "author" : "P. Taneja, P. M. Bajpayee, R. Tomar, P. C. Mohanty",
+  "year" : 2025,
+  "doi" : "10.1186/s12982-025-00964-1"
+},
+    {
         "type": "Article",
         "journal": "Journal: Millennial Asia | Sage",
         "title": "Do Automation and Robotization Affect Occupation in India? An Empirical Study",
@@ -282,3 +298,4 @@
 ]
     
        
+
