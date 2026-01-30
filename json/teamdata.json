@@ -1,24 +1,5 @@
 [
     {
-        "Name": "Mukesh Kumar",
-        "pp": "./img/team/mukesh_kumar.jpeg",
-        "cv": "https://drive.google.com/open?id=13uy5Gz0KCjeLXGQejh4bYL4RJ9oJyvOp",
-        "resi": "Primary: Development Economics; Secondary: Child nutrition and human capital, Inequality",
-        "eb":
-            "Ph.D. in Economics: Indian Institute of Technology Roorkee \n Ph.D. (Course work): Kurukshetra University, Kurukshetra \n Masters in Economics: Choudhary Devi Lal University, Sirsa \n Bachelor of Commerce: Kurukshetra University, Kurukshetra",
-
-        "sb": "I am a PhD candidate in Economics at the Department of Humanities and Social Sciences, Indian Institute of Technology Roorkee, Uttarakhand, India. My research interest is applied microeconomics, particularly in the areas of child poverty, nutrition, and educational outcomes in developing countries. My work is published in the Journal of Nutrition Science, PLoS ONE, and EPW. Currently, I am working on longitudinal data to understand how early-age nutrition shapes later-age nutrition and (non)cognitive outcomes. I have an M.A. in Economics from Chaudhary Devi Lal University Sirsa, Haryana.",
-        "pj": "NA",
-        "pn": "NA",
-        "con": "NA",
-        "email": "mkumar@hs.iitr.ac.in",
-        "oid": "NA",
-        "rg": "NA",
-        "ta": "https://x.com/mukeshpunia_",
-        "la": "https://www.linkedin.com/in/mukeshpoonia/",
-        "link":"./team/mukeshKumar.html"
-    },
-    {
         "Name": "Fahimuddin Ahmad",
         "pp": "./img/team/fahimuddin_ahmad.jpg",
         "cv": "https://drive.google.com/open?id=1Lz4r-AvYezi3SHZUdRqIHHNcyEGVNyOM",
@@ -247,4 +228,5 @@
         "link":"./team/nikita.html"
       }
 ]
+
 
