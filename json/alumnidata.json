@@ -28,8 +28,15 @@
         "pp": "./img/team/milind_kumar_yadav.jpeg",
         "webp": "https://sites.google.com/view/mkumaryadav",
         "gslink": "https://scholar.google.com/citations?user=dvJcLVQAAAAJ&hl=en"
+    },
+    {
+        "name": "Dr. Mukesh Kumar",
+        "pp": "./img/team/mukesh_kumar.jpeg",
+        "webp": "./team/mukeshKumar.html",
+        "gslink": "https://scholar.google.com/"
     }
 ]
+
 
 
 
