@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AHEAD 2025 International Conference - Registration</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <div class="container my-5">
+    <div class="text-center mb-4">
+      <img src="https://s3.ap-south-1.amazonaws.com/octopods3/production/feesheader/ac35eb814e9b4c0adc2610a559528ffb.jpg" alt="Conference Logo" style="height: 80px;">
+      <h2 class="mt-3">IIT Roorkee</h2>
+      <p>H403, HSS Department, IIT Roorkee, Uttarakhand, India - 247667</p>
+      <p>
+        Tel: <a href="tel:+9101332284884">+91-01332-284884</a> (11AM – 6PM, IST) | 
+        Email: <a href="mailto:ahead@iitr.ac.in">ahead@iitr.ac.in</a> | 
+        Web: <a href="https://ahead.iitr.ac.in/ahead2025/">https://ahead.iitr.ac.in/ahead2025/</a>
+      </p>
+    </div>
+
+    <ul class="nav nav-tabs mb-4">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Registration Form</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Payment Receipts</a>
+      </li>
+    </ul>
+
+    <div class="card p-4">
+      <h5 class="card-title mb-4 text-center">Fee Payment for AHEAD 2025 International Conference</h5>
+      <form>
+        <div class="row mb-3">
+          <div class="col">
+            <label for="name" class="form-label">Name*</label>
+            <input id="name" type="text" class="form-control" placeholder="Enter your name" required>
+          </div>
+          <div class="col">
+            <label for="gender" class="form-label">Gender*</label>
+            <select id="gender" class="form-control" required>
+              <option selected disabled>Select Gender</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col">
+            <label for="contact" class="form-label">Contact Number*</label>
+            <input id="contact" type="text" class="form-control" placeholder="Enter your contact number" required>
+          </div>
+          <div class="col">
+            <label for="email" class="form-label">Email Address*</label>
+            <input id="email" type="email" class="form-control" placeholder="Enter your email address" required>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col">
+            <label for="affiliation" class="form-label">Affiliation*</label>
+            <input id="affiliation" type="text" class="form-control" placeholder="Enter your affiliation" required>
+          </div>
+          <div class="col">
+            <label for="designation" class="form-label">Designation*</label>
+            <input id="designation" type="text" class="form-control" placeholder="Enter your designation" required>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="abstract" class="form-label">Abstract Title*</label>
+          <input id="abstract" type="text" class="form-control" placeholder="Enter your abstract title" required>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col">
+            <label for="participationCategory" class="form-label">Participation Category*</label>
+            <select id="participationCategory" class="form-control" required onchange="updateFeeTypes()">
+              <option selected disabled>Select Participation Category</option>
+              <option>Indian Nationals</option>
+              <option>Indian Students</option>
+              <option>Foreign Nationals</option>
+              <option>Foreign Students</option>
+              <option>LMIC Nationals</option>
+              <option>LMIC Students</option>
+            </select>
+          </div>
+          <div class="col">
+            <label for="feeType" class="form-label">Fee Type*</label>
+            <select id="feeType" class="form-control" required onchange="updateAmount()">
+              <option selected disabled>Select Fee Type</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="amount" class="form-label">Amount</label>
+          <input id="amount" type="text" class="form-control" placeholder="Amount" readonly>
+          <small class="form-text text-muted mt-1">*Fee includes GST</small>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <button type="reset" class="btn btn-warning">Cancel</button>
+          <button type="submit" class="btn btn-primary">Pay</button>
+        </div>
+      </form>
+    </div>
+  </div>
+    <script src="chatbot-widget.js"></script>
+  <script>
+    const fees = {
+      "Indian Nationals": {
+        "Early Bird Charges": 3540,
+        "Early Bird Charges with Accommodation": 7670,
+        "Late Charges": 5310,
+        "Online": 1180
+      },
+      "Indian Students": {
+        "Early Bird Charges": 2360,
+        "Early Bird Charges with Accommodation": 5310,
+        "Late Charges": 2950,
+        "Online": 590
+      },
+      "Foreign Nationals": {
+        "Early Bird Charges": 236,
+        "Early Bird Charges with Accommodation": 354,
+        "Late Charges": 354,
+        "Online": 177
+      },
+      "Foreign Students": {
+        "Early Bird Charges": 118,
+        "Early Bird Charges with Accommodation": 236,
+        "Late Charges": 177,
+        "Online": 59
+      },
+      "LMIC Nationals": {
+        "Early Bird Charges": 118,
+        "Early Bird Charges with Accommodation": 236,
+        "Late Charges": 177,
+        "Online": 59
+      },
+      "LMIC Students": {
+        "Early Bird Charges": 59,
+        "Early Bird Charges with Accommodation": 177,
+        "Late Charges": 118,
+        "Online": 23.6
+      }
+    };
+
+    function updateFeeTypes() {
+      const category = document.getElementById('participationCategory').value;
+      const feeTypeSelect = document.getElementById('feeType');
+      feeTypeSelect.innerHTML = '<option selected disabled>Select Fee Type</option>';
+
+      if (fees[category]) {
+        for (const feeType in fees[category]) {
+          const option = document.createElement('option');
+          option.value = feeType;
+          option.textContent = feeType;
+          feeTypeSelect.appendChild(option);
+        }
+      }
+      document.getElementById('amount').value = '';
+    }
+
+    function updateAmount() {
+      const category = document.getElementById('participationCategory').value;
+      const feeType = document.getElementById('feeType').value;
+      const amountInput = document.getElementById('amount');
+
+      if (fees[category] && fees[category][feeType] !== undefined) {
+        let amount = fees[category][feeType];
+        if (category.includes("Indian")) {
+          amountInput.value = `₹${amount}`;
+        } else {
+          amountInput.value = `$${amount}`;
+        }
+      } else {
+        amountInput.value = '';
+      }
+    }
+  </script>
+
+</body>
+</html>

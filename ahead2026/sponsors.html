@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    
+    <!-- Preconnect for Google Fonts (Massive speed improvement) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- External CSS Libraries (Switched to Cloudflare CDN to avoid tracking prevention blocks) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link rel="icon" href="./img/favicon.png" type="image/png" />
+    <title>Sponsors & Partners | AHEAD International Conference 2026</title>
+
+    <style>
+        /* Base Styles & Theme */
+        :root {
+            --primary-color: #3D4785;
+            --secondary-color: #6ca6d6;
+            --light-bg: #fbfbfb;
+            --text-color: #333;
+            --text-muted: #555;
+            --heading-color: #3D4785;
+            --light-gray: #f5f5f5;
+            --border-color: #e0e0e0;
+            --section-padding: 70px 0;
+            --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --card-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            text-decoration: none;
+        }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #FFF; }
+        ::-webkit-scrollbar-thumb { background: #3D4785; border-radius: 10px; }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+        html { scroll-behavior: smooth; }
+
+        /* Lightning Fast CSS Preloader */
+        #preLoader {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #ffffff;
+            z-index: 100000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.4s ease;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--light-gray);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        .main {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* =========================================
+           UPDATED HEADER & NAVIGATION CSS (WITH DROPDOWNS)
+           ========================================= */
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #3D4785;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .sticky-header nav {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            height: 100%;
+        }
+
+        .logo-main { display: flex; gap: 15px; align-items: center; height: 100%; }
+        .logo a { display: flex; align-items: center; height: 100%; text-decoration: none; }
+        .logo img { height: 50px; width: auto; object-fit: contain; }
+        .logo_ahead img {height: 70px; width: auto;}
+
+        .menu {
+            display: flex; list-style: none; margin: 0; padding: 0; gap: 1.5vw; align-items: center;
+        }
+
+        .menu > li {
+            position: relative; padding: 0; margin: 0; height: 100%; display: flex; align-items: center;
+        }
+
+        .menu > li > a {
+            display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
+            font-family: 'Inter', sans-serif; font-weight: 500; font-size: 13.5px;
+            text-transform: uppercase; letter-spacing: 0.5px; color: #ffffff;
+            padding: 5px 0; position: relative; transition: color 0.3s ease;
+        }
+
+        .menu > li > a i.fa-caret-down { font-size: 11px; transition: transform 0.3s ease; }
+        .menu > li:hover > a, .menu > li > a.active { color: #e0e7ff; }
+
+        .menu > li > a::after {
+            content: ""; position: absolute; bottom: 0; left: 0; width: 0; height: 2px;
+            background-color: #e0e7ff; transition: width 0.3s ease;
+        }
+
+        .menu > li:not(.login-btn):hover > a::after,
+        .menu > li:not(.login-btn) > a.active::after { width: 100%; }
+
+        /* DROPDOWN MENU STYLES */
+        .dropdown {
+            position: absolute; top: 100%; left: 0; background-color: #ffffff;
+            min-width: 240px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 0 0 8px 8px; opacity: 0; visibility: hidden;
+            transform: translateY(10px); transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            list-style: none; padding: 10px 0; border-top: 3px solid var(--secondary-color);
+        }
+
+        .menu > li:hover .dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown li { padding: 0; margin: 0; width: 100%; }
+        .dropdown li a {
+            display: block; padding: 12px 25px; color: var(--text-color);
+            font-family: 'Inter', sans-serif; font-size: 13.5px; font-weight: 500;
+            text-transform: capitalize; letter-spacing: 0; transition: all 0.2s ease; position: relative;
+        }
+        .dropdown li a:hover { background-color: rgba(245, 245, 245, 1); color: var(--primary-color); padding-left: 30px; }
+
+        /* Login Button Styles */
+        .login-btn { margin-left: 10px; }
+        .login-btn a {
+            display: inline-flex !important; align-items: center; gap: 8px;
+            background: #ffffff !important; color: #3D4785 !important;
+            padding: 8px 22px !important; border-radius: 50px; font-size: 13px !important;
+            font-weight: 600 !important; text-transform: uppercase; transition: all 0.3s ease !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .login-btn a:hover { background: #FFD54F !important; color: #222 !important; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,0.25); }
+        .login-btn a::after { display: none !important; }
+        .login-btn i { font-size: 16px; }
+
+        .menu-btn { cursor: pointer; font-size: 1.5rem; color: white; display: none; }
+        #check { display: none; }
+
+        /* Desktop-only hover caret rotation (kept OUT of mobile so tap doesn't fake-rotate it) */
+        @media (min-width: 1101px) {
+            .menu > li:hover > a i.fa-caret-down { transform: rotate(180deg); }
+        }
+
+        /* Header Responsive Breakpoints */
+        @media (max-width: 1250px) {
+            .menu { gap: 1vw; }
+            .menu > li > a { font-size: 12px; letter-spacing: 0.3px; }
+            .sticky-header nav { padding: 0 15px; }
+        }
+
+        @media (max-width: 1100px) {
+            .menu {
+                flex-direction: column; align-items: flex-start; justify-content: flex-start;
+                width: 300px; height: 100vh; position: fixed; top: 0; right: -100%;
+                background-color: #3D4785; box-shadow: -5px 0 15px rgba(0,0,0,0.2); z-index: 1000;
+                transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1); padding: 80px 20px 30px 20px; overflow-y: auto;
+            }
+            .menu > li { width: 100%; flex-direction: column; align-items: flex-start; height: auto; margin: 5px 0; }
+            .menu > li > a { font-size: 16px; display: flex; justify-content: space-between; width: 100%; padding: 12px 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+            .menu > li > a::after { display: none; } 
+            
+            /* Clean Mobile Accordion Logic (driven by JS toggling the `.open` class) */
+            .dropdown {
+                position: static; width: 100%; background-color: transparent; box-shadow: none; border-radius: 0;
+                border-top: none; padding: 0; opacity: 1; visibility: visible; transform: none; max-height: 0;
+                overflow: hidden; transition: max-height 0.3s ease-out;
+            }
+            /* NOTE: no more `:hover .dropdown` rule here — mobile taps triggered a "sticky hover"
+               state that fought with the JS-driven `.open` class. Only `.open` controls it now. */
+            .menu > li.open .dropdown { max-height: 500px; }
+            .menu > li.open > a i.fa-caret-down { transform: rotate(180deg); }
+            
+
+            .dropdown li a { color: #e0e0e0; padding: 10px 10px 10px 30px; font-size: 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+            .dropdown li a:hover { background-color: rgba(255, 255, 255, 0.1); color: #ffffff; padding-left: 35px; }
+
+            /* Single consolidated hamburger/close button — always sits in the same
+               fixed spot so it never overlaps itself or duplicates on screen. */
+            .menu-btn {
+                display: block;
+                position: fixed;
+                top: 28px;
+                right: 25px;
+                font-size: 1.6rem;
+                z-index: 1100; /* above the sliding .menu panel (z-index 1000) */
+            }
+            #check:checked ~ .menu { right: 0; }
+            /* Swap bars -> times icon purely via CSS when the menu is open */
+            #check:checked ~ .menu-btn i::before { content: "\f00d"; }
+            
+            .login-btn { margin-left: 0; margin-top: 15px !important; display: flex; width: 100%; justify-content: center; align-items: center; }
+            .login-btn a { justify-content: center; width: auto !important; border-bottom: none !important; }
+        }
+
+        /* =========================================
+           END UPDATED HEADER CSS 
+           ========================================= */
+
+        /* --------------------------------------
+           COMMON COMPONENTS
+        -------------------------------------- */
+        .container {
+            max-width: 1100px; 
+            margin: 0 auto;
+            padding: 0 20px;
+            flex: 1;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--heading-color);
+            font-weight: 700;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 12px;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-transform: capitalize;
+            border: 1px solid transparent;
+        }
+
+        .primary-btn {
+            background-color: var(--primary-color);
+            color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(61, 71, 133, 0.2);
+        }
+
+        .primary-btn:hover {
+            background-color: #2a3160;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(61, 71, 133, 0.3);
+        }
+
+        .secondary-btn {
+            background-color: var(--secondary-color);
+            color: #ffffff !important;
+        }
+
+        .secondary-btn:hover {
+            background-color: #558dbd;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color) !important;
+            background: transparent;
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: #ffffff !important;
+        }
+
+        .gray-bg { background-color: var(--light-gray); }
+
+        /* --------------------------------------
+           PAGE HERO SECTION
+           -------------------------------------- */
+        .page-hero {
+            background-color: #2a2d47;
+            background-image: linear-gradient(rgba(42, 45, 71, 0.85), rgba(42, 45, 71, 0.85)), url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0 80px;
+            text-align: center;
+            color: white;
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .page-hero h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .page-hero p {
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 25px;
+            line-height: 1.6;
+        }
+
+        .breadcrumb {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: #bbb;
+        }
+
+        .breadcrumb li a {
+            color: var(--secondary-color);
+            transition: 0.3s;
+        }
+        
+        .breadcrumb li a:hover { color: white; }
+
+        /* --------------------------------------
+           WELCOME / APPRECIATION SECTION
+           -------------------------------------- */
+        .intro-section {
+            padding-bottom: 40px;
+            text-align: center;
+        }
+        .intro-section p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* --------------------------------------
+           FEATURED / TITLE SPONSOR
+           -------------------------------------- */
+        .featured-sponsor {
+            margin-bottom: var(--section-padding);
+        }
+
+        .featured-sponsor-card {
+            display: flex;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+            border-top: 5px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .featured-sponsor-card:hover {
+            box-shadow: var(--card-shadow-hover);
+            transform: translateY(-3px);
+        }
+
+        .featured-logo-col {
+            flex: 0 0 400px;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .featured-logo-col img {
+            max-width: 100%;
+            max-height: 200px;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .featured-sponsor-card:hover .featured-logo-col img {
+            transform: scale(1.05);
+        }
+
+        .featured-content-col {
+            padding: 50px 40px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .sponsor-badge {
+            display: inline-block;
+            background: rgba(108, 166, 214, 0.15);
+            color: var(--primary-color);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+            align-self: flex-start;
+        }
+
+        .featured-content-col h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .featured-content-col p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .featured-actions {
+            margin-top: auto;
+        }
+
+        @media (max-width: 850px) {
+            .featured-sponsor-card { flex-direction: column; }
+            .featured-logo-col { border-right: none; border-bottom: 1px solid var(--border-color); padding: 50px 20px; flex: none; height: 250px;}
+        }
+
+        /* --------------------------------------
+           SPONSOR GRIDS (Platinum, Gold, etc)
+           -------------------------------------- */
+        .sponsors-category {
+            padding: 30px 0 60px;
+        }
+
+        .category-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .category-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .sponsor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .sponsor-card {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .sponsor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .sponsor-img-wrapper {
+            height: 180px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sponsor-img-wrapper img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .sponsor-card:hover .sponsor-img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .sponsor-info {
+            padding: 25px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .sponsor-name {
+            font-size: 1.25rem;
+            color: var(--heading-color);
+            margin-bottom: 5px;
+        }
+
+        .sponsor-type {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+        .sponsor-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        /* --------------------------------------
+           WHY SPONSOR? (Benefit Cards)
+           -------------------------------------- */
+        .benefits-section {
+            padding: var(--section-padding);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
+            border-color: var(--secondary-color);
+        }
+
+        .benefit-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            background: rgba(108, 166, 214, 0.1);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            color: var(--heading-color);
+            margin-bottom: 15px;
+        }
+
+        .benefit-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* --------------------------------------
+           SPONSORSHIP OPPORTUNITIES (Pricing)
+           -------------------------------------- */
+        .opportunities-section {
+            padding: var(--section-padding);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .pricing-card {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .pricing-card:hover {
+            box-shadow: var(--card-shadow-hover);
+            transform: translateY(-5px);
+        }
+
+        .tier-top {
+            height: 6px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .tier-platinum .tier-top { background: #e5e4e2; }
+        .tier-gold .tier-top { background: #ffd700; }
+        .tier-silver .tier-top { background: #c0c0c0; }
+        .tier-bronze .tier-top { background: #cd7f32; }
+
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--heading-color);
+        }
+
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+            flex: 1;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--light-gray);
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features li i {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        /* --------------------------------------
+           LOGO WALL
+           -------------------------------------- */
+        .logo-wall-section {
+            padding: 60px 0;
+            background: #ffffff;
+        }
+
+        .logo-wall-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .logo-wall-item {
+            width: 160px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-wall-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .logo-wall-item:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* --------------------------------------
+           CTA SECTION
+           -------------------------------------- */
+        .call-to-action {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 70px 0;
+            text-align: center;
+        }
+
+        .cta-content { max-width: 800px; margin: 0 auto; }
+        .cta-content h3 { color: white; font-size: 2.2rem; margin-bottom: 15px; }
+        .cta-content p { font-size: 1.1rem; margin-bottom: 35px; opacity: 0.9; line-height: 1.6;}
+        .cta-content .btn { margin: 10px; }
+        .cta-content .secondary-btn { background-color: transparent; color: white !important; border: 2px solid white; }
+        .cta-content .secondary-btn:hover { background-color: rgba(255, 255, 255, 0.1); }
+
+        /* --------------------------------------
+           FOOTER
+        -------------------------------------- */
+        .professional-footer {
+            background-color: #3D4785;
+            color: #ffffff;
+            padding: 40px 0 20px;
+            margin-top: 80px;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .footer-left h3 {
+            color: white;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .footer-left p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            max-width: 500px;
+            margin-bottom: 0;
+        }
+
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-right p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .team-link {
+            color: var(--secondary-color);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            display: inline-block;
+        }
+
+        .team-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        @media (min-width: 768px) {
+            .footer-container {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+                align-items: flex-start;
+            }
+
+            .footer-right {
+                align-items: flex-end;
+            }
+        }
+
+        /* --- Global Floating Utilities --- */
+        .chat-btn-fixed {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 65px;
+            height: 65px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 9999;
+            transition: all 0.3s ease;
+        }
+        .chat-btn-fixed:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            background-color: var(--primary-color);
+        }
+
+        .to-top {
+            background: #ffffff;
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            width: 60px; 
+            height: 60px; 
+            border-radius: 50%;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 24px; 
+            color: #1a1a1a;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
+            opacity: 0; 
+            pointer-events: none; 
+            transition: all .4s; 
+            z-index: 9998;
+        }
+        .to-top.active { pointer-events: auto; opacity: 1; bottom: 40px; }
+        .to-top:hover { background: #f0f0f0; transform: translateY(-5px);}
+
+        @media (max-width: 768px) {
+            .chat-btn-fixed { width: 55px; height: 55px; font-size: 22px; bottom: 20px; left: 20px; }
+            .to-top { width: 50px; height: 50px; font-size: 20px; bottom: 20px; right: 20px; }
+            .to-top.active { bottom: 30px; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Super Fast CSS Preloader -->
+    <div id="preLoader">
+        <div class="spinner"></div>
+    </div>
+    
+    <div class="main">
+        <!-- ================= HEADER START ================= -->
+        <header id="main-header" class="sticky-header">
+            <nav>
+
+                <!-- Logo -->
+                <div class="logo-main">
+                    <div class="logo">
+                        <a href="https://www.iitr.ac.in/">
+                            <img src="./img/iit.png"
+                                alt="IIT Roorkee"
+                                onerror="this.src='https://placehold.co/80x80/ffffff/3D4785?text=IIT'">
+                        </a>
+                    </div>
+
+                    <div class="logo logo_ahead">
+                        <a href="https://ahead.iitr.ac.in/index.html">
+                            <img src="./img/newuplogo.png"
+                                alt="AHEAD"
+                                onerror="this.src='https://placehold.co/160x80/ffffff/3D4785?text=AHEAD'">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile Hamburger Toggle -->
+                <input type="checkbox" id="check">
+
+                <!-- Navigation -->
+                <ul class="menu">
+
+                    <li>
+                        <a href="index.html" >Home</a>
+                    </li>
+
+                    <!-- Conferences Dropdown -->
+                    <li class="has-dropdown">
+                        <a href="javascript:void(0)">
+                            Conferences
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+
+                        <ul class="dropdown">
+                            <li><a href="speakers.html">Speakers</a></li>
+                            <li><a href="past_conferences.html">Past Conferences</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Call for Papers Dropdown -->
+                    <li class="has-dropdown">
+                        <a href="javascript:void(0)">
+                            Call For Papers
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+
+                        <ul class="dropdown">
+                            <li><a href="important_dates.html">Important Dates</a></li>
+                            <li><a href="tracks.html">Conference Tracks</a></li>
+                            <li><a href="submission.html">Submission</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Registration Dropdown -->
+                    <li class="has-dropdown">
+                        <a href="javascript:void(0)">
+                            Registration
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+
+                        <ul class="dropdown">
+                            <li><a href="registration.html">Registration</a></li>
+                            <li><a href="visa.html">Visa Information</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Normal Links -->
+                    <li>
+                        <a href="programme.html">Programme</a>
+                    </li>
+
+                    <li>
+                        <a href="sponsors.html" class="active">Sponsors</a>
+                    </li>
+                    <li>
+                        <a href="contact.html" >Contact</a>
+                    </li>
+
+                    <!-- Login Button -->
+                    <li class="login-btn">
+                        <a href="login.html">
+                            <i class="fas fa-user-circle"></i>
+                            Login
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- Consolidated Hamburger/Close Icon (single element, icon swaps via CSS) -->
+                <label for="check" class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </label>
+
+            </nav>
+        </header>
+        <!-- ================= HEADER END ================= -->
+
+        <!-- Global Chat Button -->
+        <div class="chat-btn-fixed" title="Chat with Support">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+
+        <!-- PAGE HERO -->
+        <section class="page-hero">
+            <div class="container" data-aos="fade-up">
+                <h1>Sponsors & Partners</h1>
+                <p>We sincerely acknowledge our sponsors and institutional partners whose generous support contributes to the success of AHEAD'26.</p>
+                <ul class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li><i class="fas fa-chevron-right" style="font-size: 0.8rem;"></i></li>
+                    <li>Sponsors</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <main class="conference-main">
+            
+            <!-- WELCOME / INTRO SECTION -->
+            <section class="intro-section">
+                <div class="container" data-aos="fade-in">
+                    <p>AHEAD'26 brings together leading minds from industry, academia, government organizations, and research institutions. The invaluable contributions of our partners enable us to foster innovation, facilitate high-level academic networking, and advance sustainable development solutions on a global scale.</p>
+                </div>
+            </section>
+
+            <!-- ================= TEMPORARY COMING SOON SECTION ================= -->
+            <!-- DELETE THIS ENTIRE SECTION AND REMOVE 'style="display: none;"' FROM THE DIV BELOW TO REVEAL SPONSORS -->
+            <section class="sponsors-category gray-bg" style="padding: 80px 0; text-align: center;">
+                <div class="container">
+                    <div data-aos="fade-up">
+                        <i class="fas fa-hourglass-half" style="font-size: 3rem; color: var(--secondary-color); margin-bottom: 20px;"></i>
+                        <h2 style="font-size: 2.2rem; color: var(--primary-color); margin-bottom: 15px;">Our Sponsors & Partners</h2>
+                        <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 700px; margin: 0 auto;">
+                            We are currently finalizing our incredible lineup of Title, Platinum, Gold, and Academic partners for AHEAD'26. Check back soon as we reveal the organizations supporting this year's global conference.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <!-- ================= END TEMPORARY COMING SOON SECTION ================= -->
+
+            <!-- ================= HIDDEN SPONSORS CONTENT ================= -->
+            <!-- TO SHOW: Remove style="display: none;" -->
+            <div id="actual-sponsors-content" style="display: none;">
+                <!-- FEATURED / TITLE SPONSOR -->
+                <section class="featured-sponsor">
+                    <div class="container">
+                        <div class="section-header" data-aos="fade-up">
+                            <h2>Title Sponsor</h2>
+                        </div>
+                        
+                        <div class="featured-sponsor-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="featured-logo-col">
+                                <!-- Using placehold.co to ensure no block errors -->
+                                <img src="/img/iit.png" alt="Title Sponsor">
+                            </div>
+                            <div class="featured-content-col">
+                                <span class="sponsor-badge">Principal Partner</span>
+                                <h3>Global Health Innovations Corp.</h3>
+                                <p>Global Health Innovations Corp. is a leading pioneer in the development of sustainable medical technologies for developing economies. Their commitment to improving global healthcare access aligns perfectly with the mission of the AHEAD'26 conference.</p>
+                                <p>As our Principal Partner, they are supporting key panel discussions, providing travel grants for emerging scholars, and hosting the grand exhibition showcase.</p>
+                                <div class="featured-actions">
+                                    <a href="#" class="btn btn-outline"><i class="fas fa-external-link-alt" style="margin-right:8px;"></i> Visit Official Website</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PLATINUM SPONSORS -->
+                <section class="sponsors-category gray-bg">
+                    <div class="container">
+                        <h3 class="category-title" data-aos="fade-right">Platinum Sponsors</h3>
+                        <div class="sponsor-grid">
+                            
+                            <!-- Sponsor Card 1 -->
+                            <div class="sponsor-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="sponsor-img-wrapper">
+                                    <img src="/img/iit.png" alt="Sponsor">
+                                </div>
+                                <div class="sponsor-info">
+                                    <h4 class="sponsor-name">MediTech Solutions</h4>
+                                    <span class="sponsor-type">Industry Partner</span>
+                                    <p class="sponsor-desc">Leading provider of AI-driven diagnostic tools and healthcare analytics worldwide.</p>
+                                    <a href="#" class="btn btn-outline"><i class="fas fa-globe"></i> Website</a>
+                                </div>
+                            </div>
+
+                            <!-- Sponsor Card 2 -->
+                            <div class="sponsor-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="sponsor-img-wrapper">
+                                    <img src="/img/iit.png" alt="Sponsor">
+                                </div>
+                                <div class="sponsor-info">
+                                    <h4 class="sponsor-name">PharmaCare Global</h4>
+                                    <span class="sponsor-type">Corporate Partner</span>
+                                    <p class="sponsor-desc">A multinational pharmaceutical company dedicated to affordable medicine access.</p>
+                                    <a href="#" class="btn btn-outline"><i class="fas fa-globe"></i> Website</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                <!-- GOLD & SILVER SPONSORS -->
+                <section class="sponsors-category">
+                    <div class="container">
+                        
+                        <h3 class="category-title" data-aos="fade-right">Gold Sponsors</h3>
+                        <div class="sponsor-grid" style="margin-bottom: 60px;">
+                            <div class="sponsor-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="sponsor-img-wrapper">
+                                    <img src="/img/iit.png" alt="Sponsor">
+                                </div>
+                                <div class="sponsor-info">
+                                    <h4 class="sponsor-name">EcoHealth Foundation</h4>
+                                    <span class="sponsor-type">Non-Profit</span>
+                                    <p class="sponsor-desc">Driving environmental health initiatives in Southeast Asia.</p>
+                                    <a href="#" class="btn btn-outline"><i class="fas fa-globe"></i> Website</a>
+                                </div>
+                            </div>
+                            <div class="sponsor-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="sponsor-img-wrapper">
+                                    <img src="/img/iit.png" alt="Sponsor">
+                                </div>
+                                <div class="sponsor-info">
+                                    <h4 class="sponsor-name">DataSys Health</h4>
+                                    <span class="sponsor-type">Tech Partner</span>
+                                    <p class="sponsor-desc">Securing patient data and improving EMR system interoperability.</p>
+                                    <a href="#" class="btn btn-outline"><i class="fas fa-globe"></i> Website</a>
+                                </div>
+                            </div>
+                            <div class="sponsor-card" data-aos="fade-up" data-aos-delay="300">
+                                <div class="sponsor-img-wrapper">
+                                    <img src="/img/iit.png" alt="Sponsor">
+                                </div>
+                                <div class="sponsor-info">
+                                    <h4 class="sponsor-name">BioGenetics Ltd.</h4>
+                                    <span class="sponsor-type">Industry Partner</span>
+                                    <p class="sponsor-desc">Pioneers in accessible genetic testing and personalized medicine.</p>
+                                    <a href="#" class="btn btn-outline"><i class="fas fa-globe"></i> Website</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 class="category-title" data-aos="fade-right">Academic & Knowledge Partners</h3>
+                        <div class="sponsor-grid">
+                            <div class="sponsor-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="sponsor-img-wrapper">
+                                    <img src="/img/iit.png" alt="Academic Partner">
+                                </div>
+                                <div class="sponsor-info">
+                                    <h4 class="sponsor-name">Global Institute of Public Health</h4>
+                                    <span class="sponsor-type">Academic Partner</span>
+                                    <p class="sponsor-desc">Collaborating on health economics research panels.</p>
+                                </div>
+                            </div>
+                            <div class="sponsor-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="sponsor-img-wrapper">
+                                    <img src="/img/iit.png" alt="Knowledge Partner">
+                                </div>
+                                <div class="sponsor-info">
+                                    <h4 class="sponsor-name">Policy Research Hub</h4>
+                                    <span class="sponsor-type">Knowledge Partner</span>
+                                    <p class="sponsor-desc">Providing data-driven insights for sustainable development policy.</p>
+                                </div>
+                            </div>
+                            <div class="sponsor-card" data-aos="fade-up" data-aos-delay="300">
+                                <div class="sponsor-img-wrapper">
+                                    <img src="/img/iit.png" alt="Media Partner">
+                                </div>
+                                <div class="sponsor-info">
+                                    <h4 class="sponsor-name">Science Journal Daily</h4>
+                                    <span class="sponsor-type">Media Partner</span>
+                                    <p class="sponsor-desc">Official publication partner for extended abstract distributions.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+            <!-- ================= END HIDDEN SPONSORS CONTENT ================= -->
+
+            <!-- SPONSORSHIP OPPORTUNITIES (PRICING TIERS) -->
+            <section class="opportunities-section">
+                <div class="container">
+                    <div class="section-header" data-aos="fade-up">
+                        <h2>Sponsorship Opportunities</h2>
+                        <p>We offer customized packages tailored to meet your organization's specific strategic goals.</p>
+                    </div>
+
+                    <div class="pricing-grid">
+                        
+                        <!-- Silicon -->
+                        <div class="pricing-card tier-platinum" data-aos="fade-up" data-aos-delay="100" style="border-top-color: #555555;">
+                            <div class="tier-top" style="background: #555555;"></div>
+                            <span style="color: #888; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 5px; display: block;">Above ₹ 5,00,000</span>
+                            <h3>Silicon Sponsor</h3>
+                            <ul class="pricing-features">
+                                <li><i class="fas fa-check-circle"></i> Complimentary registrations</li>
+                                <li><i class="fas fa-check-circle"></i> Product exhibition booth</li>
+                                <li><i class="fas fa-check-circle"></i> Company name/logo on conference website</li>
+                                <li><i class="fas fa-check-circle"></i> Banner at main entrance</li>
+                                <li><i class="fas fa-check-circle"></i> Logo in session halls</li>
+                                <li><i class="fas fa-check-circle"></i> Standees on route to venue</li>
+                                <li><i class="fas fa-check-circle"></i> Logo on registration kits</li>
+                                <li><i class="fas fa-check-circle"></i> Banner at banquet venue</li>
+                                <li><i class="fas fa-check-circle"></i> Company leaf/souvenir in kit</li>
+                                <li><i class="fas fa-check-circle"></i> Tutorial slot</li>
+                                <li><i class="fas fa-check-circle"></i> Panel discussion slot</li>
+                                <li><i class="fas fa-check-circle"></i> Keynote speech opportunity</li>
+                            </ul>
+                            <a href="contact.html" class="btn primary-btn">Become a Sponsor</a>
+                        </div>
+
+                        <!-- Platinum -->
+                        <div class="pricing-card tier-platinum" data-aos="fade-up" data-aos-delay="200">
+                            <div class="tier-top"></div>
+                            <span style="color: #888; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 5px; display: block;">₹ 4,10,000 - ₹ 5,00,000</span>
+                            <h3>Platinum Sponsor</h3>
+                            <ul class="pricing-features">
+                                <li><i class="fas fa-check-circle"></i> Complimentary registrations</li>
+                                <li><i class="fas fa-check-circle"></i> Product exhibition booth</li>
+                                <li><i class="fas fa-check-circle"></i> Company name/logo on conference website</li>
+                                <li><i class="fas fa-check-circle"></i> Banner at main entrance</li>
+                                <li><i class="fas fa-check-circle"></i> Logo in session halls</li>
+                                <li><i class="fas fa-check-circle"></i> Standees on route to venue</li>
+                                <li><i class="fas fa-check-circle"></i> Logo on registration kits</li>
+                                <li><i class="fas fa-check-circle"></i> Banner at banquet venue</li>
+                                <li><i class="fas fa-check-circle"></i> Company leaf/souvenir in kit</li>
+                                <li><i class="fas fa-check-circle"></i> Tutorial slot</li>
+                                <li><i class="fas fa-check-circle"></i> Panel discussion slot</li>
+                            </ul>
+                            <a href="contact.html" class="btn primary-btn">Become a Sponsor</a>
+                        </div>
+
+                        <!-- Diamond -->
+                        <div class="pricing-card tier-platinum" data-aos="fade-up" data-aos-delay="300" style="border-top-color: #b9f2ff;">
+                            <div class="tier-top" style="background: #b9f2ff;"></div>
+                            <span style="color: #888; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 5px; display: block;">₹ 3,10,000 - ₹ 4,00,000</span>
+                            <h3>Diamond Sponsor</h3>
+                            <ul class="pricing-features">
+                                <li><i class="fas fa-check-circle"></i> Complimentary registrations</li>
+                                <li><i class="fas fa-check-circle"></i> Product exhibition booth</li>
+                                <li><i class="fas fa-check-circle"></i> Company name/logo on conference website</li>
+                                <li><i class="fas fa-check-circle"></i> Banner at main entrance</li>
+                                <li><i class="fas fa-check-circle"></i> Logo in session halls</li>
+                                <li><i class="fas fa-check-circle"></i> Standees on route to venue</li>
+                                <li><i class="fas fa-check-circle"></i> Logo on registration kits</li>
+                                <li><i class="fas fa-check-circle"></i> Banner at banquet venue</li>
+                                <li><i class="fas fa-check-circle"></i> Company leaf/souvenir in kit</li>
+                                <li><i class="fas fa-check-circle"></i> Tutorial slot</li>
+                            </ul>
+                            <a href="contact.html" class="btn primary-btn">Become a Sponsor</a>
+                        </div>
+
+                        <!-- Gold -->
+                        <div class="pricing-card tier-gold" data-aos="fade-up" data-aos-delay="400">
+                            <div class="tier-top"></div>
+                            <span style="color: #888; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 5px; display: block;">₹ 2,10,000 - ₹ 3,00,000</span>
+                            <h3>Gold Sponsor</h3>
+                            <ul class="pricing-features">
+                                <li><i class="fas fa-check-circle"></i> Complimentary registrations</li>
+                                <li><i class="fas fa-check-circle"></i> Product exhibition booth</li>
+                                <li><i class="fas fa-check-circle"></i> Logo on website</li>
+                                <li><i class="fas fa-check-circle"></i> Banner at entrance</li>
+                                <li><i class="fas fa-check-circle"></i> Logo on registration kit</li>
+                            </ul>
+                            <a href="contact.html" class="btn primary-btn">Become a Sponsor</a>
+                        </div>
+
+                        <!-- Silver -->
+                        <div class="pricing-card tier-silver" data-aos="fade-up" data-aos-delay="500">
+                            <div class="tier-top"></div>
+                            <span style="color: #888; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 5px; display: block;">₹ 50,000 - ₹ 2,00,000</span>
+                            <h3>Silver Sponsor</h3>
+                            <ul class="pricing-features">
+                                <li><i class="fas fa-check-circle"></i> Logo on website</li>
+                                <li><i class="fas fa-check-circle"></i> Logo on registration kit</li>
+                                <li><i class="fas fa-check-circle"></i> Banner at banquet venue</li>
+                            </ul>
+                            <a href="contact.html" class="btn primary-btn">Become a Sponsor</a>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 50px; text-align: center; background: white; padding: 40px; border-radius: 8px; box-shadow: var(--card-shadow); border: 1px solid var(--border-color);" data-aos="fade-up">
+                        <i class="fas fa-hand-holding-heart" style="font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 15px;"></i>
+                        <p style="font-size: 1.1rem; color: var(--text-color); max-width: 800px; margin: 0 auto 30px; line-height: 1.7;">
+                            As a <strong>CSR sponsor</strong>, you will have opportunities to showcase products, contribute expertise through tutorials or panel discussions, and engage directly with a global audience of healthcare and technology leaders.
+                        </p>
+                        
+                        <div style="border-top: 1px solid var(--light-gray); padding-top: 30px;">
+                            <h4 style="color: var(--primary-color); font-size: 1.2rem; margin-bottom: 5px;">Dr. Pratap C. Mohanty</h4>
+                            <p style="color: var(--text-muted); font-weight: 500; margin-bottom: 5px;">Convenor / Organising Secretary</p>
+                            <p style="color: var(--text-muted); margin-bottom: 15px;">AHEAD 26 Annual International conference<br>AHEAD Lab, IIT Roorkee, India</p>
+                            <a href="https://ahead.iitr.ac.in/" target="_blank" class="btn btn-outline"><i class="fas fa-link" style="margin-right: 8px;"></i> https://ahead.iitr.ac.in/</a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SPONSOR LOGO WALL -->
+            <section class="logo-wall-section gray-bg">
+                <div class="container">
+                    <div class="section-header" data-aos="fade-up" style="margin-bottom: 30px;">
+                        <h2>Our Network</h2>
+                    </div>
+                    <div class="logo-wall-grid" data-aos="zoom-in" data-aos-duration="1000">
+                        <div class="logo-wall-item"><img src="/img/iit.png" alt="Logo"></div>
+                        <div class="logo-wall-item"><img src="/img/iit.png" alt="Logo"></div>
+                        <div class="logo-wall-item"><img src="/img/iit.png" alt="Logo"></div>
+                        <div class="logo-wall-item"><img src="/img/iit.png" alt="Logo"></div>
+                        <div class="logo-wall-item"><img src="/img/iit.png" alt="Logo"></div>
+                        <div class="logo-wall-item"><img src="/img/iit.png" alt="Logo"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- APPRECIATION SECTION -->
+            <section class="intro-section" style="padding-top: 60px;">
+                <div class="container" data-aos="fade-up">
+                    <i class="fas fa-hands-helping" style="font-size: 3rem; color: var(--secondary-color); margin-bottom: 20px;"></i>
+                    <p style="font-size: 1.2rem; font-style: italic; color: var(--heading-color); font-weight: 500;">"The Organizing Committee of AHEAD'26 extends heartfelt gratitude to all our sponsors and partners for their continued support in advancing global healthcare and sustainable development research."</p>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- CTA SECTION (Matches exact style) -->
+        <section class="call-to-action">
+            <div class="cta-content" data-aos="zoom-in">
+                <h3>Interested in Becoming a Sponsor?</h3>
+                <p>Partner with AHEAD'26 to connect with researchers, academicians, innovators, and industry leaders from around the world.</p>
+                <a href="#" class="btn primary-btn" style="background-color: #ffffff; color: var(--primary-color) !important;"><i class="fas fa-file-pdf"></i> Sponsorship Brochure</a>
+                <a href="contact.html" class="btn secondary-btn"><i class="fas fa-envelope"></i> Contact Sponsorship Team</a>
+            </div>
+        </section>
+
+        <!-- FOOTER (Identical to existing site) -->
+        <footer class="professional-footer">
+            <div class="footer-container">
+                <div class="footer-left">
+                    <h3>AHEAD'26</h3>
+                    <p>AHEAD'26 International Conference on Health, Technology, and Development</p>
+                </div>
+                <div class="footer-right">
+                    <p>&copy; 2026 AHEAD Lab, IIT Roorkee. All rights reserved.</p>
+                    <a href="/team.html" target="_blank" class="team-link">Designed & Developed by Team AHEAD</a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Floating Buttons -->
+        <div class="chat-btn-fixed" title="Chat with Support" onclick="alert('Chatbot interface will be triggered here.')">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+
+        <a href="#" class="to-top">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            
+            // 1. Lightning Fast Preloader Handling
+            const loader = document.getElementById("preLoader");
+            const hideLoader = () => {
+                if(loader && loader.style.display !== 'none') {
+                    loader.style.opacity = '0';
+                    setTimeout(() => { 
+                        loader.style.display = "none"; 
+                        if (typeof AOS !== 'undefined') {
+                            try { AOS.refresh(); } catch(e) {}
+                        }
+                    }, 400);
+                }
+            };
+            
+            // Try to hide when DOM is ready or after max timeout
+            setTimeout(hideLoader, 1500); 
+            window.addEventListener('load', hideLoader);
+
+            // 2. Initialize AOS Animations Safely
+            if (typeof AOS !== 'undefined') {
+                AOS.init({ once: true, offset: 50, duration: 800 });
+            } else {
+                // Failsafe: if tracking blocker blocks AOS, force visibility
+                document.documentElement.style.setProperty('--aos-opacity', '1');
+                const aosElements = document.querySelectorAll('[data-aos]');
+                aosElements.forEach(el => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'none';
+                });
+            }
+
+            // 3. Scroll to Top logic
+            const toTop = document.querySelector(".to-top");
+            window.addEventListener("scroll", () => {
+                if (window.pageYOffset > 300) {
+                    toTop.classList.add("active");
+                } else {
+                    toTop.classList.remove("active");
+                }
+            });
+            toTop.addEventListener("click", function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        });
+
+        // Mobile Dropdown Accordion
+        const dropdownItems = document.querySelectorAll(".menu > li.has-dropdown");
+            dropdownItems.forEach(item => {
+                const link = item.querySelector(":scope > a");
+                const dropdown = item.querySelector(":scope > .dropdown");
+                if (!dropdown) return;
+
+                link.addEventListener("click", function (e) {
+                    // On desktop widths, let hover handle it — click should do nothing.
+                    if (window.innerWidth > 1100) return;
+
+                    e.preventDefault();
+
+                    // Close every other open dropdown first.
+                    dropdownItems.forEach(other => {
+                        if (other !== item) {
+                            other.classList.remove("open");
+                            const otherDrop = other.querySelector(".dropdown");
+                            if (otherDrop) otherDrop.style.maxHeight = null;
+                        }
+                    });
+
+                    // Toggle the one that was actually clicked.
+                    item.classList.toggle("open");
+                    if (item.classList.contains("open")) {
+                        dropdown.style.maxHeight = dropdown.scrollHeight + "px";
+                    } else {
+                        dropdown.style.maxHeight = null;
+                    }
+                });
+            });
+    </script>
+</body>
+</html>

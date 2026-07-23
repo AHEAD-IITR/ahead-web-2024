@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <!-- External CSS Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="./img/favicon.png" type="image/png" />
+    <title>Tracks | AHEAD International Conference 2026</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        /* Base Styles & Theme */
+        :root {
+            --primary-color: #3D4785;
+            --secondary-color: #6ca6d6;
+            --light-bg: #fbfbfb;
+            --text-color: #333;
+            --text-muted: #555;
+            --heading-color: #3D4785;
+            --light-gray: #f5f5f5;
+            --border-color: #e0e0e0;
+            --section-padding: 70px 0;
+            --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --card-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            text-decoration: none;
+        }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #FFF; }
+        ::-webkit-scrollbar-thumb { background: #3D4785; border-radius: 10px; }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+        html { scroll-behavior: smooth; }
+
+        /* Lightning Fast CSS Preloader */
+        #preLoader {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #ffffff;
+            z-index: 100000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.4s ease;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--light-gray);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        .main {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* =========================================
+           UPDATED HEADER & NAVIGATION CSS (WITH DROPDOWNS)
+           ========================================= */
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #3D4785;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .sticky-header nav {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            height: 100%;
+        }
+
+        .logo-main { display: flex; gap: 15px; align-items: center; height: 100%; }
+        .logo a { display: flex; align-items: center; height: 100%; text-decoration: none; }
+        .logo img { height: 50px; width: auto; object-fit: contain; }
+        .logo_ahead img {height: 70px; width: auto;}
+
+        .menu {
+            display: flex; list-style: none; margin: 0; padding: 0; gap: 1.5vw; align-items: center;
+        }
+
+        .menu > li {
+            position: relative; padding: 0; margin: 0; height: 100%; display: flex; align-items: center;
+        }
+
+        .menu > li > a {
+            display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
+            font-family: 'Inter', sans-serif; font-weight: 500; font-size: 13.5px;
+            text-transform: uppercase; letter-spacing: 0.5px; color: #ffffff;
+            padding: 5px 0; position: relative; transition: color 0.3s ease;
+        }
+
+        .menu > li > a i.fa-caret-down { font-size: 11px; transition: transform 0.3s ease; }
+        .menu > li:hover > a, .menu > li > a.active { color: #e0e7ff; }
+
+        .menu > li > a::after {
+            content: ""; position: absolute; bottom: 0; left: 0; width: 0; height: 2px;
+            background-color: #e0e7ff; transition: width 0.3s ease;
+        }
+
+        .menu > li:not(.login-btn):hover > a::after,
+        .menu > li:not(.login-btn) > a.active::after { width: 100%; }
+
+        /* DROPDOWN MENU STYLES */
+        .dropdown {
+            position: absolute; top: 100%; left: 0; background-color: #ffffff;
+            min-width: 240px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 0 0 8px 8px; opacity: 0; visibility: hidden;
+            transform: translateY(10px); transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            list-style: none; padding: 10px 0; border-top: 3px solid var(--secondary-color);
+        }
+
+        .menu > li:hover .dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown li { padding: 0; margin: 0; width: 100%; }
+        .dropdown li a {
+            display: block; padding: 12px 25px; color: var(--text-color);
+            font-family: 'Inter', sans-serif; font-size: 13.5px; font-weight: 500;
+            text-transform: capitalize; letter-spacing: 0; transition: all 0.2s ease; position: relative;
+        }
+        .dropdown li a:hover { background-color: rgba(245, 245, 245, 1); color: var(--primary-color); padding-left: 30px; }
+
+        /* Login Button Styles */
+        .login-btn { margin-left: 10px; }
+        .login-btn a {
+            display: inline-flex !important; align-items: center; gap: 8px;
+            background: #ffffff !important; color: #3D4785 !important;
+            padding: 8px 22px !important; border-radius: 50px; font-size: 13px !important;
+            font-weight: 600 !important; text-transform: uppercase; transition: all 0.3s ease !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .login-btn a:hover { background: #FFD54F !important; color: #222 !important; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,0.25); }
+        .login-btn a::after { display: none !important; }
+        .login-btn i { font-size: 16px; }
+
+        .menu-btn { cursor: pointer; font-size: 1.5rem; color: white; display: none; }
+        #check { display: none; }
+
+        /* Desktop-only hover caret rotation (kept OUT of mobile so tap doesn't fake-rotate it) */
+        @media (min-width: 1101px) {
+            .menu > li:hover > a i.fa-caret-down { transform: rotate(180deg); }
+        }
+
+        /* Header Responsive Breakpoints */
+        @media (max-width: 1250px) {
+            .menu { gap: 1vw; }
+            .menu > li > a { font-size: 12px; letter-spacing: 0.3px; }
+            .sticky-header nav { padding: 0 15px; }
+        }
+
+        @media (max-width: 1100px) {
+            .menu {
+                flex-direction: column; align-items: flex-start; justify-content: flex-start;
+                width: 300px; height: 100vh; position: fixed; top: 0; right: -100%;
+                background-color: #3D4785; box-shadow: -5px 0 15px rgba(0,0,0,0.2); z-index: 1000;
+                transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1); padding: 80px 20px 30px 20px; overflow-y: auto;
+            }
+            .menu > li { width: 100%; flex-direction: column; align-items: flex-start; height: auto; margin: 5px 0; }
+            .menu > li > a { font-size: 16px; display: flex; justify-content: space-between; width: 100%; padding: 12px 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+            .menu > li > a::after { display: none; } 
+            
+            /* Clean Mobile Accordion Logic (driven by JS toggling the `.open` class) */
+            .dropdown {
+                position: static; width: 100%; background-color: transparent; box-shadow: none; border-radius: 0;
+                border-top: none; padding: 0; opacity: 1; visibility: visible; transform: none; max-height: 0;
+                overflow: hidden; transition: max-height 0.3s ease-out;
+            }
+            /* NOTE: no more `:hover .dropdown` rule here — mobile taps triggered a "sticky hover"
+               state that fought with the JS-driven `.open` class. Only `.open` controls it now. */
+            .menu > li.open .dropdown { max-height: 500px; }
+            .menu > li.open > a i.fa-caret-down { transform: rotate(180deg); }
+            
+
+            .dropdown li a { color: #e0e0e0; padding: 10px 10px 10px 30px; font-size: 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+            .dropdown li a:hover { background-color: rgba(255, 255, 255, 0.1); color: #ffffff; padding-left: 35px; }
+
+            /* Single consolidated hamburger/close button — always sits in the same
+               fixed spot so it never overlaps itself or duplicates on screen. */
+            .menu-btn {
+                display: block;
+                position: fixed;
+                top: 28px;
+                right: 25px;
+                font-size: 1.6rem;
+                z-index: 1100; /* above the sliding .menu panel (z-index 1000) */
+            }
+            #check:checked ~ .menu { right: 0; }
+            /* Swap bars -> times icon purely via CSS when the menu is open */
+            #check:checked ~ .menu-btn i::before { content: "\f00d"; }
+            
+            .login-btn { margin-left: 0; margin-top: 15px !important; display: flex; width: 100%; justify-content: center; align-items: center; }
+            .login-btn a { justify-content: center; width: auto !important; border-bottom: none !important; }
+        }
+
+        /* =========================================
+           END UPDATED HEADER CSS 
+           ========================================= */
+
+        /* --- Page Headers / Typography --- */
+        .container {
+            max-width: 1000px; 
+            margin: 0 auto;
+            padding: 0 20px;
+            flex: 1;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--heading-color);
+            font-weight: 700;
+        }
+
+        /* --------------------------------------
+           PAGE HERO SECTION
+           -------------------------------------- */
+        .page-hero {
+            background-color: #2a2d47;
+            background-image: linear-gradient(rgba(42, 45, 71, 0.85), rgba(42, 45, 71, 0.85)), url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0 90px;
+            text-align: center;
+            color: white;
+            position: relative;
+            margin-bottom: 70px;
+        }
+        
+        .conference-main {
+    padding-top: 30px;
+}
+
+
+        .page-hero h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .page-hero p {
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 25px;
+        }
+
+        .breadcrumb {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: #bbb;
+        }
+
+        .breadcrumb li a {
+            color: var(--secondary-color);
+            transition: 0.3s;
+        }
+        
+        .breadcrumb li a:hover { color: white; }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        /* --- Tracks Accordion Styles --- */
+        .tracks { padding-bottom: var(--section-padding); }
+        .tracks-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .track {
+            background-color: #ffffff;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--primary-color);
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .track:hover {
+            box-shadow: var(--card-shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .track.active {
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .track-toggle {
+            padding: 25px 30px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin: 0;
+        }
+
+        .track-toggle:hover {
+            background-color: #f9faff;
+        }
+
+        .toggle-icon {
+            font-size: 1rem;
+            color: var(--secondary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .track.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .track-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background-color: #ffffff;
+        }
+
+        .track-content-inner {
+            padding: 0 30px 30px 30px;
+        }
+
+        .track-content p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .track-content h4 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .track-content ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+        }
+
+        .track-content ul li {
+            position: relative;
+            padding-left: 28px;
+            color: var(--text-color);
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .track-content ul li::before {
+            content: '\f105'; /* FontAwesome angle-right */
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 1px;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .track-toggle { font-size: 1.1rem; padding: 20px; }
+            .track-content-inner { padding: 0 20px 20px 20px; }
+            .track-content ul { grid-template-columns: 1fr; }
+        }
+
+        /* --------------------------------------
+           FOOTER
+        -------------------------------------- */
+        .professional-footer {
+            background-color: #3D4785;
+            color: #ffffff;
+            padding: 40px 0 20px;
+            margin-top: 80px;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .footer-left h3 {
+            color: white;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .footer-left p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            max-width: 500px;
+            margin-bottom: 0;
+        }
+
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-right p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .team-link {
+            color: var(--secondary-color);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            display: inline-block;
+        }
+
+        .team-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        @media (min-width: 768px) {
+            .footer-container {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+                align-items: flex-start;
+            }
+            .footer-right { align-items: flex-end; }
+        }
+
+        /* --- Global Floating Utilities --- */
+        .chat-btn-fixed {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 65px;
+            height: 65px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 9999;
+            transition: all 0.3s ease;
+        }
+        .chat-btn-fixed:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            background-color: var(--primary-color);
+        }
+
+        .to-top {
+            background: #ffffff;
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            width: 60px; 
+            height: 60px; 
+            border-radius: 50%;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 24px; 
+            color: #1a1a1a;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
+            opacity: 0; 
+            pointer-events: none; 
+            transition: all .4s; 
+            z-index: 9998;
+        }
+        .to-top.active { pointer-events: auto; opacity: 1; bottom: 40px; }
+        .to-top:hover { background: #f0f0f0; transform: translateY(-5px);}
+
+        @media (max-width: 768px) {
+            .chat-btn-fixed { width: 55px; height: 55px; font-size: 22px; bottom: 20px; left: 20px; }
+            .to-top { width: 50px; height: 50px; font-size: 20px; bottom: 20px; right: 20px; }
+            .to-top.active { bottom: 30px; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Super Fast CSS Preloader -->
+    <div id="preLoader">
+        <div class="spinner"></div>
+    </div>
+    
+    <div class="main">
+        <!-- ================= HEADER START ================= -->
+        <header id="main-header" class="sticky-header">
+            <nav>
+
+                <!-- Logo -->
+                <div class="logo-main">
+                    <div class="logo">
+                        <a href="https://www.iitr.ac.in/">
+                            <img src="./img/iit.png"
+                                alt="IIT Roorkee"
+                                onerror="this.src='https://placehold.co/80x80/ffffff/3D4785?text=IIT'">
+                        </a>
+                    </div>
+
+                    <div class="logo logo_ahead">
+                        <a href="https://ahead.iitr.ac.in/index.html">
+                            <img src="./img/newuplogo.png"
+                                alt="AHEAD"
+                                onerror="this.src='https://placehold.co/160x80/ffffff/3D4785?text=AHEAD'">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile Hamburger Toggle -->
+                <input type="checkbox" id="check">
+
+                <!-- Navigation -->
+                <ul class="menu">
+
+                    <li>
+                        <a href="index.html" >Home</a>
+                    </li>
+
+                    <!-- Conferences Dropdown -->
+                    <li class="has-dropdown">
+                        <a href="javascript:void(0)">
+                            Conferences
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+
+                        <ul class="dropdown">
+                            <li><a href="speakers.html">Speakers</a></li>
+                            <li><a href="past_conferences.html">Past Conferences</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Call for Papers Dropdown -->
+                    <li class="has-dropdown">
+                        <a href="javascript:void(0)" class="active">
+                            Call For Papers
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+
+                        <ul class="dropdown">
+                            <li><a href="important_dates.html">Important Dates</a></li>
+                            <li><a href="tracks.html">Conference Tracks</a></li>
+                            <li><a href="submission.html">Submission</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Registration Dropdown -->
+                    <li class="has-dropdown">
+                        <a href="javascript:void(0)">
+                            Registration
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+
+                        <ul class="dropdown">
+                            <li><a href="registration.html">Registration</a></li>
+                            <li><a href="visa.html">Visa Information</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Normal Links -->
+                    <li>
+                        <a href="programme.html">Programme</a>
+                    </li>
+
+                    <li>
+                        <a href="sponsors.html">Sponsors</a>
+                    </li>
+                    <li>
+                        <a href="contact.html" >Contact</a>
+                    </li>
+
+                    <!-- Login Button -->
+                    <li class="login-btn">
+                        <a href="login.html">
+                            <i class="fas fa-user-circle"></i>
+                            Login
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- Consolidated Hamburger/Close Icon (single element, icon swaps via CSS) -->
+                <label for="check" class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </label>
+
+            </nav>
+        </header>
+        <!-- ================= HEADER END ================= -->
+
+        <!-- Global Chat Button -->
+        <div class="chat-btn-fixed" title="Chat with Support">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+
+        <!-- PAGE HERO -->
+        <section class="page-hero">
+            <div class="container" data-aos="fade-up">
+                <h1>Conference Tracks</h1>
+                <p>Click on a track to view its description and sub-themes. These tracks are indicative only and not strictly limited.</p>
+                <ul class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li><i class="fas fa-chevron-right" style="font-size: 0.8rem;"></i></li>
+                    <li>Tracks</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Tracks Section -->
+        <main class="conference-main">
+            <div class="container">
+                <section class="tracks">
+                    <div class="section-content">
+                        <div class="tracks-list" data-aos="fade-up" data-aos-duration="800">
+                            
+                            <!-- Track 1 -->
+    <div class="track">
+        <h3 class="track-toggle">Track 1: Health Technology Innovation and Assessment for Development</h3>
+        <div class="track-content">
+            <div class="track-content-inner">
+                <p>Health Technology Assessment (HTA) is becoming pivotal to evidence-informed healthcare decision-making, particularly in resource-constrained situations where efficient allocation of limited resources is crucial. As India expands its institutional HTA framework, there is a growing need for rigorous economic evaluation that integrates cost-effectiveness, affordability, equity, and health system responsiveness. This track provides a platform to discuss methodological advances, policy applications, and real-world experiences that support sustainable and equitable healthcare system.</p>
+                <h4>Sub-themes:</h4>
+                <ul>
+                    <li>Economic Evaluation of Health Technologies (Cost-effectiveness, cost-utility, and budget impact analysis)</li>
+                    <li>HTA for Policy, Pricing, and Resource Allocation (HTA framework, pharmaceutical pricing, reimbursement, and priority setting)</li>
+                    <li>Health System Responsiveness, Equity, and Innovation in HTA (Distributional cost-effectiveness analysis, equity considerations, patient-centred care, methodological innovations, and industry perspectives)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Track 2 -->
+    <div class="track">
+        <h3 class="track-toggle">Track 2: Artificial Intelligence, Data Systems, and Digital Transformation in Health</h3>
+        <div class="track-content">
+            <div class="track-content-inner">
+                <p>Artificial Intelligence (AI) and Machine Learning (ML) are reshaping healthcare through predictive analytics, clinical decision support, digital innovation, and more efficient use of health resources. This track invites interdisciplinary research on the development, implementation, and evaluation of data-driven solutions that improve healthcare delivery, strengthen public health systems, and contribute to sustainable development.</p>
+                <h4>Sub-themes:</h4>
+                <ul>
+                    <li>Public Health Analytics, Epidemiology, Disease Surveillance and prediction</li>
+                    <li>Digital Health, Health Informatics, and Remote Care</li>
+                    <li>Maternal, Child, and Population Health Applications</li>
+                    <li>Industry Innovation, Technology Adoption, and Healthcare Transformation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Track 3 -->
+    <div class="track">
+        <h3 class="track-toggle">Track 3: Financing in Healthcare</h3>
+        <div class="track-content">
+            <div class="track-content-inner">
+                <p>Healthcare financing is central to achieving equitable, accessible, and sustainable healthcare systems, particularly in emerging economies facing rising healthcare costs and expanding insurance coverage. Amid rising healthcare costs, demographic transitions, and evolving insurance systems, this track provides a platform for research on innovative and coping strategies on healthcare financing mechanisms, health insurance, economic evaluation, and sustainable policy interventions. It encourages interdisciplinary contributions that inform evidence-based healthcare financing and strengthen resilient health systems.</p>
+                <h4>Sub-themes:</h4>
+                <ul>
+                    <li>Healthcare Financing Systems and Universal Health Coverage</li>
+                    <li>Health Insurance and Financial Risk Protection</li>
+                    <li>Digital Innovation, Sustainable Financing and Public Policy</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Track 4 -->
+    <div class="track">
+        <h3 class="track-toggle">Track 4: Climate Change, Global Health, and Environmental Resilience</h3>
+        <div class="track-content">
+            <div class="track-content-inner">
+                <p>Environmental change is reshaping health risks across the globe, especially air pollution and heat stress, to water insecurity and food system disruptions. These hazards impose rising economic costs on households, labor productivity, and healthcare systems, with informal and vulnerable groups bearing the heaviest burden. This track brings together evidence on the health-economy linkages of climate and environment, and evaluates adaptation strategies, financing models, and policy tools. We invite work that quantifies risks, values co-benefits, and designs scalable, equitable interventions at the intersection of environment and health.</p>
+                <h4>Sub-themes:</h4>
+                <ul>
+                    <li>Air Quality, Energy, and Health</li>
+                    <li>Urbanization, Heat, Water Crises, and Occupational Risks</li>
+                    <li>Food Systems and Planetary Health</li>
+                    <li>Financing Resilience and Adaptation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Track 5 -->
+    <div class="track">
+        <h3 class="track-toggle">Track 5: Health Policy, Governance, and Community Agency</h3>
+        <div class="track-content">
+            <div class="track-content-inner">
+                <p>The track addresses health policy formulation, implementation, and reform through critical lenses. This interrogates whose voices are heard, whose knowledge is valued, and how governance structures can be reimagined to promote accountability, transparency, and participatory democracy in health systems. This also examines the political, institutional, and social dimensions of health system governance, emphasizing how power relations shape policy processes and health outcomes in uncertain times. It explores mechanisms through which communities, civil society, and marginalized populations can exercise agency in health decision-making, challenging top-down governance models that exclude affected populations from shaping their health futures.</p>
+                <h4>Sub-themes:</h4>
+                <ul>
+                    <li>Participatory Governance, Community Accountability, and Health Democracy</li>
+                    <li>Causal Inference and Impact Evaluation in Health Policy</li>
+                    <li>Economic Evaluation of Public Health Programs and Incentive Schemes</li>
+                    <li>Health Systems Research: Evidence Synthesis and Policy Translation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Track 6 -->
+    <div class="track">
+        <h3 class="track-toggle">Track 6: Pharmaceutical Innovation, Access, and Market Dynamics</h3>
+        <div class="track-content">
+            <div class="track-content-inner">
+                <p>This track examines pharmaceutical pricing, regulation, market competition, and the affordability of medicines. It highlights generics, biosimilars, supply-chain efficiency, traditional medicine, healthcare trade, and policy initiatives aimed at improving access to essential drugs.</p>
+                <h4>Sub-themes:</h4>
+                <ul>
+                    <li>Pharmacoeconomics - Pharmaceutical Pricing, Affordability, and Access Strategies</li>
+                    <li>Generic and Biosimilar Market Development</li>
+                    <li>Medicine Supply Chain Innovation and Quality Assurance</li>
+                    <li>Pharmaceutical R&D for Neglected Diseases</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Track 7 -->
+    <div class="track">
+        <h3 class="track-toggle">Track 7: Healthcare Efficiency, Performance, and Quality Measurement</h3>
+        <div class="track-content">
+            <div class="track-content-inner">
+                <p>This track explores innovative approaches to improve efficiency, productivity, quality, and value of healthcare delivery given technological advancements. It focuses on performance measurement, evidence-based financing, and practical solutions for hospitals and primary healthcare systems.</p>
+                <h4>Sub-themes:</h4>
+                <ul>
+                    <li>Hospital and Primary Care Performance Indicators</li>
+                    <li>Quality of Care Measurement and Improvement Science</li>
+                    <li>Health-System Efficiency, Healthcare Access, and Resource Optimization</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Track 8 -->
+    <div class="track">
+        <h3 class="track-toggle">Track 8: Technology, Health Behaviour, & Mental Health</h3>
+        <div class="track-content">
+            <div class="track-content-inner">
+                <p>The modern world is under stress from emerging and persistent behavioral health issues. In spite of modern technologies' progress, there has been a failure to transform the mental health system. This year, AHEAD’26 conference aims to bring together a session and a dialogue on the efficacy of ‘technology, health behaviour and mental health’. In detail, this session invited articles on innovation, challenges, opportunities, evidence, review, and traditional and novel assessment to improve mental well-being.</p>
+                <h4>Sub-themes:</h4>
+                <ul>
+                    <li>Behavioural Health Economics and Service Delivery Models</li>
+                    <li>Digital Behavioural Health Interventions and Evidence-Based Research</li>
+                    <li>Technology-Enabled Behavioral Health and Psychosocial Support</li>
+                    <li>Cognitive Health</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Track 9 -->
+    <div class="track">
+        <h3 class="track-toggle">Track 9: Health Equity, Gender, and Inclusive Development</h3>
+        <div class="track-content">
+            <div class="track-content-inner">
+                <p>This track examines how social, economic, and structural determinants shape health outcomes in an era of global uncertainty, emphasizing pathways toward equitable and inclusive health development. It explores how technology and health interventions can address or exacerbate existing inequities, questioning whose needs are prioritized in development agendas. The track centers community agency, diverse knowledge systems, and the voices of marginalized populations in building resilient health futures that leave no one behind.</p>
+                <h4>Sub-themes:</h4>
+                <ul>
+                    <li>Health Disparities, Inequality Measurement, and Distributional Impact Analysis</li>
+                    <li>Urban-Rural Health Divides and Geographic Equity in Service Delivery</li>
+                    <li>Indigenous Health Systems, Traditional Medicine</li>
+                    <li>Universal Design, Accessibility, and Inclusive Health Technology Innovation</li>
+                    <li>Women and Child Health</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Track 10 -->
+    <div class="track">
+        <h3 class="track-toggle">Track 10: Exclusive Track - Alumnae Discourses on Technology and Development</h3>
+        <div class="track-content">
+            <div class="track-content-inner">
+                <p>This track showcases research by our IITR alumni working at the intersection of technology and development economics. It provides a platform for interdisciplinary perspectives examining how technological innovation shapes economic development, inequality, labor markets, education, NCDs, nutrition, and structural transformation in diverse contexts. The track fosters intellectual exchange among alumni researchers contributing to evidence-based development policy and practice globally.</p>
+            </div>
+        </div>
+    </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Professional Footer -->
+        <footer class="professional-footer">
+            <div class="footer-container">
+                <div class="footer-left">
+                    <h3>AHEAD'26</h3>
+                    <p>AHEAD'26 International Conference on Health, Technology, and Development</p>
+                </div>
+                <div class="footer-right">
+                    <p>&copy; 2026 AHEAD Lab, IIT Roorkee. All rights reserved.</p>
+                    <a href="/team.html" target="_blank" class="team-link">Designed & Developed by Team AHEAD</a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Back to Top -->
+        <a href="#" class="to-top"><i class="fas fa-chevron-up"></i></a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            
+            // 1. Preloader Handling
+            window.addEventListener('load', function() {
+                var loader = document.getElementById("preLoader");
+                if (loader) loader.style.display = "none";
+            });
+            setTimeout(function() {
+                var loader = document.getElementById("preLoader");
+                if (loader) loader.style.display = "none";
+            }, 1200);
+
+            // 2. Initialize AOS Animations
+            AOS.init({ once: true, offset: 50 });
+
+            // 3. Scroll to Top logic
+            const toTop = document.querySelector(".to-top");
+            window.addEventListener("scroll", () => {
+                if (window.pageYOffset > 300) {
+                    toTop.classList.add("active");
+                } else {
+                    toTop.classList.remove("active");
+                }
+            });
+            toTop.addEventListener("click", function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+
+            // 4. Smooth Accordion Logic for Tracks
+            const tracks = document.querySelectorAll('.track');
+            
+            tracks.forEach(track => {
+                const toggle = track.querySelector('.track-toggle');
+                const content = track.querySelector('.track-content');
+                
+                // Dynamically add the chevron icon to the toggle
+                const icon = document.createElement('i');
+                icon.className = 'fas fa-chevron-down toggle-icon';
+                toggle.appendChild(icon);
+
+                toggle.addEventListener('click', () => {
+                    // Optional: Close other tracks when one is opened (Accordion behavior)
+                    /* tracks.forEach(otherTrack => {
+                        if(otherTrack !== track && otherTrack.classList.contains('active')) {
+                            otherTrack.classList.remove('active');
+                            otherTrack.querySelector('.track-content').style.maxHeight = null;
+                        }
+                    }); 
+                    */
+
+                    // Toggle current track
+                    track.classList.toggle('active');
+                    
+                    if (track.classList.contains('active')) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    } else {
+                        content.style.maxHeight = null;
+                    }
+                });
+            });
+
+            // Optional: Auto-open the first track on page load
+            if (tracks.length > 0) {
+                tracks[0].classList.add('active');
+                tracks[0].querySelector('.track-content').style.maxHeight = tracks[0].querySelector('.track-content').scrollHeight + "px";
+            }
+        });
+
+        // Mobile Dropdown Accordion
+            const dropdownItems = document.querySelectorAll(".menu > li.has-dropdown");
+            dropdownItems.forEach(item => {
+                const link = item.querySelector(":scope > a");
+                const dropdown = item.querySelector(":scope > .dropdown");
+                if (!dropdown) return;
+
+                link.addEventListener("click", function (e) {
+                    // On desktop widths, let hover handle it — click should do nothing.
+                    if (window.innerWidth > 1100) return;
+
+                    e.preventDefault();
+
+                    // Close every other open dropdown first.
+                    dropdownItems.forEach(other => {
+                        if (other !== item) {
+                            other.classList.remove("open");
+                            const otherDrop = other.querySelector(".dropdown");
+                            if (otherDrop) otherDrop.style.maxHeight = null;
+                        }
+                    });
+
+                    // Toggle the one that was actually clicked.
+                    item.classList.toggle("open");
+                    if (item.classList.contains("open")) {
+                        dropdown.style.maxHeight = dropdown.scrollHeight + "px";
+                    } else {
+                        dropdown.style.maxHeight = null;
+                    }
+                });
+            });
+    </script>
+</body>
+</html>

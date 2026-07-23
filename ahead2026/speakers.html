@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    
+    <!-- Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- External CSS Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="./img/favicon.png" type="image/png" />
+    <title>Speakers | AHEAD International Conference</title>
+
+    <style>
+        /* Base Styles - Inherited from existing theme */
+        :root {
+            --primary-color: #3D4785;
+            --secondary-color: #6ca6d6;
+            --light-bg: #fbfbfb;
+            --text-color: #333;
+            --text-muted: #666;
+            --heading-color: #3D4785;
+            --light-gray: #f5f5f5;
+            --border-color: #e0e0e0;
+            --link-color: #6ca6d6;
+            --link-hover-color: #3D4785;
+            --btn-primary-bg: #3D4785;
+            --btn-primary-text: white;
+            --btn-hover-bg: #2a2d47;
+            --btn-secondary-bg: #e0e0e0;
+            --btn-secondary-text: #3D4785;
+            --btn-secondary-hover: #d0d0d0;
+            --section-padding: 80px 0;
+            --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --card-shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            text-decoration: none;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+            border-radius: 100%;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFF;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3D4785;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            scroll-behavior: smooth;
+        }
+
+        /* Lightning Fast CSS Preloader */
+        #preLoader {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #ffffff;
+            z-index: 100000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.4s ease;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--light-gray);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        .main {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* =========================================
+           UPDATED HEADER & NAVIGATION CSS (WITH DROPDOWNS)
+           ========================================= */
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #3D4785;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .sticky-header nav {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            height: 100%;
+        }
+
+        .logo-main { display: flex; gap: 15px; align-items: center; height: 100%; }
+        .logo a { display: flex; align-items: center; height: 100%; text-decoration: none; }
+        .logo img { height: 50px; width: auto; object-fit: contain; }
+        .logo_ahead img {height: 70px; width: auto;}
+
+        .menu {
+            display: flex; list-style: none; margin: 0; padding: 0; gap: 1.5vw; align-items: center;
+        }
+
+        .menu > li {
+            position: relative; padding: 0; margin: 0; height: 100%; display: flex; align-items: center;
+        }
+
+        .menu > li > a {
+            display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
+            font-family: 'Inter', sans-serif; font-weight: 500; font-size: 13.5px;
+            text-transform: uppercase; letter-spacing: 0.5px; color: #ffffff;
+            padding: 5px 0; position: relative; transition: color 0.3s ease;
+        }
+
+        .menu > li > a i.fa-caret-down { font-size: 11px; transition: transform 0.3s ease; }
+        .menu > li:hover > a, .menu > li > a.active { color: #e0e7ff; }
+
+        .menu > li > a::after {
+            content: ""; position: absolute; bottom: 0; left: 0; width: 0; height: 2px;
+            background-color: #e0e7ff; transition: width 0.3s ease;
+        }
+
+        .menu > li:not(.login-btn):hover > a::after,
+        .menu > li:not(.login-btn) > a.active::after { width: 100%; }
+
+        /* DROPDOWN MENU STYLES */
+        .dropdown {
+            position: absolute; top: 100%; left: 0; background-color: #ffffff;
+            min-width: 240px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 0 0 8px 8px; opacity: 0; visibility: hidden;
+            transform: translateY(10px); transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            list-style: none; padding: 10px 0; border-top: 3px solid var(--secondary-color);
+        }
+
+        .menu > li:hover .dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown li { padding: 0; margin: 0; width: 100%; }
+        .dropdown li a {
+            display: block; padding: 12px 25px; color: var(--text-color);
+            font-family: 'Inter', sans-serif; font-size: 13.5px; font-weight: 500;
+            text-transform: capitalize; letter-spacing: 0; transition: all 0.2s ease; position: relative;
+        }
+        .dropdown li a:hover { background-color: rgba(245, 245, 245, 1); color: var(--primary-color); padding-left: 30px; }
+
+        /* Login Button Styles */
+        .login-btn { margin-left: 10px; }
+        .login-btn a {
+            display: inline-flex !important; align-items: center; gap: 8px;
+            background: #ffffff !important; color: #3D4785 !important;
+            padding: 8px 22px !important; border-radius: 50px; font-size: 13px !important;
+            font-weight: 600 !important; text-transform: uppercase; transition: all 0.3s ease !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .login-btn a:hover { background: #FFD54F !important; color: #222 !important; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,0.25); }
+        .login-btn a::after { display: none !important; }
+        .login-btn i { font-size: 16px; }
+
+        .menu-btn { cursor: pointer; font-size: 1.5rem; color: white; display: none; }
+        #check { display: none; }
+
+        /* Desktop-only hover caret rotation (kept OUT of mobile so tap doesn't fake-rotate it) */
+        @media (min-width: 1101px) {
+            .menu > li:hover > a i.fa-caret-down { transform: rotate(180deg); }
+        }
+
+        /* Header Responsive Breakpoints */
+        @media (max-width: 1250px) {
+            .menu { gap: 1vw; }
+            .menu > li > a { font-size: 12px; letter-spacing: 0.3px; }
+            .sticky-header nav { padding: 0 15px; }
+        }
+
+        @media (max-width: 1100px) {
+            .menu {
+                flex-direction: column; align-items: flex-start; justify-content: flex-start;
+                width: 300px; height: 100vh; position: fixed; top: 0; right: -100%;
+                background-color: #3D4785; box-shadow: -5px 0 15px rgba(0,0,0,0.2); z-index: 1000;
+                transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1); padding: 80px 20px 30px 20px; overflow-y: auto;
+            }
+            .menu > li { width: 100%; flex-direction: column; align-items: flex-start; height: auto; margin: 5px 0; }
+            .menu > li > a { font-size: 16px; display: flex; justify-content: space-between; width: 100%; padding: 12px 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+            .menu > li > a::after { display: none; } 
+            
+            /* Clean Mobile Accordion Logic (driven by JS toggling the `.open` class) */
+            .dropdown {
+                position: static; width: 100%; background-color: transparent; box-shadow: none; border-radius: 0;
+                border-top: none; padding: 0; opacity: 1; visibility: visible; transform: none; max-height: 0;
+                overflow: hidden; transition: max-height 0.3s ease-out;
+            }
+            /* NOTE: no more `:hover .dropdown` rule here — mobile taps triggered a "sticky hover"
+               state that fought with the JS-driven `.open` class. Only `.open` controls it now. */
+            .menu > li.open .dropdown { max-height: 500px; }
+            .menu > li.open > a i.fa-caret-down { transform: rotate(180deg); }
+            
+
+            .dropdown li a { color: #e0e0e0; padding: 10px 10px 10px 30px; font-size: 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+            .dropdown li a:hover { background-color: rgba(255, 255, 255, 0.1); color: #ffffff; padding-left: 35px; }
+
+            /* Single consolidated hamburger/close button — always sits in the same
+               fixed spot so it never overlaps itself or duplicates on screen. */
+            .menu-btn {
+                display: block;
+                position: fixed;
+                top: 28px;
+                right: 25px;
+                font-size: 1.6rem;
+                z-index: 1100; /* above the sliding .menu panel (z-index 1000) */
+            }
+            #check:checked ~ .menu { right: 0; }
+            /* Swap bars -> times icon purely via CSS when the menu is open */
+            #check:checked ~ .menu-btn i::before { content: "\f00d"; }
+            
+            .login-btn { margin-left: 0; margin-top: 15px !important; display: flex; width: 100%; justify-content: center; align-items: center; }
+            .login-btn a { justify-content: center; width: auto !important; border-bottom: none !important; }
+        }
+
+        /* =========================================
+           END UPDATED HEADER CSS 
+           ========================================= */
+
+        /* --------------------------------------
+           COMING SOON SECTION & CLOUD ANIMATION
+           -------------------------------------- */
+        .coming-soon-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background-color: var(--light-bg);
+            min-height: 60vh;
+        }
+
+        .coming-soon-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .coming-soon-content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .coming-soon-content p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .blur-cloud {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.6;
+            z-index: 1;
+            animation: floatCloud 10s infinite alternate ease-in-out;
+            pointer-events: none;
+        }
+
+        .cloud-primary { width: 45vw; height: 45vw; max-width: 600px; max-height: 600px; background: var(--secondary-color); left: -15%; top: 10%; }
+        .cloud-secondary { width: 35vw; height: 35vw; max-width: 450px; max-height: 450px; background: var(--primary-color); left: -5%; bottom: -10%; animation-duration: 14s; animation-direction: alternate-reverse; opacity: 0.4; }
+        .cloud-accent { width: 20vw; height: 20vw; max-width: 300px; max-height: 300px; background: #a3c4f3; left: 20%; top: 40%; animation-duration: 12s; opacity: 0.3; }
+
+        @keyframes floatCloud {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            50% { transform: translate(40px, -40px) scale(1.05) rotate(5deg); }
+            100% { transform: translate(10px, 40px) scale(0.95) rotate(-5deg); }
+        }
+
+        @media (max-width: 768px) {
+            .coming-soon-content h1 { font-size: 2.8rem; }
+            .coming-soon-content p { font-size: 1rem; }
+            .blur-cloud { filter: blur(60px); }
+            .cloud-primary { width: 300px; height: 300px; left: -100px; }
+            .cloud-secondary { width: 250px; height: 250px; left: -50px; }
+        }
+
+        /* --------------------------------------
+           COMMON COMPONENTS
+           -------------------------------------- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            flex: 1;
+            width: 100%;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--heading-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        p { line-height: 1.6; margin-bottom: 20px; color: var(--text-muted); }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-transform: capitalize;
+        }
+        .primary-btn { background-color: var(--btn-primary-bg); color: var(--btn-primary-text); }
+        .primary-btn:hover { background-color: var(--btn-hover-bg); color: var(--btn-primary-text); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+        .secondary-btn { background-color: var(--btn-secondary-bg); color: var(--btn-secondary-text); }
+        .secondary-btn:hover { background-color: var(--btn-secondary-hover); }
+        .btn-outline { border: 1px solid var(--primary-color); color: var(--primary-color); background: transparent; padding: 8px 20px; font-size: 0.9rem;}
+        .btn-outline:hover { background: var(--primary-color); color: white; }
+
+        .gray-bg { background-color: var(--light-gray); }
+
+        /* --------------------------------------
+           PAGE HERO SECTION
+           -------------------------------------- */
+        .page-hero {
+            background-color: #2a2d47;
+            background-image: linear-gradient(rgba(42, 45, 71, 0.85), rgba(42, 45, 71, 0.85)), url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0 80px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .page-hero h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .page-hero p {
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 25px;
+        }
+
+        .breadcrumb {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: #bbb;
+        }
+
+        .breadcrumb li a {
+            color: var(--secondary-color);
+            transition: 0.3s;
+        }
+        .breadcrumb li a:hover { color: white; }
+
+        /* --------------------------------------
+           PAGE INTRODUCTION
+           -------------------------------------- */
+        .speaker-intro {
+            padding: 60px 20px 20px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .speaker-intro p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        /* --------------------------------------
+           FEATURED SPEAKER (Chief Guest)
+           -------------------------------------- */
+        .featured-speaker-wrapper {
+            padding: 40px 0;
+        }
+        
+        .featured-card {
+            display: flex;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .featured-card:hover {
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .featured-image-col {
+            flex: 0 0 350px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(145deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .featured-image-col img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            mix-blend-mode: luminosity; /* Gives a professional, integrated look */
+            opacity: 0.9;
+        }
+
+        .featured-card:hover .featured-image-col img {
+            transform: scale(1.05);
+        }
+
+        .featured-content-col {
+            padding: 40px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: rgba(108, 166, 214, 0.15);
+            color: var(--primary-color);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            align-self: flex-start;
+        }
+
+        .featured-content-col h3 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+        }
+
+        .featured-designation {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .featured-institution {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .featured-bio {
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        .featured-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .detail-item h4 {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .detail-item p {
+            margin: 0;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        @media (max-width: 900px) {
+            .featured-card { flex-direction: column; }
+            .featured-image-col { height: 400px; flex: none; }
+            .featured-details { grid-template-columns: 1fr; }
+        }
+
+        /* --------------------------------------
+           SPEAKER GRID SYSTEM
+           -------------------------------------- */
+        .speakers-category-section {
+            padding: 50px 0;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--light-gray);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .speaker-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* Grid Responsiveness */
+        @media (max-width: 1100px) {
+            .speaker-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 850px) {
+            .speaker-grid { grid-template-columns: repeat(2, 1fr); gap: 20px;}
+        }
+        @media (max-width: 550px) {
+            .speaker-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Speaker Card */
+        .speaker-card {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .speaker-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .speaker-img-wrapper {
+            width: 100%;
+            padding-top: 100%; /* 1:1 Aspect Ratio */
+            position: relative;
+            overflow: hidden;
+            background-color: var(--light-gray);
+        }
+
+        .speaker-img-wrapper img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .speaker-card:hover .speaker-img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .speaker-info {
+            padding: 25px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .speaker-name {
+            font-size: 1.15rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .speaker-desig {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .speaker-uni {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .speaker-bio {
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            flex: 1; /* Pushes button to bottom */
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .speaker-socials {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .speaker-socials a {
+            color: var(--text-muted);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .speaker-socials a:hover {
+            background: var(--primary-color);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* --------------------------------------
+           HIGHLIGHTS (STATS) SECTION
+           -------------------------------------- */
+        .highlights-stats {
+            padding: var(--section-padding);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-bottom-color: var(--secondary-color);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .stat-card h3 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-card p {
+            margin: 0;
+            font-weight: 500;
+            color: #666;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* --------------------------------------
+           CTA SECTION
+           -------------------------------------- */
+        .call-to-action {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .cta-content { max-width: 800px; margin: 0 auto; }
+        .cta-content h3 { color: white; font-size: 2rem; margin-bottom: 15px; }
+        .cta-content p { color: #ffffff; font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9; }
+        .cta-content .btn { margin: 10px; }
+        .cta-content .secondary-btn { background-color: transparent; color: white; border: 2px solid white; }
+        .cta-content .secondary-btn:hover { background-color: rgba(255, 255, 255, 0.1); }
+
+        /* --------------------------------------
+           FOOTER
+           -------------------------------------- */
+        .professional-footer {
+            background-color: #3D4785;
+            color: #ffffff;
+            padding: 40px 0 20px;
+            margin-top: auto;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .footer-left h3 {  color: white; margin-bottom: 10px; font-size: 1.5rem; }
+        .footer-left p {color: #ffffff; font-size: 0.9rem; opacity: 0.8; max-width: 500px; margin-bottom: 0; }
+        .footer-right { display: flex; flex-direction: column; gap: 8px; }
+        .footer-right p { color: #ffffff; margin: 0; font-size: 0.9rem; opacity: 0.9; }
+        
+        .team-link { color: var(--secondary-color); font-weight: 500; font-size: 0.9rem; transition: color 0.3s ease; display: inline-block; }
+        .team-link:hover { color: #ffffff; text-decoration: underline; }
+
+        @media (min-width: 768px) {
+            .footer-container { flex-direction: row; justify-content: space-between; text-align: left; align-items: flex-start; }
+            .footer-right { align-items: flex-end; }
+        }
+
+        .to-top {
+            background: white;
+            position: fixed;
+            bottom: 16px;
+            right: 32px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: #1f1f1f;
+            text-decoration: none;
+            opacity: 0;
+            pointer-events: none;
+            transition: all .4s;
+            z-index: 999;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .to-top.active { bottom: 32px; pointer-events: auto; opacity: 1; }
+
+        .chatbot-btn {
+            position: fixed;
+            bottom: 32px;
+            left: 32px;
+            width: 65px;
+            height: 65px;
+            background-color: #465593;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .chatbot-btn:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+            background-color: #3D4785;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Super Fast CSS Preloader -->
+    <div id="preLoader">
+        <div class="spinner"></div>
+    </div>
+    
+    <div class="main">
+        
+        <!-- ================= HEADER START ================= -->
+        <header id="main-header" class="sticky-header">
+            <nav>
+
+                <!-- Logo -->
+                <div class="logo-main">
+                    <div class="logo">
+                        <a href="https://www.iitr.ac.in/">
+                            <img src="./img/iit.png"
+                                alt="IIT Roorkee"
+                                onerror="this.src='https://placehold.co/80x80/ffffff/3D4785?text=IIT'">
+                        </a>
+                    </div>
+
+                    <div class="logo logo_ahead">
+                        <a href="https://ahead.iitr.ac.in/index.html">
+                            <img src="./img/newuplogo.png"
+                                alt="AHEAD"
+                                onerror="this.src='https://placehold.co/160x80/ffffff/3D4785?text=AHEAD'">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile Hamburger Toggle -->
+                <input type="checkbox" id="check">
+
+                <!-- Navigation -->
+                <ul class="menu">
+
+                    <li>
+                        <a href="index.html" >Home</a>
+                    </li>
+
+                    <!-- Conferences Dropdown -->
+                    <li class="has-dropdown">
+                        <a href="javascript:void(0)" class="active">
+                            Conferences
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+
+                        <ul class="dropdown">
+                            <li><a href="speakers.html">Speakers</a></li>
+                            <li><a href="past_conferences.html">Past Conferences</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Call for Papers Dropdown -->
+                    <li class="has-dropdown">
+                        <a href="javascript:void(0)">
+                            Call For Papers
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+
+                        <ul class="dropdown">
+                            <li><a href="important_dates.html">Important Dates</a></li>
+                            <li><a href="tracks.html">Conference Tracks</a></li>
+                            <li><a href="submission.html">Submission</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Registration Dropdown -->
+                    <li class="has-dropdown">
+                        <a href="javascript:void(0)">
+                            Registration
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+
+                        <ul class="dropdown">
+                            <li><a href="registration.html">Registration</a></li>
+                            <li><a href="visa.html">Visa Information</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Normal Links -->
+                    <li>
+                        <a href="programme.html">Programme</a>
+                    </li>
+
+                    <li>
+                        <a href="sponsors.html">Sponsors</a>
+                    </li>
+                    <li>
+                        <a href="contact.html" >Contact</a>
+                    </li>
+
+                    <!-- Login Button -->
+                    <li class="login-btn">
+                        <a href="login.html">
+                            <i class="fas fa-user-circle"></i>
+                            Login
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- Consolidated Hamburger/Close Icon (single element, icon swaps via CSS) -->
+                <label for="check" class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </label>
+
+            </nav>
+        </header>
+        <!-- ================= HEADER END ================= -->
+
+        <!-- ================= TEMPORARY COMING SOON SECTION ================= -->
+        <!-- DELETE THIS ENTIRE SECTION WHEN YOU WANT TO REVEAL THE SPEAKERS -->
+        <section class="coming-soon-wrapper">
+            <div class="blur-cloud cloud-primary"></div>
+            <div class="blur-cloud cloud-secondary"></div>
+            <div class="blur-cloud cloud-accent"></div>
+            <div class="coming-soon-content">
+                <h1 data-aos="fade-up">Coming Soon</h1>
+                <p data-aos="fade-up" data-aos-delay="200">Our esteemed speaker lineup is currently being finalized. Please check back later for updates on our keynote and invited speakers for AHEAD'26.</p>
+            </div>
+        </section>
+        <!-- ================= END TEMPORARY COMING SOON SECTION ================= -->
+
+        <!-- ================= FUTURE SPEAKER CONTENT ================= -->
+        <!-- TO SHOW THIS: Remove the 'style="display: none;"' attribute from this div below -->
+        <div id="actual-speakers-content" style="display: none;">
+            
+            <!-- PAGE HERO -->
+            <section class="page-hero">
+                <div class="container" data-aos="fade-up">
+                    <h1>Invited Speakers</h1>
+                    <p>Meet the distinguished researchers, academicians, industry experts, and thought leaders who will share their insights at AHEAD'26.</p>
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a></li>
+                        <li><i class="fas fa-chevron-right" style="font-size: 0.8rem;"></i></li>
+                        <li>Speakers</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- PAGE INTRODUCTION -->
+            <section class="speaker-intro">
+                <div class="container" data-aos="fade-up">
+                    <p>AHEAD'26 is proud to host a globally diverse panel of experts. Our esteemed speakers bring decades of experience across health economics, public policy, and healthcare technology. Explore their profiles below and prepare for insightful plenary talks, panel discussions, and interactive sessions.</p>
+                </div>
+            </section>
+
+            <!-- FEATURED SPEAKER / CHIEF GUEST -->
+            <section class="featured-speaker-wrapper">
+                <div class="container">
+                    <h2 class="category-title" data-aos="fade-right">Chief Guest</h2>
+                    
+                    <div class="featured-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="featured-image-col">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Featured Speaker" loading="lazy">
+                        </div>
+                        <div class="featured-content-col">
+                            <span class="featured-badge">Distinguished Keynote</span>
+                            <h3>Dr. William H. Bradley</h3>
+                            <p class="featured-designation">Director of Global Health Initiatives</p>
+                            <p class="featured-institution"><i class="fas fa-university"></i> World Health Organization (WHO), Switzerland</p>
+                            
+                            <p class="featured-bio">Dr. Bradley has over 30 years of experience in shaping global health policy, focusing specifically on health economics and equitable resource allocation in developing nations. His groundbreaking research on digital health infrastructure has been implemented in over 15 countries.</p>
+                            
+                            <div class="featured-details">
+                                <div class="detail-item">
+                                    <h4>Keynote Topic</h4>
+                                    <p>"Economic Resilience in 21st Century Healthcare Systems"</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Session Time</h4>
+                                    <p><i class="far fa-calendar-alt"></i> Dec 15, 2026 | 10:00 AM (IST)</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Research Interests</h4>
+                                    <p>Macroeconomics of Health, Policy Analysis</p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Awards</h4>
+                                    <p>Global Health Pioneer Award (2022)</p>
+                                </div>
+                            </div>
+
+                            <div class="speaker-socials" style="justify-content: flex-start; margin-bottom: 0;">
+                                <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                                <a href="#" title="Website"><i class="fas fa-globe"></i></a>
+                                <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SPEAKERS GRID SECTION -->
+            <section class="speakers-category-section gray-bg">
+                <div class="container">
+                    
+                    <!-- KEYNOTE SPEAKERS -->
+                    <h2 class="category-title" data-aos="fade-right">Keynote Speakers</h2>
+                    <div class="speaker-grid">
+                        <!-- Card 1 -->
+                        <div class="speaker-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="speaker-img-wrapper">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Speaker" loading="lazy">
+                            </div>
+                            <div class="speaker-info">
+                                <h4 class="speaker-name">Prof. Sarah Jenkins</h4>
+                                <p class="speaker-desig">Professor of Health Economics</p>
+                                <p class="speaker-uni"><i class="fas fa-map-marker-alt"></i> University of Leeds, UK</p>
+                                <p class="speaker-bio">Renowned for her work in healthcare financing models and public health interventions in low-income countries.</p>
+                                <div class="speaker-socials">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fas fa-graduation-cap"></i></a>
+                                    <a href="#"><i class="fas fa-envelope"></i></a>
+                                </div>
+                                <button class="btn btn-outline">View Profile</button>
+                            </div>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="speaker-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="speaker-img-wrapper">
+                                <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Speaker" loading="lazy">
+                            </div>
+                            <div class="speaker-info">
+                                <h4 class="speaker-name">Dr. Rajesh Kumar</h4>
+                                <p class="speaker-desig">Chief Economist</p>
+                                <p class="speaker-uni"><i class="fas fa-map-marker-alt"></i> Ministry of Health, India</p>
+                                <p class="speaker-bio">Expert in national health accounting and policy implementation strategies for universal health coverage.</p>
+                                <div class="speaker-socials">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fas fa-envelope"></i></a>
+                                </div>
+                                <button class="btn btn-outline">View Profile</button>
+                            </div>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="speaker-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="speaker-img-wrapper">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Speaker" loading="lazy">
+                            </div>
+                            <div class="speaker-info">
+                                <h4 class="speaker-name">Prof. Elena Rostova</h4>
+                                <p class="speaker-desig">Head of Data Analytics</p>
+                                <p class="speaker-uni"><i class="fas fa-map-marker-alt"></i> UNICEF, Geneva</p>
+                                <p class="speaker-bio">Pioneering the use of predictive analytics and machine learning to map global health outcome disparities.</p>
+                                <div class="speaker-socials">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fas fa-globe"></i></a>
+                                    <a href="#"><i class="fas fa-envelope"></i></a>
+                                </div>
+                                <button class="btn btn-outline">View Profile</button>
+                            </div>
+                        </div>
+                        <!-- Card 4 -->
+                        <div class="speaker-card" data-aos="fade-up" data-aos-delay="400">
+                            <div class="speaker-img-wrapper">
+                                <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Speaker" loading="lazy">
+                            </div>
+                            <div class="speaker-info">
+                                <h4 class="speaker-name">Dr. Akira Sato</h4>
+                                <p class="speaker-desig">Director, Public Policy</p>
+                                <p class="speaker-uni"><i class="fas fa-map-marker-alt"></i> Tokyo University, Japan</p>
+                                <p class="speaker-bio">Specializes in the economic impacts of aging populations and healthcare system sustainability in Asia.</p>
+                                <div class="speaker-socials">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fas fa-graduation-cap"></i></a>
+                                    <a href="#"><i class="fas fa-envelope"></i></a>
+                                </div>
+                                <button class="btn btn-outline">View Profile</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- INVITED SPEAKERS -->
+                    <h2 class="category-title" data-aos="fade-right">Invited Speakers</h2>
+                    <div class="speaker-grid">
+                        <!-- Card 1 -->
+                        <div class="speaker-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="speaker-img-wrapper">
+                                <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Speaker" loading="lazy">
+                            </div>
+                            <div class="speaker-info">
+                                <h4 class="speaker-name">Dr. Amit Verma</h4>
+                                <p class="speaker-desig">Associate Professor</p>
+                                <p class="speaker-uni"><i class="fas fa-map-marker-alt"></i> IIT Bombay, India</p>
+                                <p class="speaker-bio">Research focus on rural healthcare economics and the impact of micro-insurance in developing regions.</p>
+                                <div class="speaker-socials">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fas fa-envelope"></i></a>
+                                </div>
+                                <button class="btn btn-outline">View Profile</button>
+                            </div>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="speaker-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="speaker-img-wrapper">
+                                <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Speaker" loading="lazy">
+                            </div>
+                            <div class="speaker-info">
+                                <h4 class="speaker-name">Dr. Lisa Chen</h4>
+                                <p class="speaker-desig">Senior Researcher</p>
+                                <p class="speaker-uni"><i class="fas fa-map-marker-alt"></i> Stanford University, USA</p>
+                                <p class="speaker-bio">Evaluates the cost-effectiveness of behavioral health interventions and mental health policies.</p>
+                                <div class="speaker-socials">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fas fa-graduation-cap"></i></a>
+                                </div>
+                                <button class="btn btn-outline">View Profile</button>
+                            </div>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="speaker-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="speaker-img-wrapper">
+                                <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="Speaker" loading="lazy">
+                            </div>
+                            <div class="speaker-info">
+                                <h4 class="speaker-name">Prof. Carlos Mendez</h4>
+                                <p class="speaker-desig">Professor of Economics</p>
+                                <p class="speaker-uni"><i class="fas fa-map-marker-alt"></i> University of Madrid, Spain</p>
+                                <p class="speaker-bio">Explores the intersection of environmental policies, climate change, and global health expenditures.</p>
+                                <div class="speaker-socials">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fas fa-globe"></i></a>
+                                </div>
+                                <button class="btn btn-outline">View Profile</button>
+                            </div>
+                        </div>
+                        <!-- Card 4 -->
+                        <div class="speaker-card" data-aos="fade-up" data-aos-delay="400">
+                            <div class="speaker-img-wrapper">
+                                <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Speaker" loading="lazy">
+                            </div>
+                            <div class="speaker-info">
+                                <h4 class="speaker-name">Dr. Sunita Rao</h4>
+                                <p class="speaker-desig">Lead Policy Analyst</p>
+                                <p class="speaker-uni"><i class="fas fa-map-marker-alt"></i> JNU, New Delhi</p>
+                                <p class="speaker-bio">Analyzes maternal and child health programs and their socioeconomic impacts in South Asia.</p>
+                                <div class="speaker-socials">
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fas fa-envelope"></i></a>
+                                </div>
+                                <button class="btn btn-outline">View Profile</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- INDUSTRY EXPERTS -->
+                    <h2 class="category-title" data-aos="fade-right">Industry Experts</h2>
+                    <div class="speaker-grid" style="margin-bottom: 0;">
+                        <!-- Card 1 -->
+                        <div class="speaker-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="speaker-img-wrapper">
+                                <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Speaker" loading="lazy">
+                            </div>
+                            <div class="speaker-info">
+                                <h4 class="speaker-name">Mark Thompson</h4>
+                                <p class="speaker-desig">VP, Digital Health</p>
+                                <p class="speaker-uni"><i class="fas fa-building"></i> MedTech Innovations</p>
+                                <p class="speaker-bio">Leading the integration of scalable digital health tools and EMR systems across emerging markets.</p>
+                                <div class="speaker-socials">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fas fa-envelope"></i></a>
+                                </div>
+                                <button class="btn btn-outline">View Profile</button>
+                            </div>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="speaker-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="speaker-img-wrapper">
+                                <img src="https://randomuser.me/api/portraits/women/61.jpg" alt="Speaker" loading="lazy">
+                            </div>
+                            <div class="speaker-info">
+                                <h4 class="speaker-name">Anita Desai</h4>
+                                <p class="speaker-desig">Director of Strategy</p>
+                                <p class="speaker-uni"><i class="fas fa-building"></i> Global Pharma Corp</p>
+                                <p class="speaker-bio">Specialist in drug pricing, market access, and affordability strategies for life-saving therapeutics.</p>
+                                <div class="speaker-socials">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                </div>
+                                <button class="btn btn-outline">View Profile</button>
+                            </div>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="speaker-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="speaker-img-wrapper">
+                                <img src="https://randomuser.me/api/portraits/men/72.jpg" alt="Speaker" loading="lazy">
+                            </div>
+                            <div class="speaker-info">
+                                <h4 class="speaker-name">David O'Connor</h4>
+                                <p class="speaker-desig">Principal Consultant</p>
+                                <p class="speaker-uni"><i class="fas fa-building"></i> HealthEcon Advisors</p>
+                                <p class="speaker-bio">Advises governments and NGOs on healthcare financing and sustainable investment modeling.</p>
+                                <div class="speaker-socials">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fas fa-globe"></i></a>
+                                </div>
+                                <button class="btn btn-outline">View Profile</button>
+                            </div>
+                        </div>
+                        <!-- Card 4 -->
+                        <div class="speaker-card" data-aos="fade-up" data-aos-delay="400">
+                            <div class="speaker-img-wrapper">
+                                <img src="https://randomuser.me/api/portraits/women/24.jpg" alt="Speaker" loading="lazy">
+                            </div>
+                            <div class="speaker-info">
+                                <h4 class="speaker-name">Priya Sharma</h4>
+                                <p class="speaker-desig">Head of AI Research</p>
+                                <p class="speaker-uni"><i class="fas fa-building"></i> HealthAI Labs</p>
+                                <p class="speaker-bio">Focuses on bridging the gap between clinical needs and artificial intelligence applications in diagnostics.</p>
+                                <div class="speaker-socials">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fas fa-envelope"></i></a>
+                                </div>
+                                <button class="btn btn-outline">View Profile</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- QUICK STATISTICS (Matches Highlights style from past_conferences) -->
+            <section class="highlights-stats" style="background: white;">
+                <div class="container">
+                    <div class="stats-grid">
+                        <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                            <i class="fas fa-user-tie"></i>
+                            <h3>20+</h3>
+                            <p>Distinguished Speakers</p>
+                        </div>
+                        <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                            <i class="fas fa-globe-americas"></i>
+                            <h3>10+</h3>
+                            <p>Countries Represented</p>
+                        </div>
+                        <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                            <i class="fas fa-university"></i>
+                            <h3>30+</h3>
+                            <p>Universities & Orgs</p>
+                        </div>
+                        <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
+                            <i class="fas fa-microscope"></i>
+                            <h3>15+</h3>
+                            <p>Research Domains</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA SECTION (Identical to existing site) -->
+            <section class="call-to-action">
+                <div class="cta-content" data-aos="zoom-in">
+                    <h3>Join AHEAD'26</h3>
+                    <p>Learn from globally renowned experts and contribute to the future of healthcare research and innovation.</p>
+                    <a href="registration.html" class="btn secondary-btn">Register Now</a>
+                    <a href="contact.html" class="btn primary-btn" style="background-color: transparent; border: 2px solid white; color: white;">Contact Us</a>
+                </div>
+            </section>
+
+        </div> 
+        <!-- ================= END FUTURE SPEAKER CONTENT ================= -->
+
+        <!-- FOOTER (Identical to existing site) -->
+        <footer class="professional-footer">
+            <div class="footer-container">
+                <div class="footer-left">
+                    <h3>AHEAD'26</h3>
+                    <p>AHEAD'26 International Conference on Health, Technology, and Development</p>
+                </div>
+                <div class="footer-right">
+                    <p>&copy; 2026 AHEAD Lab, IIT Roorkee. All rights reserved.</p>
+                    <a href="/team.html" target="_blank" class="team-link">Designed & Developed by Team AHEAD</a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Floating Buttons -->
+        <div class="chatbot-btn" onclick="alert('Chatbot interface will be triggered here.')">
+            <i class="fas fa-comment-alt"></i>
+        </div>
+
+        <a href="#" class="to-top">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Lightning Fast CSS Preloader
+        window.addEventListener('load', function() {
+            const loader = document.getElementById("preLoader");
+            if (loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = "none";
+                }, 400); 
+            }
+        });
+
+        // Initialize AOS animations
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+        });
+
+        // To Top Button Logic
+        const toTopBtn = document.querySelector('.to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                toTopBtn.classList.add('active');
+            } else {
+                toTopBtn.classList.remove('active');
+            }
+        });
+
+        toTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Mobile Dropdown Accordion
+        const dropdownItems = document.querySelectorAll(".menu > li.has-dropdown");
+            dropdownItems.forEach(item => {
+                const link = item.querySelector(":scope > a");
+                const dropdown = item.querySelector(":scope > .dropdown");
+                if (!dropdown) return;
+
+                link.addEventListener("click", function (e) {
+                    // On desktop widths, let hover handle it — click should do nothing.
+                    if (window.innerWidth > 1100) return;
+
+                    e.preventDefault();
+
+                    // Close every other open dropdown first.
+                    dropdownItems.forEach(other => {
+                        if (other !== item) {
+                            other.classList.remove("open");
+                            const otherDrop = other.querySelector(".dropdown");
+                            if (otherDrop) otherDrop.style.maxHeight = null;
+                        }
+                    });
+
+                    // Toggle the one that was actually clicked.
+                    item.classList.toggle("open");
+                    if (item.classList.contains("open")) {
+                        dropdown.style.maxHeight = dropdown.scrollHeight + "px";
+                    } else {
+                        dropdown.style.maxHeight = null;
+                    }
+                });
+            });
+    </script>
+</body>
+
+</html>

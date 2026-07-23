@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    
+    <!-- Preconnect for Google Fonts (Massive speed improvement) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- External CSS Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" crossorigin="anonymous" />
+    
+    <link rel="icon" href="./img/favicon.png" type="image/png" />
+    <title>Ahead International Conference 2026</title>
+
+    <style>
+        /* Base Styles & Theme */
+        :root {
+            --primary-color: #3D4785;
+            --secondary-color: #6ca6d6;
+            --light-bg: #fbfbfb; /* Light base background for particles */
+            --text-color: #333;
+            --heading-color: #3D4785;
+            --border-color: rgba(255, 255, 255, 0.8);
+            --link-color: #6ca6d6;
+            --link-hover-color: #3D4785;
+            --btn-primary-bg: #3D4785;
+            --btn-primary-text: white;
+            --btn-hover-bg: #2a2d47;
+            --btn-secondary-bg: #e0e0e0;
+            --btn-secondary-text: #3D4785;
+            --btn-secondary-hover: #d0d0d0;
+            --section-padding: 70px 0;
+            /* Premium Glassmorphism Shadows */
+            --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+            --glass-shadow-hover: 0 12px 40px rgba(31, 38, 135, 0.12);
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            text-decoration: none;
+        }
+
+        ::-webkit-scrollbar { width: 10px; border-radius: 100%; }
+        ::-webkit-scrollbar-track { background: #FFF; }
+        ::-webkit-scrollbar-thumb { background: #3D4785; }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        /* Failsafe for AOS */
+        [data-aos] { opacity: 1 !important; transform: none !important; }
+
+        /* =========================================
+           INTERACTIVE BACKGROUND CANVAS
+           ========================================= */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none; 
+        }
+
+        #preLoader {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #ffffff;
+            z-index: 100000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.4s ease;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(245, 245, 245, 0.85);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        .main {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+        }
+
+        
+
+        /* =========================================
+           UPDATED HEADER & NAVIGATION CSS (WITH DROPDOWNS)
+           ========================================= */
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #3D4785;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .sticky-header nav {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            height: 100%;
+        }
+
+        .logo-main { display: flex; gap: 15px; align-items: center; height: 100%; }
+        .logo a { display: flex; align-items: center; height: 100%; text-decoration: none; }
+        .logo img { height: 50px; width: auto; object-fit: contain; }
+        .logo_ahead img {height: 70px; width: auto;}
+
+        .menu {
+            display: flex; list-style: none; margin: 0; padding: 0; gap: 1.5vw; align-items: center;
+        }
+
+        .menu > li {
+            position: relative; padding: 0; margin: 0; height: 100%; display: flex; align-items: center;
+        }
+
+        .menu > li > a {
+            display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
+            font-family: 'Inter', sans-serif; font-weight: 500; font-size: 13.5px;
+            text-transform: uppercase; letter-spacing: 0.5px; color: #ffffff;
+            padding: 5px 0; position: relative; transition: color 0.3s ease;
+        }
+
+        .menu > li > a i.fa-caret-down { font-size: 11px; transition: transform 0.3s ease; }
+        .menu > li:hover > a, .menu > li > a.active { color: #e0e7ff; }
+
+        .menu > li > a::after {
+            content: ""; position: absolute; bottom: 0; left: 0; width: 0; height: 2px;
+            background-color: #e0e7ff; transition: width 0.3s ease;
+        }
+
+        .menu > li:not(.login-btn):hover > a::after,
+        .menu > li:not(.login-btn) > a.active::after { width: 100%; }
+
+        /* DROPDOWN MENU STYLES */
+        .dropdown {
+            position: absolute; top: 100%; left: 0; background-color: #ffffff;
+            min-width: 240px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 0 0 8px 8px; opacity: 0; visibility: hidden;
+            transform: translateY(10px); transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            list-style: none; padding: 10px 0; border-top: 3px solid var(--secondary-color);
+        }
+
+        .menu > li:hover .dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown li { padding: 0; margin: 0; width: 100%; }
+        .dropdown li a {
+            display: block; padding: 12px 25px; color: var(--text-color);
+            font-family: 'Inter', sans-serif; font-size: 13.5px; font-weight: 500;
+            text-transform: capitalize; letter-spacing: 0; transition: all 0.2s ease; position: relative;
+        }
+        .dropdown li a:hover { background-color: rgba(245, 245, 245, 1); color: var(--primary-color); padding-left: 30px; }
+
+        /* Login Button Styles */
+        .login-btn { margin-left: 10px; }
+        .login-btn a {
+            display: inline-flex !important; align-items: center; gap: 8px;
+            background: #ffffff !important; color: #3D4785 !important;
+            padding: 8px 22px !important; border-radius: 50px; font-size: 13px !important;
+            font-weight: 600 !important; text-transform: uppercase; transition: all 0.3s ease !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .login-btn a:hover { background: #FFD54F !important; color: #222 !important; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,0.25); }
+        .login-btn a::after { display: none !important; }
+        .login-btn i { font-size: 16px; }
+
+        .menu-btn { cursor: pointer; font-size: 1.5rem; color: white; display: none; }
+        #check { display: none; }
+
+        /* Desktop-only hover caret rotation (kept OUT of mobile so tap doesn't fake-rotate it) */
+        @media (min-width: 1101px) {
+            .menu > li:hover > a i.fa-caret-down { transform: rotate(180deg); }
+        }
+
+        /* Header Responsive Breakpoints */
+        @media (max-width: 1250px) {
+            .menu { gap: 1vw; }
+            .menu > li > a { font-size: 12px; letter-spacing: 0.3px; }
+            .sticky-header nav { padding: 0 15px; }
+        }
+
+        @media (max-width: 1100px) {
+            .menu {
+                flex-direction: column; align-items: flex-start; justify-content: flex-start;
+                width: 300px; height: 100vh; position: fixed; top: 0; right: -100%;
+                background-color: #3D4785; box-shadow: -5px 0 15px rgba(0,0,0,0.2); z-index: 1000;
+                transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1); padding: 80px 20px 30px 20px; overflow-y: auto;
+            }
+            .menu > li { width: 100%; flex-direction: column; align-items: flex-start; height: auto; margin: 5px 0; }
+            .menu > li > a { font-size: 16px; display: flex; justify-content: space-between; width: 100%; padding: 12px 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+            .menu > li > a::after { display: none; } 
+            
+            /* Clean Mobile Accordion Logic (driven by JS toggling the `.open` class) */
+            .dropdown {
+                position: static; width: 100%; background-color: transparent; box-shadow: none; border-radius: 0;
+                border-top: none; padding: 0; opacity: 1; visibility: visible; transform: none; max-height: 0;
+                overflow: hidden; transition: max-height 0.3s ease-out;
+            }
+            /* NOTE: no more `:hover .dropdown` rule here — mobile taps triggered a "sticky hover"
+               state that fought with the JS-driven `.open` class. Only `.open` controls it now. */
+            .menu > li.open .dropdown { max-height: 500px; }
+            .menu > li.open > a i.fa-caret-down { transform: rotate(180deg); }
+            
+
+            .dropdown li a { color: #e0e0e0; padding: 10px 10px 10px 30px; font-size: 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+            .dropdown li a:hover { background-color: rgba(255, 255, 255, 0.1); color: #ffffff; padding-left: 35px; }
+
+            /* Single consolidated hamburger/close button — always sits in the same
+               fixed spot so it never overlaps itself or duplicates on screen. */
+            .menu-btn {
+                display: block;
+                position: fixed;
+                top: 28px;
+                right: 25px;
+                font-size: 1.6rem;
+                z-index: 1100; /* above the sliding .menu panel (z-index 1000) */
+            }
+            #check:checked ~ .menu { right: 0; }
+            /* Swap bars -> times icon purely via CSS when the menu is open */
+            #check:checked ~ .menu-btn i::before { content: "\f00d"; }
+            
+            .login-btn { margin-left: 0; margin-top: 15px !important; display: flex; width: 100%; justify-content: center; align-items: center; }
+            .login-btn a { justify-content: center; width: auto !important; border-bottom: none !important; }
+        }
+
+        /* header end */
+
+        /* --------------------------------------
+           COMMON COMPONENTS
+        -------------------------------------- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; flex: 1; position: relative; z-index: 2; }
+        main.conference-main { flex: 1; padding: 30px 0; }
+        
+        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; color: var(--heading-color); margin-bottom: 20px; font-weight: 600; }
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; position: relative; padding-bottom: 10px; }
+        h3 { font-size: 1.5rem; }
+        h4 { font-size: 1.25rem; }
+        
+        a { color: var(--link-color); text-decoration: none; transition: all 0.3s ease; }
+        a:hover { color: var(--link-hover-color); }
+        p { margin-bottom: 20px; line-height: 1.7; color: var(--text-muted); }
+        li { margin-bottom: 8px; }
+        img { max-width: 100%; height: auto; }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block; padding: 10px 25px; border-radius: 4px; font-weight: 500;
+            text-align: center; transition: all 0.3s ease; margin-right: 10px; margin-bottom: 10px; cursor: pointer;
+        }
+        .primary-btn { background-color: var(--btn-primary-bg); color: var(--btn-primary-text); }
+        .primary-btn:hover { background-color: var(--btn-hover-bg); color: var(--btn-primary-text); }
+        .secondary-btn { background-color: var(--btn-secondary-bg); color: var(--btn-secondary-text); }
+        .secondary-btn:hover { background-color: var(--btn-secondary-hover); }
+
+        .section-header { text-align: center; margin-bottom: 40px; }
+        .section-header h2 { display: inline-block; padding-bottom: 12px; }
+        .section-header h2::after {
+            content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 60px; height: 3px; background-color: var(--secondary-color); border-radius: 2px;
+        }
+
+        /* --------------------------------------
+           SECTIONS (No Backgrounds - Canvas Shows Through)
+        -------------------------------------- */
+        .current-conference, .conference-overview, .programme, .program, .committees, .venue, .weather-tourism, .visitor-stats {
+            padding: 40px 0; margin-bottom: 30px; background: transparent;
+        }
+
+        /* --------------------------------------
+           UPDATED VIDEO HERO SECTION (Premium Text & Pill)
+        -------------------------------------- */
+        .conference-hero {
+            position: relative;
+            background-color: #2a2d47;
+            height: 90vh; /* Make it almost full screen */
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            z-index: 2;
+        }
+        
+        .hero-bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+        
+        .slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.55); /* Elegant dark overlay */
+            z-index: 2;
+        }
+
+        .hero-bottom-logo {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            width: 180px;
+            z-index: 4;
+            opacity: 0.9;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+        }
+        
+        .hero-content-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+
+        /* Text Animation Classes */
+        .hero-dynamic-text {
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hero-dynamic-text.fade-out {
+            opacity: 0;
+            transform: translateY(-15px);
+        }
+        .hero-dynamic-text.fade-in {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+
+        /* Premium Typography for Hero */
+        .premium-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .premium-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ffffff;
+            background: rgba(93, 116, 130, 0.85); /* Premium greyish-blue pill */
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            padding: 12px 35px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: inline-block;
+            line-height: 1.6;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .premium-title { font-size: 2.5rem; }
+            .premium-subtitle { font-size: 1rem; padding: 10px 25px; }
+            .hero-bottom-logo { width: 130px; bottom: 20px; right: 20px; }
+            .conference-hero { height: 75vh; }
+        }
+
+        @media (max-width: 576px) {
+            .premium-title { font-size: 2rem; }
+            .premium-subtitle { font-size: 0.9rem; }
+        }
+
+        
+        /* --------------------------------------
+           SPECIFIC GLASS PANELS
+        -------------------------------------- */
+        
+        .conference-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+        .conference-image img { border-radius: 12px; box-shadow: var(--glass-shadow); margin-bottom: 20px; height: 500px; object-fit: cover; width: 100%;}
+        
+        .key-dates { padding: 40px; display: flex; flex-direction: column; }
+        .key-dates h3 { color: var(--primary-color); text-align: center; margin-bottom: 30px; }
+        .dates-table { width: 100%; border-collapse: collapse; background: transparent; }
+        .dates-table tr { border-bottom: 1px solid rgba(0,0,0,0.08); transition: background-color 0.2s ease; }
+        .dates-table tr:hover { background-color: rgba(255,255,255,0.3); }
+        .dates-table tr:last-child { border-bottom: none; }
+        .dates-table td { padding: 15px 10px; vertical-align: top; color: var(--text-color); font-size: 0.95rem; }
+        .dates-table td:first-child { font-weight: 600; color: var(--primary-color); width: 35%; background: transparent; }
+        
+        .dates-note { font-size: 0.9rem; margin-top: 20px; font-style: italic; color: var(--text-muted); background: rgba(255,255,255,0.3); padding: 15px; border-radius: 6px;}
+        .strikethrough { text-decoration: line-through !important; color: #888; }
+        
+        .registration-timer { margin: 0 0 40px 0; text-align: center; padding: 25px; animation: pulse 2s infinite; }
+        .timer-container { display: flex; justify-content: center; gap: 30px; }
+        .timer-item span { font-size: 2.2rem; font-weight: bold; color: #d14836; margin-bottom: 5px; display: block; }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(209, 72, 54, 0.1); }
+            70% { box-shadow: 0 0 0 10px rgba(209, 72, 54, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(209, 72, 54, 0); }
+        }
+
+        .program-format { display: grid; grid-template-columns: repeat(5, 1fr); gap: 30px; margin-bottom: 40px; }
+        .format-item {
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;   /* headings/text ko center align karo, cards tight hone par better lagega */
+        }
+        .format-item h4 {
+            font-size: 1.1rem;   /* default se thoda chhota */
+            white-space: nowrap;  /* force single line — sirf tab use karo agar sure ho ki text fit ho jayega */
+        }
+        .format-icon { font-size: 2.8rem; color: var(--secondary-color); margin-bottom: 20px; }
+        
+        .keynote-speakers .speakers-list li { margin-bottom: 12px; font-size: 1.05rem; }
+        
+        .committee { padding: 40px; margin-bottom: 30px; }
+        .committee h3 { margin-bottom: 25px; border-bottom: 2px solid rgba(0,0,0,0.05); padding-bottom: 15px;}
+        .two-column-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px 30px; list-style-position: inside; }
+        .two-column-list li { padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+
+        .venue-info { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+        .venue-text { padding: 40px; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin: 0 0 30px 0; border-radius: 12px; box-shadow: var(--glass-shadow);}
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .venue-map { border-radius: 12px; overflow: hidden; box-shadow: var(--glass-shadow); padding: 10px; background: rgba(255,255,255,0.45); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.7);}
+        .venue-map iframe { border-radius: 8px; }
+
+        .weather-tourism { padding: 40px; max-width: 800px; margin: 0 auto; }
+
+        /* =========================================
+           WEBSITE ANALYTICS
+           ========================================= */
+        .stats-dashboard {
+            display: grid; grid-template-columns: 1fr 2fr; gap: 30px; padding: 40px; 
+        }
+        .stats-counters { display: flex; flex-direction: column; gap: 20px; justify-content: center; }
+        
+        .counter-box {
+            display: flex; align-items: center; gap: 18px; padding: 20px;
+            background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(8px);
+            border-radius: 12px; border-left: 4px solid var(--secondary-color);
+            transition: transform 0.3s ease; border-top: 1px solid rgba(255,255,255,0.8); border-right: 1px solid rgba(255,255,255,0.8); border-bottom: 1px solid rgba(255,255,255,0.8);
+        }
+        .counter-box:hover { transform: translateX(5px); }
+        .counter-box.live { border-left-color: #4CAF50; }
+        .counter-box i { font-size: 2.2rem; color: var(--primary-color); width: 40px; text-align: center;}
+        .counter-box.live i { color: #4CAF50; }
+        .counter-info h5 { margin: 0 0 5px 0; font-size: 0.95rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;}
+        .counter-number { font-size: 2rem; font-weight: 700; color: var(--heading-color); }
+        .live-pulse { color: #4CAF50; animation: pulse-text 2s infinite; }
+
+        .stats-graph {
+            padding: 30px; background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(8px);
+            border-radius: 12px; display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,0.8);
+        }
+        .stats-graph h4 { margin-bottom: 20px; color: var(--primary-color); font-size: 1.2rem; }
+        
+        .chart-container {
+            display: flex; align-items: flex-end; justify-content: space-around; flex: 1; gap: 15px;
+            height: 220px; padding-top: 30px; border-bottom: 2px solid rgba(0,0,0,0.1);
+        }
+        .chart-bar-group { display: flex; flex-direction: column; align-items: center; flex: 1; height: 100%; justify-content: flex-end; }
+        .chart-bar {
+            width: 100%; max-width: 45px; background: linear-gradient(to top, var(--primary-color), var(--secondary-color));
+            border-radius: 4px 4px 0 0; height: 0; transition: height 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative; cursor: pointer; box-shadow: 0 4px 10px rgba(61, 71, 133, 0.2);
+        }
+        .chart-bar:hover { filter: brightness(1.2); }
+        .chart-bar:hover::after {
+            content: attr(data-value); position: absolute; top: -35px; left: 50%; transform: translateX(-50%);
+            background: var(--heading-color); color: white; padding: 6px 10px; border-radius: 4px; font-size: 0.85rem;
+            font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.2); pointer-events: none; z-index: 10;
+        }
+        .chart-label { margin-top: 15px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
+
+        /* Call to Action Section */
+        .call-to-action { background-color: var(--primary-color); color: white; padding: 60px 0; text-align: center; z-index: 2; position: relative;}
+        .cta-content { max-width: 800px; margin: 0 auto; }
+        .cta-content h3 { color: white; font-size: 2rem; margin-bottom: 15px; }
+        .cta-content p { font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9; color: #fff;}
+        .cta-content .btn { margin: 10px; }
+        .cta-content .secondary-btn { background-color: transparent; color: white; border: 2px solid white; }
+        .cta-content .secondary-btn:hover { background-color: rgba(255, 255, 255, 0.1); }
+
+        /* Footer Styles */
+        .professional-footer { background-color: #3D4785; color: #ffffff; padding: 40px 0 20px; border-top: 4px solid var(--secondary-color); z-index: 2; position: relative;}
+        .footer-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+        .footer-left h3 { color: white; margin-bottom: 10px; font-size: 1.5rem; }
+        .footer-left p { font-size: 0.9rem; opacity: 0.8; max-width: 500px; margin-bottom: 0; color: #fff; }
+        .footer-right { display: flex; flex-direction: column; gap: 8px; }
+        .footer-right p { margin: 0; font-size: 0.9rem; opacity: 0.9; color: #fff; }
+        .team-link { color: var(--secondary-color); font-weight: 500; font-size: 0.9rem; transition: color 0.3s ease; display: inline-block; }
+        .team-link:hover { color: #ffffff; text-decoration: underline; }
+
+        @media (min-width: 768px) {
+            .footer-container { flex-direction: row; justify-content: space-between; text-align: left; align-items: flex-start; }
+            .footer-right { align-items: flex-end; }
+        }
+
+        .to-top { background: white; position: fixed; bottom: 16px; right: 32px; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; color: #1f1f1f; opacity: 0; pointer-events: none; transition: all .4s; z-index: 999; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .to-top.active { bottom: 32px; pointer-events: auto; opacity: 1; }
+
+        /* Chatbot Button Styles */
+        .chatbot-btn { position: fixed; bottom: 32px; left: 32px; width: 65px; height: 65px; background-color: #465593; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25); cursor: pointer; z-index: 1000; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 2px solid white; }
+        .chatbot-btn:hover { transform: scale(1.1) translateY(-5px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35); background-color: #3D4785; }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+    .conference-info-grid, .venue-info { grid-template-columns: 1fr; }
+    .key-dates .btn { align-self: stretch; text-align: center; }
+    .program-format { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 40px; }
+    .timer-container { gap: 10px; }
+    .timer-item span { font-size: 2rem; padding: 8px 15px; }
+}
+
+        
+        @media (max-width: 850px) {
+            .stats-dashboard { grid-template-columns: 1fr; padding: 25px;}
+            .chart-container { height: 180px; gap: 8px;}
+            .chart-bar { max-width: 30px; }
+            .counter-box i { font-size: 1.8rem; }
+            .counter-number { font-size: 1.6rem; }
+        }
+
+        @media (max-width: 768px) {
+            .program-format { grid-template-columns: repeat(2, 1fr); }
+            .conference-image img { height: 400px; }
+            .timer-item span { font-size: 1.5rem; }
+            .two-column-list { grid-template-columns: 1fr; }
+            .chat-btn-fixed { width: 55px; height: 55px; font-size: 22px; bottom: 20px; left: 20px; }
+            .to-top { width: 50px; height: 50px; font-size: 20px; bottom: 20px; right: 20px; }
+            .to-top.active { bottom: 30px; }
+        }
+
+        
+        @media (max-width: 576px) {
+            h2 { font-size: 1.6rem; }
+            h3 { font-size: 1.3rem; }
+            .dates-table td:first-child { width: 45%; }
+            .timer-container { gap: 10px; }
+            .timer-item span { font-size: 1.5rem; padding: 5px 10px; }
+            .key-dates, .committee, .venue-text, .stats-dashboard { padding: 20px; }
+        }
+
+        @media (max-width: 480px) {
+            .program-format { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- INTERACTIVE BACKGROUND CANVAS -->
+    <canvas id="bg-canvas"></canvas>
+
+    <div id="preLoader">
+        <div class="spinner"></div>
+    </div>
+    
+    <div class="main">
+        
+        <!-- ================= HEADER START ================= -->
+        <header id="main-header" class="sticky-header">
+            <nav>
+
+                <!-- Logo -->
+                <div class="logo-main">
+                    <div class="logo">
+                        <a href="https://www.iitr.ac.in/">
+                            <img src="./img/iit.png"
+                                alt="IIT Roorkee"
+                                onerror="this.src='https://placehold.co/80x80/ffffff/3D4785?text=IIT'">
+                        </a>
+                    </div>
+
+                    <div class="logo logo_ahead">
+                        <a href="https://ahead.iitr.ac.in/index.html">
+                            <img src="./img/newuplogo.png"
+                                alt="AHEAD"
+                                onerror="this.src='https://placehold.co/160x80/ffffff/3D4785?text=AHEAD'">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile Hamburger Toggle -->
+                <input type="checkbox" id="check">
+
+                <!-- Navigation -->
+                <ul class="menu">
+
+                    <li>
+                        <a href="index.html" class="active">Home</a>
+                    </li>
+
+                    <!-- Conferences Dropdown -->
+                    <li class="has-dropdown">
+                        <a href="javascript:void(0)">
+                            Conferences
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+
+                        <ul class="dropdown">
+                            <li><a href="speakers.html">Speakers</a></li>
+                            <li><a href="past_conferences.html">Past Conferences</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Call for Papers Dropdown -->
+                    <li class="has-dropdown">
+                        <a href="javascript:void(0)">
+                            Call For Papers
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+
+                        <ul class="dropdown">
+                            <li><a href="important_dates.html">Important Dates</a></li>
+                            <li><a href="tracks.html">Conference Tracks</a></li>
+                            <li><a href="submission.html">Submission Guidelines</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Registration Dropdown -->
+                    <li class="has-dropdown">
+                        <a href="javascript:void(0)">
+                            Registration
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+
+                        <ul class="dropdown">
+                            <li><a href="registration.html">Registration</a></li>
+                            <li><a href="visa.html">Visa Information</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Normal Links -->
+                    <li>
+                        <a href="programme.html">Programme</a>
+                    </li>
+
+                    <li>
+                        <a href="sponsors.html">Sponsors</a>
+                    </li>
+                    <li>
+                        <a href="contact.html" >Contact</a>
+                    </li>
+
+                    <!-- Login Button -->
+                    <li class="login-btn">
+                        <a href="login.html">
+                            <i class="fas fa-user-circle"></i>
+                            Login
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- Consolidated Hamburger/Close Icon (single element, icon swaps via CSS) -->
+                <label for="check" class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </label>
+
+            </nav>
+        </header>
+        <!-- ================= HEADER END ================= -->
+
+        <!-- NEW VIDEO BACKGROUND HERO SECTION -->
+        <section class="conference-hero">
+            <video class="hero-bg-video" autoplay muted loop playsinline>
+                <!-- Update path to your actual video -->
+                <source src="./assets/iit-4.mp4" type="video/mp4">
+            </video>
+            <div class="slide-overlay"></div>
+            
+            <img src="./img/newuplogo.png" alt="AHEAD Logo" class="hero-bottom-logo" onerror="this.src='https://placehold.co/180x90/ffffff/3D4785?text=AHEAD'">
+
+            <div class="hero-content-container">
+                <div class="hero-dynamic-text" id="dynamicTextContainer">
+                    <h1 id="hero-title" class="premium-title">AHEAD'26</h1>
+                    <p id="hero-subtitle" class="premium-subtitle">
+                        2<sup>nd</sup> Annual International Conference<br>
+                        14-16 December 2026 | IIT Roorkee, India
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Conference Section -->
+        <main class="conference-main">
+            <div class="container">
+                <!-- Current Conference -->
+                <!-- Removed 'glass-panel' class for transparency and cleaned up structure for centering -->
+                <section class="current-conference" style="text-align: center;">
+                    <h2>AHEAD Annual International Conference</h2>
+                    <div class="conference-details">
+                        <h3>IIT Roorkee, India | 14-16 December 2026</h3>
+                        <p class="collab-note" style="margin-top: 8px; font-size: 0.95rem;">
+                            In collaboration with
+                            <a href="https://iitr.ac.in/pcl/index.html" target="_blank" rel="noopener noreferrer">MARG Lab</a>
+                            and IIT Roorkee
+                        </p>
+                    </div>
+                    
+                    <!-- Centered Countdown Timer -->
+                    <div class="registration-timer">
+                        <h4>Countdown to AHEAD'26 :</h4>
+                        <div class="timer-container">
+                            <div class="timer-item">
+                                <span id="reg-days">00</span>
+                                <p>Days</p>
+                            </div>
+                            <div class="timer-item">
+                                <span id="reg-hours">00</span>
+                                <p>Hours</p>
+                            </div>
+                            <div class="timer-item">
+                                <span id="reg-minutes">00</span>
+                                <p>Minutes</p>
+                            </div>
+                            <div class="timer-item">
+                                <span id="reg-seconds">00</span>
+                                <p>Seconds</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="conference-info-grid">
+                        <div class="conference-image">
+                            <img src="./img/HSS_IMG.jpg" alt="Conference Image" onerror="this.src='https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                            <br/>
+                            <a href="assets/AHEAD_Conference_brochure.pdf" class="btn primary-btn">Download Brochure</a>
+                        </div>
+                        <div class="key-dates">
+                            <h3>Important Dates (IST)</h3>
+                            <table class="dates-table">
+                                <tr>
+                                    <td>25 July 2026</td>
+                                    <td>Open for call for paper</td>
+                                </tr>
+                                <tr>
+                                    <td>31 August 2026</td>
+                                    <td>Deadline to submit abstract with extended abstract or full paper (preference
+                                        will be given to full papers)</td>
+                                </tr>
+                                <tr>
+                                    <td>15 September 2026</td>
+                                    <td>Notification of Acceptance</td>
+                                </tr>
+                                <tr>
+                                    <td>18 September 2026</td>
+                                    <td>Submission of registration fee waiver for Students from India and LMICs*
+                                        <br>
+                                        <a href="https://forms.gle/GiVuowgLSqvKH3fj7" target="_blank" style="display:inline-block; margin-top:5px; font-weight:600;">Registration Fee Waiver Form</a>
+                                        <br>
+                                        Results will be communicated to the selected students via email.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>08 September 2026</td>
+                                    <td>Decision on fee waiver</td>
+                                </tr>
+                                <tr>
+                                    <td>15 September - 11 October 2026</td>
+                                    <td>Early Bird Registration (Fees non-refundable)</td>
+                                </tr>
+                                <tr>
+                                    <td>12 October - 30 November 2026</td>
+                                    <td>Late Registration (Fees non-refundable)</td>
+                                </tr>
+                                <tr>
+                                <td>14 - 16 December 2026</td>
+                                <td>Conference Duration (Pre-conference workshop on 14th Dec) **</td>
+                                </tr>
+                            </table>
+                            <p class="dates-note">*Limited number of scholarships for registration fee waiver to be
+                                provided to PhD students having no fellowships/scholarships (proof letter from
+                                HoD/Dean/Registrar/Director is required).</p>
+                            <p class="dates-note" style="margin-top: 5px;">**Final duration may change if unavoidable.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Conference Overview -->
+                <section class="conference-overview glass-panel">
+                    <div class="section-header">
+                        <h2>Overview</h2>
+                        <h3>Health, Technology, and Development in Uncertain Times:<br> Building Agency, Resilience, and Equitable Futures</h3>
+                    </div>
+
+                    <div class="section-content" style="padding: 0 20px;">
+                        <p>
+                            The Applied Health Economics and Development (AHEAD) Lab at the Indian Institute of Technology (IIT) Roorkee invites researchers, practitioners, policymakers, and scholars to participate in the AHEAD'26 Annual International Conference, to be held from <strong>14–16 December 2026</strong> at IIT Roorkee, India. The conference theme, <strong>"Health, Technology, and Development in Uncertain Times: Building Agency, Resilience, and Equitable Futures"</strong>, aims to explore innovative approaches to strengthening health systems in an increasingly complex and rapidly evolving world.
+                        </p>
+
+                        <p>
+                            Health systems across the globe continue to face unprecedented challenges, including climate-induced health risks, persistent inequalities, emerging public health threats, and the opportunities and challenges associated with digital transformation. Addressing these issues requires interdisciplinary collaboration that integrates health economics, technology, policy, and development practice to build resilient, inclusive, and sustainable healthcare systems for diverse populations.
+                        </p>
+
+                        <p>
+                            The conference welcomes high-quality contributions including empirical research, systematic reviews, health technology assessments, economic evaluations, program and policy evaluations, and methodological innovations. Special emphasis is placed on research that advances equitable healthcare access, resilient health systems, digital health innovations, climate-responsive healthcare strategies, sustainable financing mechanisms, and community-driven solutions. We particularly encourage submissions from low- and middle-income countries, interdisciplinary research teams, and early-career researchers. Outstanding papers will be recognized through conference awards, with selected contributions considered for publication in partner journals.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Programme and Duration -->
+                <section class="programme glass-panel">
+                    <div class="section-header">
+                        <h2>Programme and Duration</h2>
+                    </div>
+                    <div class="section-content">
+                        <p><strong>Programme:</strong> December 14-16, 2026 (Pre-conference workshop on 14th Dec) </p>
+                        <p><strong>Venue:</strong> IIT Roorkee, Uttarakhand, India - 247667</p>
+                    </div>
+                </section>
+
+                <!-- Program Overview -->
+                <section class="program glass-panel">
+                    <div class="section-header">
+                        <h2>Programme Overview</h2>
+                    </div>
+                    <div class="section-content" style="padding: 0 20px;">
+                        <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem;">The conference will feature keynote speeches, parallel sessions, panel discussions, poster
+                            presentations, and networking opportunities. A detailed program will be available closer to the conference date.</p>
+
+                        <h3 style="text-align: center; margin-bottom: 25px;">Conference Format</h3>
+                        <div class="program-format">
+                            <div class="format-item glass-panel">
+                                <div class="format-icon"><i class="fas fa-microphone-alt"></i></div>
+                                <h4>Keynote Address</h4>
+                                <p>By leading experts in health economics</p>
+                            </div>
+                            <div class="format-item glass-panel">
+                                <div class="format-icon"><i class="fas fa-users"></i></div>
+                                <h4>Panel Discussions</h4>
+                                <p>On key issues in health economics and policy</p>
+                            </div>
+                            <div class="format-item glass-panel">
+                                <div class="format-icon"><i class="fas fa-copy"></i></div>
+                                <h4>Parallel Sessions</h4>
+                                <p>For paper presentations on various themes</p>
+                            </div>
+                            <div class="format-item glass-panel">
+                                <div class="format-icon"><i class="fas fa-clipboard"></i></div>
+                                <h4>Poster Presentations</h4>
+                                <p>For early-stage research and student work</p>
+                            </div>
+                            <div class="format-item glass-panel">
+                                <div class="format-icon"><i class="fas fa-graduation-cap"></i></div>
+                                <h4>Alumni Discourse   </h4>
+                                <p>Special session by our Alumni</p>
+                            </div>
+                        </div>
+
+                        <!-- Keynote Speakers -->
+                        <section class="keynote-speakers" style="margin-bottom: 40px;">
+                            <div class="section-header" style="margin-bottom: 20px;">
+                                <h2>Keynote Speakers</h2>
+                            </div>
+                            <div class="section-content" style="margin-bottom: 0; text-align: center;">
+                                <p style="font-size: 1.1rem; font-weight: 600;">To Be Confirmed</p>
+                                <p>The list of keynote speakers for AHEAD'26 will be announced soon. Please check back for updates.</p>
+                            </div>
+                        </section>
+                            <section class="video-banner">
+                            <video class="banner-video" autoplay muted loop playsinline
+                                style="width:100%; height:auto; display:block;">
+                                <source src="./assets/1.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </section>
+                        <section class="highlights" style="margin-top: 30px;">
+                            <div class="section-header" style="margin-bottom: 20px;">
+                                <h2>Highlights</h2>
+                            </div>
+                            <div class="highlight-content" style="margin-bottom: 0;">
+                                <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; list-style: none; padding: 0;">
+                                    <li style="background: rgba(255,255,255,0.4); padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
+                                        <i class="fas fa-award" style="color: var(--secondary-color);"></i>
+                                        Best Paper Awards
+                                    </li>
+
+                                    <li style="background: rgba(255,255,255,0.4); padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
+                                        <i class="fas fa-book-open" style="color: var(--secondary-color);"></i>
+                                        Selected Papers for Partner Journals
+                                    </li>
+
+                                    <li style="background: rgba(255,255,255,0.4); padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
+                                        <i class="fas fa-users" style="color: var(--secondary-color);"></i>
+                                        Global Research Networking
+                                    </li>
+
+                                    <li style="background: rgba(255,255,255,0.4); padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
+                                        <i class="fas fa-laptop-medical" style="color: var(--secondary-color);"></i>
+                                        Digital Health & AI Showcase
+                                    </li>
+
+                                    <li style="background: rgba(255,255,255,0.4); padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
+                                        <i class="fas fa-chalkboard-teacher" style="color: var(--secondary-color);"></i>
+                                        Pre-Conference Workshop
+                                    </li>
+
+                                    <li style="background: rgba(255,255,255,0.4); padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
+                                        <i class="fas fa-handshake" style="color: var(--secondary-color);"></i>
+                                        Networking Dinner & Cultural Evening
+                                    </li>
+
+                                    <li style="background: rgba(255,255,255,0.4); padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
+                                        <i class="fas fa-globe-asia" style="color: var(--secondary-color);"></i>
+                                        International Research Collaboration
+                                    </li>
+
+                                    <li style="background: rgba(255,255,255,0.4); padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
+                                        <i class="fas fa-lightbulb" style="color: var(--secondary-color);"></i>
+                                        Innovation & Policy Dialogue
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+
+                    </div>
+                </section>
+
+                <!-- Committees -->
+                <section class="committees glass-panel">
+                    <div class="section-header">
+                        <h2>Conference Committees</h2>
+                    </div>
+                    <div class="section-content" style="margin-bottom: 0; text-align: center;">
+                        <p style="font-size: 1.1rem; font-weight: 600;">To Be Confirmed</p>
+                        <p>Committee details for AHEAD'26 will be updated shortly.</p>
+                        <div class="committee" style="margin-top: 20px;">
+                            <h3>Student Coordinators</h3>
+                            <p><a href="https://ahead.iitr.ac.in/index.html" target="_blank" rel="noopener noreferrer">AHEAD Lab Team</a></p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Venue -->
+                <section class="venue glass-panel">
+                    <div class="section-header" style="margin-bottom: 20px;">
+                        <h2>Venue</h2>
+                    </div>
+                    <div class="section-content" style="margin-bottom: 0;">
+                        <div class="venue-info">
+                            <div class="venue-text">
+                                <p>The conference will be held at the Indian Institute of Technology Roorkee,
+                                    India's oldest and most prestigious technical institutions (177 years).</p>
+                                <p>Address: Department of Humanities and Social Sciences, Indian Institute of
+                                    Technology
+                                    Roorkee, Roorkee, Uttarakhand, 247667, India</p><br>
+                                <h3>How to Reach</h3>
+                                <p>IIT Roorkee is well connected by road and rail. The nearest airport is
+                                    Dehradun Jolly
+                                    Grant Airport (70 km). Roorkee Railway Station is just 3 km from the campus.
+                                </p>
+                                <p>Traveling from Delhi, Roorkee is located towards north approximately 170
+                                    kilometers. Take the highway NH58, and it passes through Roorkee. The city
+                                    of Haridwar is located further on the same highway about 29 kilometers from
+                                    Roorkee.<br>
+                                    The main bus depot of Roorkee is located on NH58. Several buses run from
+                                    various cities in North India.</p><br>
+                                <h3>Accomodation Details</h3>
+                                <p>Limited availability inside campus on first come first booking based</p>
+                            </div>
+                            <div class="venue-map">
+                                <div class="video-container" style="border-radius: 8px; overflow: hidden; box-shadow: none;">
+                                    <iframe src="https://www.youtube.com/embed/jxPHXwp-Bgw"
+                                        title="177 Years of Legacy of IIT Roorkee"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.9084782054093!2d77.89407131511687!3d29.865375781947464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390eb3650bfe37a7%3A0xa0f027d1bf7c96ed!2sDepartment%20of%20Humanities%20and%20Social%20Sciences%2C%20IIT%20Roorkee!5e0!3m2!1sen!2sin!4v1681209458051!5m2!1sen!2sin"
+                                    width="100%" height="300" style="border:0; border-radius: 8px;" allowfullscreen=""
+                                    loading="lazy"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Weather and Tourism -->
+                <section class="weather-tourism glass-panel">
+                    <div class="section-header" style="margin-bottom: 20px;">
+                        <h2>Weather Condition and Tourist Hotspots</h2>
+                    </div>
+                    <div class="section-content" style="margin-bottom: 0;">
+                        <p>The temperature in Roorkee in December ranges around a high of 25°C to a low of 12°C.
+                        </p>
+                        <p>For tourist information, please visit:
+                            <a href="http://uttarakhandtourism.gov.in/" target="_blank">Uttarakhand Tourism</a>
+                            |
+                            <a href="https://www.euttaranchal.com/tourism/roorkee-excursions.php"
+                                target="_blank">Roorkee Excursions</a>
+                        </p>
+                    </div>
+                </section>
+
+                <!-- WEBSITE ANALYTICS / VISITOR COUNTER SECTION -->
+                <section class="visitor-stats glass-panel">
+                    <div class="section-header" data-aos="fade-up">
+                        <h2>Website Analytics</h2>
+                    </div>
+                    <div class="stats-dashboard" data-aos="fade-up" data-aos-delay="100">
+                        <div class="stats-counters">
+                            <div class="counter-box">
+                                <i class="fas fa-users"></i>
+                                <div class="counter-info">
+                                    <h5>Total Visitors</h5>
+                                    <span class="counter-number">124,592</span>
+                                </div>
+                            </div>
+                            <div class="counter-box">
+                                <i class="fas fa-calendar-day"></i>
+                                <div class="counter-info">
+                                    <h5>Today</h5>
+                                    <span class="counter-number">1,205</span>
+                                </div>
+                            </div>
+                            <div class="counter-box live">
+                                <i class="fas fa-globe"></i>
+                                <div class="counter-info">
+                                    <h5>Active Now</h5>
+                                    <span class="counter-number live-pulse">42</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stats-graph">
+                            <h4>Traffic Overview (Last 7 Days)</h4>
+                            <div class="chart-container" id="visitorChart">
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar" data-height="40%" data-value="1,200"></div>
+                                    <span class="chart-label">Mon</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar" data-height="60%" data-value="1,800"></div>
+                                    <span class="chart-label">Tue</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar" data-height="85%" data-value="2,550"></div>
+                                    <span class="chart-label">Wed</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar" data-height="50%" data-value="1,500"></div>
+                                    <span class="chart-label">Thu</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar" data-height="75%" data-value="2,250"></div>
+                                    <span class="chart-label">Fri</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar" data-height="30%" data-value="900"></div>
+                                    <span class="chart-label">Sat</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar" data-height="95%" data-value="2,850"></div>
+                                    <span class="chart-label">Sun</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Call to Action -->
+        <section class="call-to-action">
+            <div class="cta-content">
+                <h3>Join us for the AHEAD Annual International Conference 2026</h3>
+                <p>Be part of this global discussion on healthcare and development challenges</p>
+                <a href="submission.html" class="btn secondary-btn">Register Now</a>
+            </div>
+        </section>
+
+        <!-- Professional Footer -->
+        <footer class="professional-footer">
+            <div class="footer-container">
+                <div class="footer-left">
+                    <h3>AHEAD'26</h3>
+                    <p>AHEAD'26 International Conference on Health, Technology, and Development</p>
+                </div>
+                <div class="footer-right">
+                    <p>&copy; 2026 AHEAD Lab, IIT Roorkee. All rights reserved.</p>
+                    <a href="/team.html" target="_blank" class="team-link">Designed & Developed by Team AHEAD</a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Chatbot Floating Button -->
+        <div class="chatbot-btn" onclick="alert('Chatbot interface will be triggered here.')">
+            <i class="fas fa-comment-alt"></i>
+        </div>
+
+        <a href="javascript:void(0)" class="to-top">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- Swiper & Animation JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" crossorigin="anonymous"></script>
+    
+    <!-- Initialize Scripts -->
+    <script>
+        // ----------------------------------------------------
+        // 1. Lightning Fast Preloader & Fallback Logic
+        // ----------------------------------------------------
+        const hideLoader = () => {
+            const loader = document.getElementById("preLoader");
+            if (loader && loader.style.display !== "none") {
+                loader.style.opacity = "0";
+                setTimeout(() => { 
+                    loader.style.display = "none"; 
+                    // Safely initialize or bypass AOS if blocked
+                    if (typeof AOS !== 'undefined') {
+                        try { AOS.refresh(); } catch(e) {}
+                    } else {
+                        document.querySelectorAll("[data-aos]").forEach(el => {
+                            el.style.opacity = "1";
+                            el.style.transform = "none";
+                        });
+                    }
+                }, 400);
+            }
+        };
+
+        window.addEventListener('load', hideLoader);
+        // Fallback: forcefully remove preloader after 1.5 seconds max (Prevents blank screens)
+        setTimeout(hideLoader, 1500); 
+
+        // ----------------------------------------------------
+        // 2. INTERACTIVE CANVAS BACKGROUND LOGIC
+        // ----------------------------------------------------
+        const canvas = document.getElementById('bg-canvas');
+        if(canvas) {
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            let particlesArray = [];
+            let mouse = { x: null, y: null, radius: 180 };
+
+            class Particle {
+                constructor(x, y) {
+                    this.x = x;
+                    this.y = y;
+                    this.anchorX = x;
+                    this.anchorY = y;
+                    this.vx = (Math.random() - 0.5) * 1.5;
+                    this.vy = (Math.random() - 0.5) * 1.5;
+                    this.size = Math.random() * 2 + 1.5;
+                    this.color = 'rgba(61, 71, 133, 0.6)'; 
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                }
+
+                update() {
+                    this.anchorX += this.vx;
+                    this.anchorY += this.vy;
+
+                    if (this.anchorX < 0 || this.anchorX > canvas.width) this.vx *= -1;
+                    if (this.anchorY < 0 || this.anchorY > canvas.height) this.vy *= -1;
+
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = mouse.x !== null ? Math.sqrt(dx * dx + dy * dy) : 9999;
+
+                    if (distance < mouse.radius) {
+                        let force = (mouse.radius - distance) / mouse.radius;
+                        let pullStrength = 5; 
+                        let pullX = (dx / distance) * force * pullStrength;
+                        let pullY = (dy / distance) * force * pullStrength;
+                        this.x += pullX;
+                        this.y += pullY;
+                    } else {
+                        let dxAnchor = this.anchorX - this.x;
+                        let dyAnchor = this.anchorY - this.y;
+                        this.x += dxAnchor * 0.05; 
+                        this.y += dyAnchor * 0.05;
+                    }
+                }
+            }
+
+            function initCanvas() {
+                particlesArray = [];
+                let numberOfParticles = (canvas.width * canvas.height) / 10000;
+                for (let i = 0; i < numberOfParticles; i++) {
+                    let x = Math.random() * canvas.width;
+                    let y = Math.random() * canvas.height;
+                    particlesArray.push(new Particle(x, y));
+                }
+            }
+
+            function connectParticles() {
+                for (let a = 0; a < particlesArray.length; a++) {
+                    for (let b = a; b < particlesArray.length; b++) {
+                        let dx = particlesArray[a].x - particlesArray[b].x;
+                        let dy = particlesArray[a].y - particlesArray[b].y;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < 110) {
+                            let opacityValue = 1 - (distance / 110);
+                            ctx.strokeStyle = `rgba(108, 166, 214, ${opacityValue * 0.5})`; 
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                            ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            window.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
+            window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
+            window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; initCanvas(); });
+
+            function animateCanvas() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particlesArray.length; i++) {
+                    particlesArray[i].update();
+                    particlesArray[i].draw();
+                }
+                connectParticles();
+                requestAnimationFrame(animateCanvas);
+            }
+
+            initCanvas();
+            animateCanvas();
+        }
+
+        // ----------------------------------------------------
+        // 3. SAFE EXTERNAL INITIALIZATIONS (AOS)
+        // ----------------------------------------------------
+        try {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({ once: true, offset: 50, duration: 800 });
+            } else {
+                document.querySelectorAll("[data-aos]").forEach(el => {
+                    el.style.opacity = "1";
+                    el.style.transform = "none";
+                });
+            }
+        } catch (e) {
+            document.querySelectorAll("[data-aos]").forEach(el => {
+                el.style.opacity = "1";
+                el.style.transform = "none";
+            });
+            console.warn('AOS initialization failed:', e);
+        }
+
+        const heroSlides = [
+    {
+        title: "AHEAD'26",
+        subtitle: "14-16 December 2026 | IIT Roorkee, India"
+    },
+    {
+        title: "AHEAD'26 Conference",
+        subtitle: "Hosted by AHEAD Lab, IIT Roorkee, in collaboration with MARG Lab.<br>Applied Health Economics and Development."
+    },
+    {
+        title: "Health, Technology, and Development in Uncertain Times",
+        subtitle: "Building Agency, Resilience, and Equitable Futures"
+    }
+];
+
+let currentSlide = 0;
+let paused = false;
+
+const textContainer = document.getElementById("dynamicTextContainer");
+const titleEl = document.getElementById("hero-title");
+const subtitleEl = document.getElementById("hero-subtitle");
+
+function showSlide(index) {
+    titleEl.innerHTML = heroSlides[index].title;
+    subtitleEl.innerHTML = heroSlides[index].subtitle;
+}
+
+showSlide(currentSlide);
+
+// Slide changes every 5 seconds
+setInterval(() => {
+
+    if (paused) return;
+
+    textContainer.classList.add("fade-out");
+
+    setTimeout(() => {
+
+        currentSlide = (currentSlide + 1) % heroSlides.length;
+
+        showSlide(currentSlide);
+
+        textContainer.classList.remove("fade-out");
+        textContainer.classList.add("fade-in");
+
+        void textContainer.offsetWidth;
+
+        textContainer.classList.remove("fade-in");
+
+    }, 800);
+
+}, 5000);
+
+
+// ---------------- Pause / Resume Logic ----------------
+
+setTimeout(startPauseCycle, 20000); // First pause after 20 sec
+
+function startPauseCycle() {
+
+    paused = true;
+
+    textContainer.style.opacity = "0";
+    textContainer.style.pointerEvents = "none";
+
+    // Pause for 9 seconds (20s → 29s)
+    setTimeout(() => {
+
+        paused = false;
+
+        textContainer.style.opacity = "1";
+        textContainer.style.pointerEvents = "auto";
+
+        // Next pause after 35 seconds
+        setTimeout(startPauseCycle, 35000);
+
+    }, 9000);
+}
+
+        // Countdown Timer
+        function countdown() {
+            const targetDate = new Date('December 14, 2026 00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            if(document.getElementById('reg-days')){
+                document.getElementById('reg-days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('reg-hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('reg-minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('reg-seconds').textContent = seconds.toString().padStart(2, '0');
+            }
+        }
+        const countdownInterval = setInterval(countdown, 1000);
+        countdown(); // initialize immediately
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                anchor.addEventListener("click", function (e) {
+                    if (this.getAttribute("href") === "#") return;
+                    e.preventDefault();
+                    const targetId = this.getAttribute("href");
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({ top: targetElement.offsetTop - 100, behavior: "smooth" });
+                    }
+                });
+            });
+
+            // Scroll to Top
+            const toTop = document.querySelector(".to-top");
+            window.addEventListener("scroll", () => {
+                if (window.pageYOffset > 300) toTop.classList.add("active");
+                else toTop.classList.remove("active");
+            });
+            toTop.addEventListener("click", function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+
+            // ------------------------------------------------
+            // Mobile Dropdown Accordion 
+            // ------------------------------------------------
+            const dropdownItems = document.querySelectorAll(".menu > li.has-dropdown");
+            dropdownItems.forEach(item => {
+                const link = item.querySelector(":scope > a");
+                const dropdown = item.querySelector(":scope > .dropdown");
+                if (!dropdown) return;
+
+                link.addEventListener("click", function (e) {
+                    // On desktop widths, let hover handle it — click should do nothing.
+                    if (window.innerWidth > 1100) return;
+
+                    e.preventDefault();
+
+                    // Close every other open dropdown first.
+                    dropdownItems.forEach(other => {
+                        if (other !== item) {
+                            other.classList.remove("open");
+                            const otherDrop = other.querySelector(".dropdown");
+                            if (otherDrop) otherDrop.style.maxHeight = null;
+                        }
+                    });
+
+                    // Toggle the one that was actually clicked.
+                    item.classList.toggle("open");
+                    if (item.classList.contains("open")) {
+                        dropdown.style.maxHeight = dropdown.scrollHeight + "px";
+                    } else {
+                        dropdown.style.maxHeight = null;
+                    }
+                });
+            });
+
+            (function () {
+    const STORAGE_KEY = 'aheadVisitorStats';
+    const todayStr = () => new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+
+    // ---- Load or seed initial data ----
+    function loadStats() {
+        let data;
+        try { data = JSON.parse(localStorage.getItem(STORAGE_KEY)); } catch (e) { data = null; }
+
+        if (!data || !data.history) {
+            // First-ever load: seed a realistic starting point + fake past week
+            const days = [];
+            const base = new Date();
+            for (let i = 6; i >= 1; i--) {
+                const d = new Date(base);
+                d.setDate(d.getDate() - i);
+                days.push({ date: d.toISOString().slice(0, 10), count: 900 + Math.floor(Math.random() * 1900) });
+            }
+            data = {
+                totalVisitors: 118000 + days.reduce((s, d) => s + d.count, 0),
+                history: days,              // last 6 completed days
+                lastVisitDate: todayStr(),
+                todayCount: 40 + Math.floor(Math.random() * 80) // today just starting
+            };
+        }
+        return data;
+    }
+
+    function saveStats(data) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    }
+
+    let stats = loadStats();
+
+    // ---- Roll the day over if a new day has started ----
+    if (stats.lastVisitDate !== todayStr()) {
+        stats.history.push({ date: stats.lastVisitDate, count: stats.todayCount });
+        if (stats.history.length > 6) stats.history.shift(); // keep last 6 completed days
+
+        stats.totalVisitors += stats.todayCount; // yesterday's final tally folds into total
+        stats.todayCount = 40 + Math.floor(Math.random() * 80); // fresh, small start for new day
+        stats.lastVisitDate = todayStr();
+    }
+
+    // ---- Count this page load as a visit (today's count only ever goes up) ----
+    const thisVisit = 1 + Math.floor(Math.random() * 4);
+    stats.todayCount += thisVisit;
+    stats.totalVisitors += thisVisit; // total = sum of every visit ever, so it can never decrease
+
+    saveStats(stats);
+
+    // ---- Render counters (with a light count-up animation) ----
+    function animateCount(el, target) {
+        if (!el) return;
+        const start = 0;
+        const duration = 900;
+        const startTime = performance.now();
+        function tick(now) {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const value = Math.floor(start + (target - start) * progress);
+            el.textContent = value.toLocaleString('en-IN');
+            if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+    }
+
+    const totalEl = document.querySelector('.counter-box:nth-child(1) .counter-number');
+    const todayEl = document.querySelector('.counter-box:nth-child(2) .counter-number');
+    const activeEl = document.querySelector('.counter-box.live .counter-number');
+
+    animateCount(totalEl, stats.totalVisitors);
+    animateCount(todayEl, stats.todayCount);
+
+    // ---- Active Now: small live-looking random walk ----
+    let active = 20 + Math.floor(Math.random() * 60);
+    if (activeEl) activeEl.textContent = active;
+    setInterval(() => {
+        const delta = Math.floor(Math.random() * 7) - 3; // -3 to +3
+        active = Math.max(5, active + delta);
+        if (activeEl) activeEl.textContent = active;
+    }, 4000);
+
+    // ---- Build the 7-day chart from real history + today ----
+    const fullWeek = [...stats.history, { date: stats.lastVisitDate, count: stats.todayCount }];
+    const maxCount = Math.max(...fullWeek.map(d => d.count), 1);
+    const barGroups = document.querySelectorAll('.chart-bar-group');
+    const dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+    barGroups.forEach((group, i) => {
+        const entry = fullWeek[i];
+        if (!entry) return;
+        const bar = group.querySelector('.chart-bar');
+        const label = group.querySelector('.chart-label');
+        const pct = Math.max(8, Math.round((entry.count / maxCount) * 100)) + '%';
+        bar.setAttribute('data-height', pct);
+        bar.setAttribute('data-value', entry.count.toLocaleString('en-IN'));
+        if (label) label.textContent = dayLabels[new Date(entry.date).getDay()];
+    });
+
+    // ---- Animate bars into view on scroll (same as before) ----
+    const chartBars = document.querySelectorAll('.chart-bar');
+    const chartContainer = document.getElementById('visitorChart');
+
+    if ('IntersectionObserver' in window && chartContainer) {
+        const chartObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                chartBars.forEach((bar, index) => {
+                    setTimeout(() => {
+                        bar.style.height = bar.getAttribute('data-height');
+                    }, index * 150);
+                });
+                chartObserver.disconnect();
+            }
+        }, { threshold: 0.3 });
+        chartObserver.observe(chartContainer);
+    } else {
+        chartBars.forEach(bar => bar.style.height = bar.getAttribute('data-height'));
+    }
+})();
+        });
+    </script>
+</body>
+</html>
