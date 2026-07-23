@@ -241,11 +241,10 @@
         "email": "rishparna_g@hs.iitr.ac.in",
         "oid": "NA",
         "rg": "NA",
-        "ta": "NA",
-        "la": "",
+        "ta": "https://x.com/RishparnaGz6",
+        "la": "https://www.linkedin.com/in/rishparna-ghosh-471861267/",
         "link":"./team/rishparna.html"
-      }
-    ,
+      },
     {
         "Name": "Saloni Charan",
         "pp": "./img/team/saloni.jpeg",
@@ -259,8 +258,8 @@
         "email": "saloni_c@hs.iitr.ac.in",
         "oid": "NA",
         "rg": "NA",
-        "ta": "NA",
-        "la": "",
+        "ta": "https://x.com/Saloni2Charan",
+        "la": "https://www.linkedin.com/in/saloni-charan-57081835b/",
         "link":"./team/saloni.html"
       }
 ]
