@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="../css/akashPal.css" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<title>Ahead | IITR</title>
+</head>
+<body onload="myFunction()">
+    <div id="preLoader"></div>
+    <div class="main">
+        <header>
+            <nav>
+                <ul class='nav-bar'>
+                    <div class="logo-main">
+                        <div class="logo"><img src="../img/iit.png" alt=""></div>
+                        <div class="logo"><img src="../img/Logo-nav.png" alt=""></div>
+                    </div>
+                    <input type='checkbox' id='check' />
+                    <span class="menu">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../event/event.html">Events</a></li>
+                        <li><a href="../team.html">Team</a></li>
+                        <li><a href="../research.html">Research</a></li>
+                        <li><a href="../expertise.html">Expertise</a></li>
+                        <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+                    </span>
+                    <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+                </ul>
+            </nav>
+        </header>
+        <div class="home-container">
+            <div class="left">
+                <img src="../img/team/urmi.jpeg" alt="">
+                <a href="https://drive.google.com/file/d/1sbBTh2vnRJGFCLthZcVZ3rOw_PoBEQzN/view?usp=sharing" target="_blank"><div class="resume">Resume</div></a>
+            </div>
+            <div class="right">
+                <div class="right-top">
+                    <div class="right-top-left">
+                        <h1>Rishparna Ghosh</h1>
+                        <p>Ph.D Scholar</p>
+                    </div>
+                    <di class="right-top-right">
+                        <div class="iconLink">
+                            <a href="LinkedIn profile: https://www.linkedin.com/in/rishparna-ghosh-471861267"><img src="../img/linkedin.png" alt=""></a>
+                            <a href=""><img src="../img/researchGate.png" alt=""></a>
+                            <a href="mailto:rishparna_g@hs.iitr.ac.in"><img src="../img/mailc.png" alt=""></a>
+                        </div>
+                        <p>ORCID iD: </p>
+                    </di>
+                </div>
+                <div class="article">
+                    <div class="right-bottom">
+                    <div class="resume" id="btn1" onclick="openAbout()">About</div>
+                    <div class="resume" id="btn2" onclick="openResearch()">Research</div>
+                    <div class="resume" id="btn3" onclick="openEducation()">Education</div>
+                    <div class="resume" id="btn4" onclick="openPublication()">Publications</div>
+                    <div class="resume" id="btn5" onclick="openConference()">Conferences</div>
+                </div>
+                <div class="member">
+                    <div class="teamContent" id="About">
+Rishparna Ghosh is currently pursuing a Ph.D. in Economics at the Indian Institute of Technology Roorkee. She completed her Integrated Master's degree in Economics from Jadavpur University and qualified the UGC-NET. Before joining the doctoral programme, she worked as a Research Intern at the Calcutta Management Association, where she contributed to research on women entrepreneurship and assisted in the publication of the e-journal Mission Possible: Women in Startups. Her internship experience strengthened her interest in research and laid the foundation for her doctoral journey in economics.
+                    </div>
+                    <div class="teamContent" id="Research">
+                        <li>Health Economics</li>
+                    </div>
+                    <div class="teamContent" id="Education">
+                        <li>B.A. (Hons.) Economics: Jadavpur University
+                            
+                            </li>
+                        <li>M.A. Economics: Jadavpur University</li>
+                    </div>
+                    <div class="teamContent" id="Publication">
+                       
+                           
+                    </div>
+                    <div class="teamContent" id="Conference">
+                    
+                        
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="https://www.linkedin.com/in/hardik-aa21b4227/" target="_blank"><li>Designed and Developed by Hardik🔗</li></a>
+        </div>
+        <a href="#" class="to-top">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+        
+    </div>
+    <script src="../js/toTop.js"></script>
+    <!-- <script src="/app.js"></script> -->
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script type="text/JavaScript">
+        var About=document.getElementById("About")
+        var Research=document.getElementById("Research")
+        var Education=document.getElementById("Education")
+        var Publication=document.getElementById("Publication")
+        var Conference=document.getElementById("Conference")
+
+        var btn1=document.getElementById("btn1")
+        var btn2=document.getElementById("btn2")
+        var btn3=document.getElementById("btn3")
+        var btn4=document.getElementById("btn4")
+        var btn5=document.getElementById("btn5")
+        // const mediaQuery = window.matchMedia('(max-width: 900px)');
+        
+        function openAbout(){
+            About.style.transform="translateX(0)";
+            Research.style.transform="translateX(100vw)";
+            Education.style.transform="translateX(100vw)";
+            Publication.style.transform="translateX(100vw)";
+            Conference.style.transform="translateX(100vw)";
+            btn1.style.backgroundColor="#3c4ec2d8";
+            btn2.style.backgroundColor="#3D4785";
+            btn3.style.backgroundColor="#3D4785";
+            btn4.style.backgroundColor="#3D4785";
+            btn5.style.backgroundColor="#3D4785";
+            // mainMember.style.height="100vh"
+        }
+        function openResearch(){
+            About.style.transform="translateX(100vw)";
+            Research.style.transform="translateX(0)";
+            Education.style.transform="translateX(100vw)";
+            Publication.style.transform="translateX(100vw)";
+            Conference.style.transform="translateX(100vw)";
+            btn1.style.backgroundColor="#3D4785";
+            btn2.style.backgroundColor="#3c4ec2d8";
+            btn3.style.backgroundColor="#3D4785";
+            btn4.style.backgroundColor="#3D4785";
+            btn5.style.backgroundColor="#3D4785";
+            // mainMember.style.height="400vh";
+        }
+        function openEducation(){
+            About.style.transform="translateX(100vw)";
+            Research.style.transform="translateX(100vw)";
+            Education.style.transform="translateX(0)";
+            Publication.style.transform="translateX(100vw)";
+            Conference.style.transform="translateX(100vw)";
+            btn1.style.backgroundColor="#3D4785";
+            btn2.style.backgroundColor="#3D4785";
+            btn3.style.backgroundColor="#3c4ec2d8";
+            btn4.style.backgroundColor="#3D4785";
+            btn5.style.backgroundColor="#3D4785";
+            // mainMember.style.height="210vh"
+        }
+        function openPublication(){
+            About.style.transform="translateX(100vw)";
+            Research.style.transform="translateX(100vw)";
+            Education.style.transform="translateX(100vw)";
+            Publication.style.transform="translateX(0)";
+            Conference.style.transform="translateX(100vw)";
+            btn1.style.backgroundColor="#3D4785";
+            btn2.style.backgroundColor="#3D4785";
+            btn3.style.backgroundColor="#3D4785";
+            btn4.style.backgroundColor="#3c4ec2d8";
+            btn5.style.backgroundColor="#3D4785";
+            // mainMember.style.height="175vh"
+        }
+        function openConference(){
+            About.style.transform="translateX(100vw)";
+            Research.style.transform="translateX(100vw)";
+            Education.style.transform="translateX(100vw)";
+            Publication.style.transform="translateX(100vw)";
+            Conference.style.transform="translateX(0)";
+            btn1.style.backgroundColor="#3D4785";
+            btn2.style.backgroundColor="#3D4785";
+            btn3.style.backgroundColor="#3D4785";
+            btn4.style.backgroundColor="#3D4785";
+            btn5.style.backgroundColor="#3c4ec2d8";
+        }
+    </script>
+    <script>
+        var loader = document.getElementById("preLoader");
+        function myFunction() {
+            loader.style.display = "none";
+        }
+    </script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            cssMode: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+            },
+            mousewheel: true,
+            keyboard: true,
+        });
+    </script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
